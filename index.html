@@ -3,261 +3,323 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Turnkey business software platforms delivered for a one-time fee — full source code, SQL database, Docker setup, and zero recurring SaaS subscriptions. By Andrés Francisco Mazzuferi.">
-  <title>Andrés Mazzuferi — Turnkey Business Software (One-Time Ownership)</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230f172a'/><text x='50' y='67' font-size='56' font-family='system-ui,sans-serif' font-weight='800' text-anchor='middle' fill='%2399f6e4'>M</text></svg>">
+  <meta name="description" content="Kreta Software builds turnkey, self-hosted business software platforms delivered for a one-time fee — full source code, SQL database, Docker deployment, and zero SaaS lock-in.">
+  <title>Kreta Software — Business Software You Pay For Once, and Own Forever</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b1220'/><path d='M30 24h14v24l24-24h18L58 50l28 26H68L44 52v24H30V24z' fill='%2338bdf8'/></svg>">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip_link">Skip to main content</a>
 
-  <header class="hero">
-    <div class="container">
-      <nav class="topbar" aria-label="Primary navigation">
-        <span class="brand-mark">Mazzuferi Systems</span>
-        <div class="nav-right">
-          <a class="nav-link" href="#platforms" data-i18n="nav_platforms">Platforms</a>
-          <a class="nav-link" href="#process" data-i18n="nav_process">Process</a>
-          <a class="nav-link" href="#engineer" data-i18n="nav_about">Engineer</a>
-          <div class="lang-switch" role="group" aria-label="Language selector">
-            <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN (USA)</button>
-            <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
-          </div>
-        </div>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Kreta Software Home">
+        <svg class="brand-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#0B1220"/>
+          <path d="M9.5 7.5H14V15.2L21.5 7.5H27L18.2 16L27.2 24.5H21.6L14 16.8V24.5H9.5V7.5Z" fill="#38BDF8"/>
+        </svg>
+        <span class="brand-name">Kreta Software</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#platforms" data-i18n="nav_platforms">Platforms</a>
+        <a href="#how-it-works" data-i18n="nav_process">How it works</a>
+        <a href="#faq" data-i18n="nav_faq">FAQ</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
 
-      <div class="hero-content">
-        <span class="eyebrow" data-i18n="eyebrow">Software &amp; Data Engineering · 100% Client Ownership</span>
-        <h1 data-i18n="hero_h1">Turnkey business systems for a one-time fee — zero SaaS lock-in</h1>
-        <p class="lead" data-i18n="hero_lead">I build and deliver complete, self-hosted operational platforms with full source code, PostgreSQL/SQLite databases, web portals, 1-command Docker deployment, and Google Sheets integrations so your organization truly owns its software and data.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#platforms" data-i18n="cta_explore">Explore 8 Production Platforms</a>
-          <a class="btn btn-ghost" href="mailto:andrewkrijdjd@gmail.com?subject=Live%20Demo%20%26%20Fixed-Scope%20Proposal%20Request" data-i18n="cta_demo">Request Live Demo / PDF Quote</a>
+      <div class="nav-actions">
+        <div class="segmented" role="group" aria-label="Language">
+          <button type="button" class="seg-btn lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="seg-btn lang-btn" data-lang="es" aria-pressed="false">ES</button>
         </div>
-        <ul class="trust-strip" aria-label="Key guarantees">
-          <li class="trust-pill" data-i18n="pill_1">✓ Live synthetic demo before paying</li>
-          <li class="trust-pill" data-i18n="pill_2">✓ One-time fee (50/50 or 40/30/30 milestones)</li>
-          <li class="trust-pill" data-i18n="pill_3">✓ Zero mandatory monthly subscriptions</li>
-          <li class="trust-pill" data-i18n="pill_4">✓ 541 automated tests + SHA-256 packages</li>
-          <li class="trust-pill" data-i18n="pill_5">✓ Payoneer ACH · Binance USDT (-5%) · Escrow</li>
-        </ul>
+        <a class="btn btn-primary btn-sm" href="#contact" data-i18n="nav_cta">Request demo</a>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <section id="platforms" class="section container" aria-labelledby="platforms-h">
-      <div class="section-head">
-        <div>
-          <h2 id="platforms-h" data-i18n="sec_platforms_h2">8 Real Production Platforms Ready to Deliver</h2>
-          <p class="sub" data-i18n="sec_platforms_sub">Each platform ships as a SHA-256 verified package with synthetic test data, 1-command Docker setup, and full documentation. Official one-time pricing (-12% below market median):</p>
+    <!-- SPLIT ARCHITECTURAL HERO + LIVE SAVINGS CALCULATOR -->
+    <section id="top" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="status-tag">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="hero_tag">One-time ownership · Zero monthly SaaS fees</span>
+          </div>
+          <h1 data-i18n="hero_h1">Business software you pay for once, and own forever.</h1>
+          <p class="hero-lead" data-i18n="hero_lead">Stop renting critical operations software every month. Kreta Software delivers complete, ready-to-deploy web portals, SQL databases, and Google Sheets automations with 100% source code ownership.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="#platforms" data-i18n="hero_cta_1">Explore 8 platforms</a>
+            <button type="button" class="btn btn-outline btn-lg" id="hero-open-selected" data-i18n="hero_cta_2">View pricing &amp; sample</button>
+          </div>
+
+          <dl class="hero-metrics" aria-label="Verified quality metrics">
+            <div>
+              <dt class="tabular">8</dt>
+              <dd data-i18n="m_1">Production platforms ready</dd>
+            </div>
+            <div>
+              <dt class="tabular">541</dt>
+              <dd data-i18n="m_2">Automated tests passing</dd>
+            </div>
+            <div>
+              <dt class="tabular">$0/mo</dt>
+              <dd data-i18n="m_3">Mandatory license fees</dd>
+            </div>
+          </dl>
         </div>
-      </div>
 
-      <div class="controls-bar">
-        <div class="control-group" role="group" aria-label="Pricing region">
-          <span class="control-label" data-i18n="lbl_region">Region:</span>
-          <button type="button" class="pill-btn reg-btn" data-reg="USA" aria-pressed="true">USA / Canada</button>
-          <button type="button" class="pill-btn reg-btn" data-reg="EUR" aria-pressed="false">Europe</button>
-          <button type="button" class="pill-btn reg-btn" data-reg="LATAM" aria-pressed="false">Latin America</button>
-          <button type="button" class="pill-btn reg-btn" data-reg="AR" aria-pressed="false">Argentina</button>
-        </div>
-        <div class="control-group" role="group" aria-label="Industry filter">
-          <span class="control-label" data-i18n="lbl_filter">Category:</span>
-          <button type="button" class="pill-btn cat-btn" data-cat="all" aria-pressed="true" data-i18n="cat_all">All (8)</button>
-          <button type="button" class="pill-btn cat-btn" data-cat="ops" aria-pressed="false" data-i18n="cat_ops">Operations &amp; ERP</button>
-          <button type="button" class="pill-btn cat-btn" data-cat="compliance" aria-pressed="false" data-i18n="cat_comp">ESG &amp; Compliance</button>
-          <button type="button" class="pill-btn cat-btn" data-cat="impact" aria-pressed="false" data-i18n="cat_imp">Education &amp; Nonprofits</button>
-        </div>
-      </div>
-      <p id="live-status" class="sr-only" role="status" aria-live="polite"></p>
+        <!-- INTERACTIVE OWN VS RENT CALCULATOR -->
+        <aside class="calc-card" aria-labelledby="calc-heading">
+          <div class="calc-head">
+            <h2 id="calc-heading" data-i18n="calc_title">Own vs. Rent: 3-Year Cost Comparison</h2>
+            <p data-i18n="calc_sub">Pick your industry and team size to compare typical SaaS subscriptions against a one-time Kreta Software license.</p>
+          </div>
 
-      <div class="grid" id="cards-grid">
-        <article class="card" data-sku="VOL" data-cat="impact">
-          <div>
-            <span class="badge" data-card-badge>Available · 5 Editions</span>
-            <h3>1. VoluntariosDB</h3>
-            <p data-card-desc>Volunteer directories, events, capacity limits, QR attendance, and automatic hour tracking for nonprofits and universities.</p>
-            <ul data-card-list>
-              <li>PostgreSQL 16 with RLS + SQLite/RBAC Web Portal</li>
-              <li>Google Sheets + Apps Script Edition</li>
-              <li>Verifiable completion certificates with hash</li>
-            </ul>
+          <div class="calc-field">
+            <label for="calc-product" data-i18n="calc_ind_lbl">Industry / Platform</label>
+            <select id="calc-product" name="calc_product">
+              <option value="MED">Clinics &amp; Medical Practices — MedFlow</option>
+              <option value="FLT">Trucking &amp; Fleets — FleetGuard</option>
+              <option value="BLD">Construction &amp; Remodeling — BuildCost</option>
+              <option value="CMP">ISO 27001 / SOC 2 Audits — ComplianceVault</option>
+              <option value="ECO">ESG &amp; Carbon Reporting — EcoMetrics</option>
+              <option value="AGR">Farms &amp; Agronomy — AgroField</option>
+              <option value="EDU">Academies &amp; Training — EduCampus</option>
+              <option value="VOL">Nonprofits &amp; Universities — VoluntariosDB</option>
+            </select>
           </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;610</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;2.720</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=VoluntariosDB%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
 
-        <article class="card" data-sku="ECO" data-cat="compliance">
-          <div>
-            <span class="badge" data-card-badge>Available · White-Label</span>
-            <h3>2. EcoMetrics Suite</h3>
-            <p data-card-desc>Carbon Footprint (Scopes 1–3), Industrial Sustainability, and Ecosystem Health calculators with 177 cited DEFRA/IEA/IPCC factors.</p>
-            <ul data-card-list>
-              <li>White-label Next.js Web App + Python API + PDF/QR</li>
-              <li>SHA-256 cryptographic certificate verifier</li>
-              <li>CSV / Google Sheets export</li>
-            </ul>
+          <div class="calc-field">
+            <div class="range-row">
+              <label for="calc-users" data-i18n="calc_team_lbl">Active team members</label>
+              <strong id="calc-users-val" class="tabular">15 users</strong>
+            </div>
+            <input id="calc-users" type="range" min="5" max="60" step="5" value="15">
           </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;1.050</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;3.510</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=EcoMetrics%20Suite%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
 
-        <article class="card" data-sku="MED" data-cat="ops">
-          <div>
-            <span class="badge" data-card-badge>Available · High-Ticket</span>
-            <h3>3. MedFlow / ClinicOps</h3>
-            <p data-card-desc>Conflict-free multi-provider scheduling, patient registry, role-restricted clinical notes, and line-item billing.</p>
-            <ul data-card-list>
-              <li>Strict RBAC clinical notes (clinician/admin only)</li>
-              <li>Reminder outbox + secure CSV export</li>
-              <li>Google Sheets + 1-command Docker included</li>
-            </ul>
-          </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;2.280</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;5.720</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=MedFlow%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
+          <div class="calc-bars" aria-live="polite">
+            <div class="bar-block">
+              <div class="bar-label">
+                <span data-i18n="calc_saas_lbl">Typical SaaS (36 months)</span>
+                <strong id="calc-saas-num" class="tabular text-muted">$21,600</strong>
+              </div>
+              <div class="bar-track"><div id="bar-saas" class="bar-fill bar-saas" style="width:100%"></div></div>
+            </div>
 
-        <article class="card" data-sku="FLT" data-cat="ops">
-          <div>
-            <span class="badge" data-card-badge>Available · High-Ticket</span>
-            <h3>4. FleetGuard &amp; LogiTrack</h3>
-            <p data-card-desc>Fleet control, fuel logs, consumption &amp; cost per distance, in-house shop orders, and 30-day compliance alerts.</p>
-            <ul data-card-list>
-              <li>Monotonic odometer validation</li>
-              <li>Automated 30-day inspection &amp; mileage service alerts</li>
-              <li>Full immutable audit trail</li>
-            </ul>
+            <div class="bar-block">
+              <div class="bar-label">
+                <span data-i18n="calc_kreta_lbl">Kreta Software (SQL + Web · One-time)</span>
+                <strong id="calc-kreta-num" class="tabular text-cobalt">$2,490</strong>
+              </div>
+              <div class="bar-track"><div id="bar-kreta" class="bar-fill bar-kreta" style="width:14%"></div></div>
+            </div>
           </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;1.930</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;5.100</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=FleetGuard%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
 
-        <article class="card" data-sku="BLD" data-cat="ops">
-          <div>
-            <span class="badge" data-card-badge>Available · High-Ticket</span>
-            <h3>5. BuildCost Pro</h3>
-            <p data-card-desc>Line-item construction budgets, capped progress certifications, subcontractor costs, and live budget deviation reports.</p>
-            <ul data-card-list>
-              <li>Automatic over-certification blocking at 100%</li>
-              <li>Real-time budget vs actual financial report</li>
-              <li>CSV / Google Sheets sync</li>
-            </ul>
+          <div class="calc-result">
+            <div>
+              <span class="calc-save-lbl" data-i18n="calc_save_lbl">Estimated 3-year savings</span>
+              <strong id="calc-save-num" class="calc-save-val tabular">$19,110</strong>
+            </div>
+            <button type="button" class="btn btn-dark btn-sm" id="calc-inspect-btn" data-i18n="calc_inspect">Inspect platform</button>
           </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;2.460</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;6.160</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=BuildCost%20Pro%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
-
-        <article class="card" data-sku="CMP" data-cat="compliance">
-          <div>
-            <span class="badge" data-card-badge>Available · High-Ticket</span>
-            <h3>6. ComplianceVault ISO/SOC2</h3>
-            <p data-card-desc>ISO 27001 / SOC 2 compliance portal, risk matrix, immutable SHA-256 evidence vault, and audit-ready PDF reports.</p>
-            <ul data-card-list>
-              <li>Tamper-evident SQLite triggers on evidence</li>
-              <li>Control coverage &amp; risk treatment tracking</li>
-              <li>Auditable exports for external assessors</li>
-            </ul>
-          </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;2.110</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;5.980</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=ComplianceVault%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
-
-        <article class="card" data-sku="AGR" data-cat="ops">
-          <div>
-            <span class="badge" data-card-badge>Available · High-Ticket</span>
-            <h3>7. AgroField &amp; Stock</h3>
-            <p data-card-desc>Field-parcel traceability, zero-negative input stock, field operations, harvest tickets, and net margin per area.</p>
-            <ul data-card-list>
-              <li>Strict input stock &amp; unit validation</li>
-              <li>Automated net profitability per field</li>
-              <li>Field templates in Google Sheets</li>
-            </ul>
-          </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;1.760</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;4.570</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=AgroField%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
-
-        <article class="card" data-sku="EDU" data-cat="impact">
-          <div>
-            <span class="badge" data-card-badge>Available · High-Ticket</span>
-            <h3>8. EduCampus &amp; Certify</h3>
-            <p data-card-desc>Student rosters, cohorts, attendance minimums, scholarship-adjusted payments, and QR-verifiable PDF diplomas.</p>
-            <ul data-card-list>
-              <li>Blocks certificate if attendance or grade not met</li>
-              <li>Public /verificar page exposing zero PII</li>
-              <li>Vector PDF with QR + CSV export</li>
-            </ul>
-          </div>
-          <div class="card-foot">
-            <div class="meta"><span data-i18n="from_lbl">From</span> <span class="price-val tabular">USD&nbsp;1.490</span> <span data-i18n="to_lbl">to</span> <span class="price-max tabular">USD&nbsp;4.220</span> · <span data-i18n="onetime_lbl">One-time</span></div>
-            <a class="card-cta" href="mailto:andrewkrijdjd@gmail.com?subject=EduCampus%20Demo%20%26%20Proposal" data-i18n="card_cta">Request sample &rarr;</a>
-          </div>
-        </article>
+        </aside>
       </div>
     </section>
 
-    <section id="process" class="section container" aria-labelledby="process-h">
-      <div class="guarantee-box">
-        <h2 id="process-h" data-i18n="proc_h2">How We Work With Zero Risk</h2>
-        <div class="steps-grid">
-          <div class="step-item">
-            <span class="step-num">01</span>
-            <h3 data-i18n="s1_h">Test a Live Demo First</h3>
-            <p data-i18n="s1_p">Review a working synthetic-data demo or adapted schema before committing a dollar.</p>
+    <!-- PRODUCT EXPLORER -->
+    <section id="platforms" class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2 data-i18n="cat_h2">Choose a platform built for your operation</h2>
+            <p class="section-sub" data-i18n="cat_sub">Click any system to compare editions (Google Sheets, SQL + Web, or Hybrid), check regional pricing, and request a live synthetic demo.</p>
           </div>
-          <div class="step-item">
-            <span class="step-num">02</span>
-            <h3 data-i18n="s2_h">Fixed-Scope PDF Proposal</h3>
-            <p data-i18n="s2_p">Receive exact deliverables, explicit exclusions, 30-day validity, and one-time pricing (no monthly lock-in).</p>
+
+          <div class="region-box" role="group" aria-label="Pricing region">
+            <span class="region-caption" data-i18n="reg_lbl">Pricing region</span>
+            <div class="segmented">
+              <button type="button" class="seg-btn reg-btn" data-reg="USA" aria-pressed="true">USA / CA</button>
+              <button type="button" class="seg-btn reg-btn" data-reg="EUR" aria-pressed="false">Europe</button>
+              <button type="button" class="seg-btn reg-btn" data-reg="LATAM" aria-pressed="false">LATAM</button>
+              <button type="button" class="seg-btn reg-btn" data-reg="AR" aria-pressed="false">Argentina</button>
+            </div>
           </div>
-          <div class="step-item">
-            <span class="step-num">03</span>
-            <h3 data-i18n="s3_h">Milestone Delivery &amp; Ownership</h3>
-            <p data-i18n="s3_p">Pay via 50/50 or 40/30/30 milestones (Payoneer ACH, Binance Pay USDT -5%, or Escrow) and own 100% of the code and SQL database.</p>
-          </div>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filter by sector">
+          <button type="button" class="filter-pill cat-btn" data-cat="all" aria-pressed="true" data-i18n="f_all">All platforms (8)</button>
+          <button type="button" class="filter-pill cat-btn" data-cat="ops" aria-pressed="false" data-i18n="f_ops">Clinics &amp; Fleets</button>
+          <button type="button" class="filter-pill cat-btn" data-cat="field" aria-pressed="false" data-i18n="f_field">Construction &amp; Agro</button>
+          <button type="button" class="filter-pill cat-btn" data-cat="esg" aria-pressed="false" data-i18n="f_esg">ESG &amp; Compliance</button>
+          <button type="button" class="filter-pill cat-btn" data-cat="edu" aria-pressed="false" data-i18n="f_edu">Education &amp; Nonprofits</button>
+        </div>
+
+        <p id="live-announcer" class="sr-only" role="status" aria-live="polite"></p>
+
+        <div id="product-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (3-STEP BUYING FLOW) -->
+    <section id="how-it-works" class="section section-alt">
+      <div class="container">
+        <div class="section-title-wrap center-narrow">
+          <h2 data-i18n="flow_h2">Simple, zero-risk delivery in 3 steps</h2>
+          <p class="section-sub" data-i18n="flow_sub">You see the working software before paying a dollar, approve a closed PDF proposal, and keep 100% ownership on handover.</p>
+        </div>
+
+        <ol class="steps-row">
+          <li class="step-card">
+            <span class="step-badge tabular">1</span>
+            <h3 data-i18n="st1_h">Test a live synthetic demo</h3>
+            <p data-i18n="st1_p">Try the real web portal and spreadsheet templates with safe synthetic data to verify the exact workflow fits your team.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-badge tabular">2</span>
+            <h3 data-i18n="st2_h">Approve a fixed-scope PDF quote</h3>
+            <p data-i18n="st2_p">Receive a clear proposal with exact modules, explicit exclusions, 30-day validity, and one-time pricing with zero hidden fees.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-badge tabular">3</span>
+            <h3 data-i18n="st3_h">Milestone delivery &amp; full ownership</h3>
+            <p data-i18n="st3_p">Pay in 50/50 or 40/30/30 milestones (Payoneer USD ACH, Binance Pay USDT -5%, or Escrow) and take full ownership of source code, SQL database, and Docker setup.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container faq-layout">
+        <div class="faq-intro">
+          <h2 data-i18n="faq_h2">Common questions from buyers</h2>
+          <p class="section-sub" data-i18n="faq_sub">Clear answers on ownership, hosting, customization, and payments—no fine print.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary data-i18n="q1_q">Are there really zero monthly license fees?</summary>
+            <p data-i18n="q1_a">Yes. Every Kreta Software package is sold as a one-time delivery. You receive the complete source code, SQL schema, Docker files, and spreadsheet assets under your ownership—no per-seat renewals or vendor lock-in.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="q2_q">Where does the software run? Do you charge for hosting?</summary>
+            <p data-i18n="q2_a">No—we never resell or lock you into proprietary hosting. Each platform ships with a 1-command Docker Compose setup so you can run it on your own server, cloud account (AWS, GCP, Render, VPS), or local network, paying your provider directly.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="q3_q">Can we add our logo, fields, or custom reports?</summary>
+            <p data-i18n="q3_a">Yes. Branding and configuration variables are built in, and any extra workflows or custom integrations are quoted transparently up front as a fixed-scope project.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="q4_q">How do international payments and milestones work?</summary>
+            <p data-i18n="q4_a">Projects are billed in milestones (50/50 or 40/30/30). We accept Payoneer (USD ACH), platform Escrow (Upwork/Freelancer), and Binance Pay / USDT (which includes an automatic 5% prompt-payment discount).</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="q5_q">What happens if we need changes or support after delivery?</summary>
+            <p data-i18n="q5_a">Every system includes a corrective warranty period after delivery. Optional post-delivery support is strictly on-demand (single work order or prepaid 5-hour pack)—never an automatic recurring subscription.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section id="engineer" class="section container" aria-labelledby="eng-h">
-      <div class="engineer-card">
+    <!-- FOUNDER & DIRECT CONTACT -->
+    <section id="contact" class="section section-dark">
+      <div class="container contact-grid">
         <div>
-          <h2 id="eng-h" data-i18n="eng_h2">About the Engineer</h2>
-          <p data-i18n="eng_p">I am Andrés Francisco Mazzuferi, a Data &amp; Software Engineer based in Córdoba, Argentina (Tax ID CUIT 20-43812534-6), working remotely with organizations across the US, Europe, and Latin America. With a background in Industrial Engineering, Data Science (Universidad Siglo 21), and plant operations analytics, I build auditable, self-hosted software systems that replace fragile spreadsheets without trapping clients in perpetual SaaS fees.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:andrewkrijdjd@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Mazzuferi%20Systems" data-i18n="eng_cta_mail">Email: andrewkrijdjd@gmail.com</a>
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/andrés-francisco-mazzuferi-357111379" target="_blank" rel="noopener noreferrer" data-i18n="eng_cta_li">LinkedIn Profile</a>
+          <span class="dark-pill" data-i18n="ct_pill">Direct engineering contact · No sales layers</span>
+          <h2 data-i18n="ct_h2">Ready to see a platform running with your workflow?</h2>
+          <p class="dark-lead" data-i18n="ct_lead">Kreta Software is led by Andrés Francisco Mazzuferi (Software &amp; Data Engineer · Tax ID CUIT 20-43812534-6), partnering remotely with organizations across the US, Europe, and Latin America. Tell us what you currently manage in spreadsheets and we will send a synthetic sample walkthrough.</p>
+
+          <div class="hero-ctas">
+            <a class="btn btn-white btn-lg" href="mailto:andrewkrijdjd@gmail.com?subject=Kreta%20Software%20%E2%80%94%20Live%20Demo%20%26%20Quote%20Request" data-i18n="ct_btn_mail">Email andrewkrijdjd@gmail.com</a>
+            <button type="button" class="btn btn-dark-outline btn-lg" id="copy-email-btn" data-i18n="ct_btn_copy">Copy email address</button>
           </div>
         </div>
-        <dl class="facts-list">
-          <div><dt data-i18n="f_stack_k">Core Stack</dt><dd>Python 3.11, FastAPI, PostgreSQL 16, SQLite, Next.js 15, Docker, Apps Script</dd></div>
-          <div><dt data-i18n="f_qa_k">Quality Gate</dt><dd data-i18n="f_qa_v">541 automated tests (Pytest, Vitest, Chrome Playwright E2E) + SHA-256 manifests</dd></div>
-          <div><dt data-i18n="f_pay_k">Payment Rails</dt><dd>Payoneer (USD ACH) · Binance Pay / USDT (-5% OFF) · Platform Escrow</dd></div>
-        </dl>
+
+        <div class="studio-card">
+          <h3 data-i18n="st_card_h">Kreta Software — Delivery Standards</h3>
+          <ul class="studio-list">
+            <li data-i18n="st_l1">Full source code + PostgreSQL / SQLite schema ownership</li>
+            <li data-i18n="st_l2">1-command Docker Compose deployment + SHA-256 package manifest</li>
+            <li data-i18n="st_l3">Verified by 541 automated tests (Pytest, Vitest, Chrome E2E)</li>
+            <li data-i18n="st_l4">Payoneer USD ACH · Binance Pay USDT (-5%) · Escrow</li>
+          </ul>
+          <div class="studio-links">
+            <a href="https://www.linkedin.com/in/andrés-francisco-mazzuferi-357111379" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/andrewkrijdjd-max" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span>+54&nbsp;9&nbsp;351&nbsp;811&nbsp;9981</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      Andrés Francisco Mazzuferi · CUIT 20-43812534-6 · Inca Manco 3760, Córdoba, Argentina · andrewkrijdjd@gmail.com · +54&nbsp;9&nbsp;351&nbsp;811&nbsp;9981
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; 2026 Kreta Software · Andrés Francisco Mazzuferi · CUIT 20-43812534-6</span>
+      <span>Córdoba, Argentina · Remote US / EU / LATAM</span>
     </div>
   </footer>
+
+  <!-- PRODUCT DETAIL SLIDE-OVER DRAWER -->
+  <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+  <aside id="product-drawer" class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true" tabindex="-1">
+    <div class="drawer-header">
+      <div>
+        <span id="drawer-sector" class="drawer-sector"></span>
+        <h2 id="drawer-title"></h2>
+      </div>
+      <button type="button" class="icon-close" id="drawer-close" aria-label="Close product details">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M5 5L15 15M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div id="drawer-preview" class="drawer-preview" aria-hidden="true"></div>
+      <p id="drawer-desc" class="drawer-desc"></p>
+
+      <div class="drawer-section">
+        <h3 data-i18n="dr_features">Key capabilities included</h3>
+        <ul id="drawer-features" class="drawer-list"></ul>
+      </div>
+
+      <div class="drawer-section">
+        <div class="drawer-price-head">
+          <h3 data-i18n="dr_editions">Select edition (one-time payment)</h3>
+          <span id="drawer-region-badge" class="region-tag">USA / CA</span>
+        </div>
+        <div id="drawer-editions" class="edition-list" role="radiogroup" aria-label="Software editions"></div>
+
+        <label class="usdt-toggle" for="drawer-usdt">
+          <input id="drawer-usdt" type="checkbox">
+          <span data-i18n="dr_usdt">Apply 5% prompt-payment discount (Binance Pay / USDT only)</span>
+        </label>
+      </div>
+
+      <div class="drawer-summary">
+        <div>
+          <span class="sum-lbl" data-i18n="dr_total_lbl">Selected one-time total</span>
+          <strong id="drawer-total" class="sum-val tabular">USD 2,490</strong>
+        </div>
+        <span class="sum-note" data-i18n="dr_total_note">0 monthly fees · Full code &amp; SQL yours</span>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <a id="drawer-mail-cta" class="btn btn-primary btn-block" href="#" data-i18n="dr_cta_mail">Request demo &amp; PDF quote by email</a>
+      <button type="button" id="drawer-copy-cta" class="btn btn-outline btn-block" data-i18n="dr_cta_copy">Copy inquiry summary</button>
+    </div>
+  </aside>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-hidden="true"></div>
 
   <script src="app.js" defer></script>
 </body>
