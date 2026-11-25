@@ -688,14 +688,74 @@ input[type="range"] { width: 100%; accent-color: var(--cobalt); cursor: pointer;
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* SAMPLE DELIVERABLES & ZIP PROOF */
+.samples-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.sample-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .sample-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(11, 18, 32, 0.08); }
+}
+.sample-badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--cobalt);
+}
+.sample-card h3 { font-size: 1rem; margin: 0; color: var(--ink); }
+.sample-card p { font-size: 0.86rem; color: var(--muted); margin: 0 0 6px; line-height: 1.48; flex: 1; }
+.zip-box {
+  background: var(--ink);
+  color: #f8fafc;
+  border-radius: 14px;
+  padding: 20px 24px;
+}
+.zip-box h3 { color: #ffffff; font-size: 0.96rem; margin: 0 0 12px; }
+.zip-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.zip-chip {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #e0f2fe;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 /* RESPONSIVE */
+@media (max-width: 1020px) {
+  .samples-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 900px) {
   .hero-grid, .faq-layout, .contact-grid, .product-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
 }
 @media (max-width: 560px) {
   .hero { padding: 30px 0 42px; }
-  .calc-two-col, .tier-row, .drawer-footer-row { grid-template-columns: 1fr; }
+  .calc-two-col, .tier-row, .drawer-footer-row, .samples-grid { grid-template-columns: 1fr; }
   .nav-actions .btn { display: none; }
 }
 

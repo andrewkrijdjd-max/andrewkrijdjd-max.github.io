@@ -279,6 +279,7 @@
     en: {
       skip_link: 'Skip to main content',
       nav_platforms: 'Platforms',
+      nav_samples: 'Samples',
       nav_process: 'How it works',
       nav_faq: 'FAQ',
       nav_contact: 'Contact',
@@ -345,7 +346,25 @@
       st_card_h: 'Every Kreta Software delivery includes',
       st_l1: '100% source code & database ownership—zero lock-in',
       st_l2: '1-command Docker deployment + setup guide for your team',
-      st_l3: 'Verified quality (541 automated & real-browser tests)',
+      st_l3: 'Verified quality (730+ automated & real-browser tests)',
+      smp_h2: 'Inspect real outputs before you even talk to us',
+      smp_sub: 'Download authentic PDFs generated directly by our systems (100% synthetic sample data) and see exactly what ships inside every SHA-256 verified delivery ZIP.',
+      smp1_h: 'Executive Fixed-Scope Proposal',
+      smp1_p: 'Sample one-time quote with 50/50 milestones, -5% Binance Pay USDT option, scope & acceptance criteria.',
+      smp2_h: 'EcoMetrics Carbon Certificate',
+      smp2_p: 'White-label Scope 1–3 carbon certificate with vector QR verification and canonical SHA-256 integrity hash.',
+      smp3_h: 'ComplianceVault Audit Report',
+      smp3_p: 'Assessor-ready audit packet summarizing control coverage, immutable evidence counts, and QR verification.',
+      smp4_h: 'EduCampus Verified Diploma',
+      smp4_p: 'Tamper-evident academic diploma with public verification code and zero-PII employer check.',
+      smp_dl: 'Open Sample PDF',
+      zip_h: "What's inside every SHA-256 delivery ZIP",
+      zip_1: 'Full Source Code (Python / Web / SQL)',
+      zip_2: '1-Command Docker Compose + .env.example',
+      zip_3: 'MANIFEST_SHA256.txt Integrity Proof',
+      zip_4: 'Perpetual Commercial Ownership License',
+      zip_5: '2-Minute White-Label & EN/ES Setup Guide',
+      zip_6: 'Zero Real Data · Zero Hardcoded Secrets',
       st_l4: 'Safe milestones · Payoneer ACH · Binance USDT (-5%) · Escrow',
       dr_features: 'What your team gets',
       dr_tier: '1. Organization size',
@@ -370,6 +389,7 @@
     es: {
       skip_link: 'Saltar al contenido principal',
       nav_platforms: 'Plataformas',
+      nav_samples: 'Muestras PDF',
       nav_process: 'Cómo funciona',
       nav_faq: 'Preguntas',
       nav_contact: 'Contacto',
@@ -436,7 +456,25 @@
       st_card_h: 'Cada entrega de Kreta Software incluye',
       st_l1: '100% propiedad del código fuente y base de datos—sin lock-in',
       st_l2: 'Despliegue Docker en 1 comando + guía clara de puesta en marcha',
-      st_l3: 'Calidad verificada (541 pruebas automatizadas y en navegador real)',
+      st_l3: 'Calidad verificada (730+ pruebas automatizadas y en navegador real)',
+      smp_h2: 'Inspeccioná entregables reales antes de hablar con nosotros',
+      smp_sub: 'Descargá PDFs auténticos generados directamente por nuestros sistemas (100% datos sintéticos) y revisá qué incluye cada ZIP verificable con SHA-256.',
+      smp1_h: 'Propuesta Comercial Ejecutiva',
+      smp1_p: 'Ejemplo real de cotización cerrada por pago único, hitos 50/50, opción -5% Binance Pay USDT y criterios de aceptación.',
+      smp2_h: 'Certificado de Carbono EcoMetrics',
+      smp2_p: 'Certificado white-label Alcance 1–3 con QR vectorial de verificación pública y hash criptográfico SHA-256.',
+      smp3_h: 'Reporte de Auditoría ComplianceVault',
+      smp3_p: 'Informe listo para auditores externos con cobertura de controles, evidencias inmutables y QR verificable.',
+      smp4_h: 'Diploma Verificable EduCampus',
+      smp4_p: 'Certificado académico anti-alteración con código público de verificación y cero PII expuesto.',
+      smp_dl: 'Abrir PDF de muestra',
+      zip_h: 'Qué trae adentro cada ZIP de entrega verificado (SHA-256)',
+      zip_1: 'Código fuente completo (Python / Web / SQL)',
+      zip_2: 'Docker Compose en 1 comando + .env.example',
+      zip_3: 'Prueba criptográfica MANIFEST_SHA256.txt',
+      zip_4: 'Licencia comercial de propiedad perpetua',
+      zip_5: 'Guía rápida White-Label y EN/ES (2 min)',
+      zip_6: 'Cero datos reales · Cero secretos hardcodeados',
       st_l4: 'Hitos seguros · Payoneer ACH · Binance USDT (-5%) · Escrow',
       dr_features: 'Qué resuelve para tu equipo',
       dr_tier: '1. Tamaño de la organización',
@@ -595,7 +633,7 @@
       bar.append(el('span', { class: 'b-dot' }), el('span', { class: 'b-dot' }), el('span', { class: 'b-dot' }), el('span', { class: 'b-url' }, prod.demoUrl));
       var shot = el('div', { class: 'browser-shot' });
       var img = el('img', {
-        src: 'assets/screens/' + prod.slug + '.png',
+        src: 'assets/screens/' + state.lang + '/' + prod.slug + '.png',
         alt: prod.name + ' — ' + prod.sector[state.lang] + ' live interface',
         width: '1280',
         height: '800',
@@ -650,7 +688,7 @@
     document.getElementById('drawer-desc').textContent = prod.headline[state.lang];
 
     var img = document.getElementById('drawer-img');
-    img.src = 'assets/screens/' + prod.slug + '.png';
+    img.src = 'assets/screens/' + state.lang + '/' + prod.slug + '.png';
     img.alt = prod.name + ' live application screen';
 
     var featList = document.getElementById('drawer-features');
