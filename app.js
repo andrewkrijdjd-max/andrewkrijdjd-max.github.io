@@ -8,121 +8,121 @@
   const PRODUCTS = [
     {
       slug: 'medflow', img: 'medflow', cat: 'core', flagship: true, name: 'MedFlow / ClinicOps',
-      prices: { USA: [590, 1790, 3190], EUR: [545, 1645, 2935], LATAM: [415, 1255, 2235], AR: [325, 985, 1755] },
+      prices: { USA: [790, 2490, 4190], EUR: [725, 2290, 3855], LATAM: [555, 1745, 2935], AR: [435, 1370, 2305] },
       en: { desc: 'Multi-provider clinic scheduling, role-restricted clinical records, and visit billing with zero per-practitioner subscriptions.', rule: 'Blocks double-booked provider slots automatically, isolates clinical notes by role, and links visits directly to billing.' },
       es: { desc: 'Agenda clínica multi-profesional, historia clínica con roles y facturación de consultas sin abonos mensuales por profesional.', rule: 'Bloquea turnos superpuestos automáticamente, separa notas clínicas por rol y vincula cada consulta con facturación.' },
     },
     {
       slug: 'buildcost', img: 'buildcost', cat: 'core', flagship: true, name: 'BuildCost Pro',
-      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
+      prices: { USA: [990, 3490, 5490], EUR: [910, 3210, 5050], LATAM: [695, 2445, 3845], AR: [545, 1920, 3020] },
       en: { desc: 'Line-item construction job costing, subcontractor variance control, and capped progress certifications.', rule: 'Blocks progress draws exceeding budgeted line balances and flags cost-overrun drift before payment.' },
       es: { desc: 'Control presupuestario por rubro de obra, gastos de subcontratistas y certificaciones de avance con tope automático.', rule: 'Bloquea certificaciones que superan el saldo del rubro y alerta desvíos de margen antes de pagar.' },
     },
     {
       slug: 'fleetguard', img: 'fleetguard', cat: 'core', flagship: true, name: 'FleetGuard & LogiTrack',
-      prices: { USA: [590, 1990, 3490], EUR: [545, 1830, 3210], LATAM: [415, 1395, 2445], AR: [325, 1095, 1920] },
+      prices: { USA: [790, 2490, 4190], EUR: [725, 2290, 3855], LATAM: [555, 1745, 2935], AR: [435, 1370, 2305] },
       en: { desc: 'Preventive maintenance schedules, expiring DOT/compliance documents, shop orders, and fuel cost tracking per vehicle.', rule: 'Validates odometer continuity, surfaces overdue service intervals, and isolates fuel cost anomalies per unit.' },
       es: { desc: 'Mantenimiento preventivo, vencimientos documentales, órdenes de taller y control de combustible por unidad.', rule: 'Valida continuidad de odómetro, alerta mantenimientos vencidos y detecta desvíos de consumo por vehículo.' },
     },
     {
       slug: 'compliancevault', img: 'compliancevault', cat: 'core', flagship: false, name: 'ComplianceVault ISO/SOC2',
-      prices: { USA: [690, 1990, 3290], EUR: [635, 1830, 3025], LATAM: [485, 1395, 2305], AR: [380, 1095, 1810] },
+      prices: { USA: [990, 3490, 5490], EUR: [910, 3210, 5050], LATAM: [695, 2445, 3845], AR: [545, 1920, 3020] },
       en: { desc: 'Audit-ready control register, risk matrix, regulatory permits, and timestamped evidence packages for ISO 27001 / SOC 2.', rule: 'Generates SHA-256 verifiable audit reports and tracks expiring permits and control ownership.' },
       es: { desc: 'Matriz de controles y riesgos, habilitaciones regulatorias y repositorio de evidencias para auditorías ISO / SOC2.', rule: 'Emite reportes de auditoría verificables con SHA-256 y monitorea vencimientos críticos.' },
     },
     {
       slug: 'agrofield', img: 'agrofield', cat: 'core', flagship: false, name: 'AgroField & Stock',
-      prices: { USA: [590, 2090, 4290], EUR: [545, 1925, 3945], LATAM: [415, 1465, 3005], AR: [325, 1150, 2360] },
+      prices: { USA: [890, 2790, 4690], EUR: [820, 2565, 4315], LATAM: [625, 1955, 3285], AR: [490, 1535, 2580] },
       en: { desc: 'Agricultural input inventory, field application logs, harvest receipts, and true net margin per lot and season.', rule: 'Links seed/chemical stock directly to field applications and harvest receipts for true per-acre profitability.' },
       es: { desc: 'Control de stock de insumos, labores agrícolas, cartas de porte y margen neto real por lote y campaña.', rule: 'Vincula insumos y labores con el rinde de cosecha para calcular rentabilidad real por hectárea.' },
     },
     {
       slug: 'educampus', img: 'educampus', cat: 'core', flagship: false, name: 'EduCampus & Certify',
-      prices: { USA: [450, 990, 2490], EUR: [415, 910, 2290], LATAM: [315, 695, 1745], AR: [250, 545, 1370] },
+      prices: { USA: [690, 2190, 3490], EUR: [635, 2015, 3210], LATAM: [485, 1535, 2445], AR: [380, 1205, 1920] },
       en: { desc: 'Cohort enrollment, attendance eligibility rules, tuition/scholarship balances, and QR-verified PDF certificates.', rule: 'Enforces minimum attendance and balance clearance before issuing tamper-evident credentials.' },
       es: { desc: 'Gestión de cohortes, asistencias mínimas, becas/cuotas y emisión de certificados PDF con validación QR.', rule: 'Exige asistencia mínima y saldo regularizado antes de emitir cada credencial verificable.' },
     },
     {
       slug: 'quoteflow', img: 'quoteflow', cat: 'smb', flagship: false, name: 'QuoteFlow',
-      prices: { USA: [390, 1090, 1790], EUR: [360, 1005, 1645], LATAM: [275, 765, 1255], AR: [215, 600, 985] },
+      prices: { USA: [690, 2190, 3490], EUR: [635, 2015, 3210], LATAM: [485, 1535, 2445], AR: [380, 1205, 1920] },
       en: { desc: 'Structured B2B quoting with enforced gross-margin floors, approval workflows, and weighted close pipeline.', rule: 'Blocks quotes below minimum gross-margin floor and exports QR-verified PDF proposals.' },
       es: { desc: 'Cotizador B2B con piso obligatorio de margen bruto, aprobaciones y pipeline ponderado de cierre.', rule: 'Bloquea presupuestos debajo del margen mínimo configurado y exporta PDFs con verificación QR.' },
     },
     {
       slug: 'fixflow', img: 'fixflow', cat: 'smb', flagship: false, name: 'FixFlow',
-      prices: { USA: [350, 950, 1650], EUR: [320, 875, 1520], LATAM: [245, 665, 1155], AR: [195, 520, 910] },
+      prices: { USA: [590, 1690, 2790], EUR: [545, 1555, 2565], LATAM: [415, 1185, 1955], AR: [325, 930, 1535] },
       en: { desc: 'Repair workshop work orders, parts markup tracking, SLA turnaround alerts, and customer pickup receipts.', rule: 'Tracks repair turnaround time (TAT), parts margin, and customer pickup verification.' },
       es: { desc: 'Órdenes de taller y servicio técnico, margen de repuestos, alertas de plazo SLA y comprobantes de entrega.', rule: 'Mide tiempo de reparación (TAT), controla margen de repuestos y registra entregas conformadas.' },
     },
     {
       slug: 'rentvault', img: 'rentvault', cat: 'smb', flagship: false, name: 'RentVault',
-      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
+      prices: { USA: [690, 1990, 3290], EUR: [635, 1830, 3025], LATAM: [485, 1395, 2305], AR: [380, 1095, 1810] },
       en: { desc: 'Equipment, audiovisual, and event inventory rentals with conflict-free date reservations and asset ROI analytics.', rule: 'Strict date-overlap lock prevents double bookings while measuring utilization and ROI per asset.' },
       es: { desc: 'Alquiler de equipos, maquinaria y eventos con reservas sin solapamiento y análisis de retorno por activo.', rule: 'Bloqueo estricto de doble reserva por fechas y medición real de utilización y retorno por activo.' },
     },
     {
       slug: 'shiftroster', img: 'shiftroster', cat: 'smb', flagship: false, name: 'ShiftRoster',
-      prices: { USA: [290, 790, 1390], EUR: [265, 725, 1280], LATAM: [205, 555, 975], AR: [160, 435, 765] },
+      prices: { USA: [590, 1490, 2490], EUR: [545, 1370, 2290], LATAM: [415, 1045, 1745], AR: [325, 820, 1370] },
       en: { desc: 'Conflict-free employee shift rosters with real-time overtime, weekend, and night-differential payroll previews.', rule: 'Prevents overlapping staff shifts and calculates surcharge impact before payroll runs.' },
       es: { desc: 'Planificación de turnos sin superposiciones con cálculo inmediato de horas extras y recargos nocturnos.', rule: 'Impide asignar doble turno simultáneo y proyecta el costo laboral antes de liquidar.' },
     },
     {
       slug: 'clientpulse', img: 'clientpulse', cat: 'smb', flagship: false, name: 'ClientPulse',
-      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
+      prices: { USA: [690, 2190, 3490], EUR: [635, 2015, 3210], LATAM: [485, 1535, 2445], AR: [380, 1205, 1920] },
       en: { desc: 'Agency and studio project portal with formal client deliverable sign-offs before invoicing and scope-creep logs.', rule: 'Enforces documented client sign-off before invoicing and isolates out-of-scope change requests.' },
       es: { desc: 'Portal de proyectos para agencias y estudios con aprobación formal de entregables antes de facturar.', rule: 'Exige conformidad registrada del cliente antes de facturar y cuantifica trabajo fuera de alcance.' },
     },
     {
       slug: 'subguard', img: 'subguard', cat: 'smb', flagship: false, name: 'SubGuard',
-      prices: { USA: [350, 990, 1690], EUR: [320, 910, 1555], LATAM: [245, 695, 1185], AR: [195, 545, 930] },
+      prices: { USA: [690, 2490, 3990], EUR: [635, 2290, 3670], LATAM: [485, 1745, 2795], AR: [380, 1370, 2195] },
       en: { desc: 'Software license and vendor renewal register that exposes unused seats and 12-month recurring spend leaks.', rule: 'Validates active-vs-paid seat counts and alerts upcoming auto-renewals ahead of billing dates.' },
       es: { desc: 'Control centralizado de suscripciones, licencias ociosas y alertas tempranas de renovación anual.', rule: 'Controla licencias activas vs contratadas y anticipa renovaciones automáticas para recortar gasto.' },
     },
     {
       slug: 'propledger', img: 'propledger', cat: 'enterprise', flagship: false, name: 'PropLedger',
-      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
+      prices: { USA: [790, 2490, 4190], EUR: [725, 2290, 3855], LATAM: [555, 1745, 2935], AR: [435, 1370, 2305] },
       en: { desc: 'Commercial and residential property ledger with compound rent indexation, NOI, and Cap Rate modeling.', rule: 'Enforces one active lease per unit with auditable NOI and escalation schedules.' },
       es: { desc: 'Administración de propiedades y contratos con ajuste compuesto por índice, NOI y Cap Rate auditables.', rule: 'Garantiza un único contrato activo por unidad y calcula rentabilidad neta en tiempo real.' },
     },
     {
       slug: 'lablims', img: 'lablims', cat: 'enterprise', flagship: true, name: 'LabLIMS',
-      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [695, 2445, 4195], AR: [545, 1920, 3295] },
+      prices: { USA: [1490, 5990, 9490], EUR: [1370, 5510, 8730], LATAM: [1045, 4195, 6645], AR: [820, 3295, 5220] },
       en: { desc: 'Analytical lab sample chain of custody, statistical Z-score outlier flags, and QR-verified Certificates of Analysis.', rule: 'Tracks every sample handoff, flags statistical anomalies, and generates verifiable PDF COAs.' },
       es: { desc: 'Gestión de laboratorio con cadena de custodia de muestras, alertas Z-score y certificados COA PDF con QR.', rule: 'Registra custodia completa, señala desvíos estadísticos y emite certificados de análisis verificables.' },
     },
     {
       slug: 'lottrace', img: 'lottrace', cat: 'enterprise', flagship: false, name: 'LotTrace',
-      prices: { USA: [890, 2790, 4890], EUR: [820, 2565, 4500], LATAM: [625, 1955, 3425], AR: [490, 1535, 2690] },
+      prices: { USA: [1290, 4990, 7990], EUR: [1185, 4590, 7350], LATAM: [905, 3495, 5595], AR: [710, 2745, 4395] },
       en: { desc: 'Food, pharma, and cold-chain batch traceability with FEFO expiry ordering, mass balance, and instant recall tree.', rule: 'Enforces First-Expired-First-Out dispatch and traces raw-to-finished batch lineage in seconds.' },
       es: { desc: 'Trazabilidad de lotes para alimentos y farma con despacho FEFO, balance de masa y recall instantáneo.', rule: 'Ordena salidas por vencimiento más próximo y reconstruye la genealogía completa de cualquier lote.' },
     },
     {
       slug: 'caseledger', img: 'caseledger', cat: 'enterprise', flagship: true, name: 'CaseLedger',
-      prices: { USA: [690, 2190, 3790], EUR: [635, 2015, 3485], LATAM: [485, 1535, 2655], AR: [380, 1205, 2085] },
+      prices: { USA: [890, 2990, 4890], EUR: [820, 2750, 4500], LATAM: [625, 2095, 3425], AR: [490, 1645, 2690] },
       en: { desc: 'Law firm matter docket, fatal statutory deadline alerts, billable WIP hours, and case exposure provisioning.', rule: 'Prioritizes critical statutory deadlines and links attorney WIP time directly to matter billing.' },
       es: { desc: 'Gestión de expedientes jurídicos, alertas de plazos fatales, horas WIP facturables y provisión de riesgo.', rule: 'Prioriza vencimientos procesales críticos y vincula horas trabajadas con la facturación por causa.' },
     },
     {
       slug: 'tradeflow', img: 'tradeflow', cat: 'enterprise', flagship: false, name: 'TradeFlow',
-      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
+      prices: { USA: [1190, 3890, 6290], EUR: [1095, 3580, 5785], LATAM: [835, 2725, 4405], AR: [655, 2140, 3460] },
       en: { desc: 'Import/export landed-cost allocation (CIF, freight, duties, brokerage) per SKU with true net margin preview.', rule: 'Prorates shipment duties and logistics fees across every SKU before commercial pricing is locked.' },
       es: { desc: 'Prorrateo exacto de costo nacionalizado (CIF, flete, seguro, aranceles) por SKU y margen neto por embarque.', rule: 'Distribuye costos de importación por artículo antes de fijar listas de precios comerciales.' },
     },
     {
       slug: 'fieldops', img: 'fieldops', cat: 'enterprise', flagship: true, name: 'FieldOps',
-      prices: { USA: [790, 2390, 4190], EUR: [725, 2200, 3855], LATAM: [555, 1675, 2935], AR: [435, 1315, 2305] },
+      prices: { USA: [990, 2990, 4890], EUR: [910, 2750, 4500], LATAM: [695, 2095, 3425], AR: [545, 1645, 2690] },
       en: { desc: 'Field service dispatch, P1/P2/P3 SLA compliance, MTTR/FTFR metrics, and closeout-verified invoicing.', rule: 'Blocks invoicing until documented field closeout is recorded and tracks response SLAs live.' },
       es: { desc: 'Despacho de técnicos en campo, control SLA P1/P2/P3, métricas MTTR/FTFR y bloqueo de factura sin cierre.', rule: 'Impide facturar visitas sin parte de cierre conformado y audita tiempos de respuesta en vivo.' },
     },
     {
       slug: 'ecometrics_suite', img: 'ecometrics', cat: 'impact', flagship: false, name: 'EcoMetrics Suite',
-      prices: { USA: [890, 2490, 3490], EUR: [820, 2290, 3210], LATAM: [625, 1745, 2445], AR: [490, 1370, 1920] },
+      prices: { USA: [1190, 3490, 5290], EUR: [1095, 3210, 4865], LATAM: [835, 2445, 3705], AR: [655, 1920, 2910] },
       en: { desc: 'Auditable Scope 1–3 carbon footprint, sustainability scoring, and SHA-256 environmental certificates.', rule: 'Applies documented emissions factors with open formulas and instant tamper-evident PDF certificates.' },
       es: { desc: 'Huella de carbono auditable, índice de sustentabilidad industrial y certificados ambientales con hash SHA-256.', rule: 'Aplica factores de emisión trazables con fórmulas abiertas y emisión inmediata de certificados PDF.' },
     },
     {
       slug: 'voluntarios_db', img: 'voluntariosdb', cat: 'impact', flagship: false, name: 'VoluntariosDB',
-      prices: { USA: [490, 1790, 2390], EUR: [450, 1645, 2200], LATAM: [345, 1255, 1675], AR: [270, 985, 1315] },
+      prices: { USA: [590, 1790, 2690], EUR: [545, 1645, 2475], LATAM: [415, 1255, 1885], AR: [325, 985, 1480] },
       en: { desc: 'Nonprofit volunteer roster, verified shift hours, donor impact reports, and verifiable service certificates.', rule: 'Centralizes volunteer participation logs and exports donor-ready hours and signed attendance records.' },
       es: { desc: 'Gestión integral de voluntariado, horas verificadas por programa, reportes a donantes y constancias oficiales.', rule: 'Centraliza turnos y horas servidas con trazabilidad completa para rendición de cuentas.' },
     },
@@ -502,7 +502,7 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     theme: localStorage.getItem('kreta_theme') || 'light',
     cat: 'all',
     search: '',
-    view: 'table',
+    view: (typeof window !== 'undefined' && window.innerWidth <= 768) ? 'cards' : 'table',
     sbSlug: 'medflow',
     sbSearch: '',
     sbStageFilter: null,
@@ -658,8 +658,8 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       ? 'Pruebe cualquiera de los 20 sistemas aquí: agregue registros, filtre o avance etapas en vivo.'
       : 'Test any of the 20 systems right here: add a record, filter, or advance stages live.';
     document.getElementById('sb-price').textContent = state.lang === 'es'
-      ? `Desde ${fmtMoney(shPrice)} · o 3x ${fmtMoney(inst3)}`
-      : `From ${fmtMoney(shPrice)} · or 3x ${fmtMoney(inst3)}`;
+      ? `SQL+Web ${fmtMoney(sqlPrice)} (3× ${fmtMoney(inst3)}) · Sheets ${fmtMoney(shPrice)}`
+      : `SQL+Web ${fmtMoney(sqlPrice)} (3× ${fmtMoney(inst3)}) · Sheets ${fmtMoney(shPrice)}`;
 
     const totalVal = rows.reduce((s, r) => s + Number(r.amount || 0), 0);
     const completed = rows.filter((r) => r.stage === 3).length;
@@ -795,6 +795,16 @@ c51d8a32f9e0b4a7...  docker-compose.yml
   }
 
   function renderCatalog() {
+    if (typeof window !== 'undefined' && window.innerWidth <= 768 && state.view === 'table' && !state.userPickedView) {
+      state.view = 'cards';
+    }
+    document.querySelectorAll('[data-view]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.view === state.view));
+    });
+    document.querySelectorAll('#screens-gallery img[data-screen]').forEach((img) => {
+      const sc = img.dataset.screen;
+      if (sc) img.src = `assets/screens/${state.lang}/${sc}.png`;
+    });
     const mount = document.getElementById('catalog-mount');
     const q = state.search.trim().toLowerCase();
     const catNames = t('cat_names');
@@ -1166,10 +1176,16 @@ c51d8a32f9e0b4a7...  docker-compose.yml
 
     document.getElementById('sb-test-rule').addEventListener('click', () => {
       state.sbAlert = true;
-      const fallbackMsg = state.lang === 'es'
-        ? 'Guardia activa: bloqueo automático de duplicados y límites de negocio verificado.'
-        : 'Rule Guard active: duplicate overlap and business limit protection verified.';
-      state.sbNote = (state.sbRows[state.sbSlug] && state.sbRows[state.sbSlug].guardMsg[state.lang]) || fallbackMsg;
+      const rows = getLiveRows(state.sbSlug);
+      const ref = rows[0];
+      const dynamicMsg = ref
+        ? (state.lang === 'es'
+          ? `Guardia activa: se bloqueó duplicado sobre ${ref.id} (${ref.owner} · ${ref.slot} ya asignado a ${ref.name}).`
+          : `Conflict Guard active: blocked duplicate overlap on ${ref.id} (${ref.owner} · ${ref.slot} already assigned to ${ref.name}).`)
+        : (state.lang === 'es'
+          ? 'Guardia activa: bloqueo automático de duplicados y límites de negocio verificado.'
+          : 'Rule Guard active: duplicate overlap and business limit protection verified.');
+      state.sbNote = dynamicMsg;
       renderSandbox();
     });
 

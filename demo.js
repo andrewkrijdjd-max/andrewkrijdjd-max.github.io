@@ -5,7 +5,7 @@
   const PRODUCTS = {
     medflow: {
       name: 'MedFlow / ClinicOps', unit: '$', unitPos: 'pre', maxVal: 50000, uniqueSlot: true,
-      prices: { USA: [590, 1790, 3190], EUR: [545, 1645, 2935], LATAM: [415, 1255, 2235], AR: [325, 985, 1755] },
+      prices: { USA: [790, 2490, 4190], EUR: [725, 2290, 3855], LATAM: [555, 1745, 2935], AR: [435, 1370, 2305] },
       owners: ['Dr. Hannah Reed', 'Dr. Carlos Vega', 'Dr. Priya Patel'],
       slots: ['09:00', '10:30', '11:30', '14:00', '15:30', '16:30'],
       en: { sub: 'Multi-provider clinic scheduling with conflict prevention, encounter notes, and visit billing.', stages: ['Scheduled', 'Checked In', 'In Consult', 'Billed'], cols: ['Patient', 'Provider', 'Time Slot', 'Fee', 'Stage'], fName: 'Patient Full Name', fOwner: 'Provider', fSlot: 'Appointment Slot', fAmt: 'Visit Fee (USD)', kpiVol: 'Scheduled Revenue', dupErr: 'That provider is already booked for this time slot. Choose another slot or provider.' },
@@ -20,7 +20,7 @@
     },
     fieldops: {
       name: 'FieldOps', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [790, 2390, 4190], EUR: [725, 2200, 3855], LATAM: [555, 1675, 2935], AR: [435, 1315, 2305] },
+      prices: { USA: [990, 2990, 4890], EUR: [910, 2750, 4500], LATAM: [695, 2095, 3425], AR: [545, 1645, 2690] },
       owners: ['Tech: Mike Torres', 'Tech: Jordan Vance', 'Tech: Luis Gomez'],
       slots: ['4h Emergency SLA', '8h Priority SLA', '24h Standard SLA', 'Preventive PM'],
       en: { sub: 'Commercial HVAC, elevator, and mechanical dispatch with SLA timers and verified job closeouts.', stages: ['Dispatched', 'On Site', 'QC Sign-off', 'Invoiced'], cols: ['Work Order / Site', 'Technician', 'SLA Tier', 'Estimate', 'Stage'], fName: 'Site & Equipment', fOwner: 'Assigned Technician', fSlot: 'SLA Tier', fAmt: 'Job Value (USD)', kpiVol: 'Active Dispatch Value', dupErr: 'Duplicate active work order.' },
@@ -34,7 +34,7 @@
     },
     buildcost: {
       name: 'BuildCost Pro', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
+      prices: { USA: [990, 3490, 5490], EUR: [910, 3210, 5050], LATAM: [695, 2445, 3845], AR: [545, 1920, 3020] },
       owners: ['Oak St Commercial', 'Riverfront Lofts', 'Westside Medical Wing'],
       slots: ['Concrete & Steel', 'Electrical Sub', 'HVAC & Plumbing', 'Millwork & Finishes'],
       en: { sub: 'Line-item construction job costing, real-vs-budget variance tracking, and capped progress draws.', stages: ['Draft Draw', 'PM Review', 'Approved', 'Paid'], cols: ['Cost Item / Sub', 'Project', 'Trade Package', 'Draw Amount', 'Stage'], fName: 'Line Item / Subcontractor', fOwner: 'Active Project', fSlot: 'Trade Package', fAmt: 'Draw Amount (USD, max $250k)', kpiVol: 'Certified Draws', dupErr: 'Duplicate line item.' },
@@ -48,11 +48,11 @@
     },
     caseledger: {
       name: 'CaseLedger', unit: '$', unitPos: 'pre', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [690, 2190, 3790], EUR: [635, 2015, 3485], LATAM: [485, 1535, 2655], AR: [380, 1205, 2085] },
+      prices: { USA: [890, 2990, 4890], EUR: [820, 2750, 4500], LATAM: [625, 2095, 3425], AR: [490, 1645, 2690] },
       owners: ['Partner: R. Vance', 'Assoc: E. Shaw', 'Partner: M. Delgado'],
       slots: ['Commercial Litigation', 'Corporate M&A', 'Employment Law', 'Estate & Trust'],
       en: { sub: 'Boutique law firm matter deadlines, billable WIP tracking, and segregated IOLTA trust ledger.', stages: ['Intake', 'Discovery', 'Court Filing', 'Billed'], cols: ['Matter / Client', 'Lead Attorney', 'Practice Area', 'WIP / Trust', 'Stage'], fName: 'Matter & Client Name', fOwner: 'Lead Attorney', fSlot: 'Practice Area', fAmt: 'WIP / Retainer (USD)', kpiVol: 'Billable WIP & Trust', dupErr: 'Duplicate matter reference.' },
-      es: { sub: 'Gestión jurídica de causas, plazos perentorios, horas facturables y cuenta fiduciaria.', stages: ['Ingreso', 'Prueba', 'Presentación', 'Facturado'], cols: ['Causa / Cliente', 'Abogado', 'Fuero / Área', 'WIP / Fondo', 'Etapa'], fName: 'Causa y Cliente', fOwner: 'Abogado Responsable', fSlot: 'Área Legal', fAmt: 'Honorarios / Fondo (USD)', kpiVol: 'WIP Facturable', dupErr: 'Causa duplicada.' },
+      es: { sub: 'Gestión jurídica de causas, plazos perentorios, horas facturables y fondos en custodia (facturación local vía webhook/CSV).', stages: ['Ingreso', 'Prueba', 'Presentación', 'Facturado'], cols: ['Causa / Cliente', 'Abogado', 'Fuero / Área', 'WIP / Custodia', 'Etapa'], fName: 'Causa y Cliente', fOwner: 'Abogado Responsable', fSlot: 'Área Legal', fAmt: 'Honorarios / Custodia (USD)', kpiVol: 'WIP Facturable', dupErr: 'Causa duplicada.' },
       seed: [
         { id: 'CL-401', name: 'Acme Logistics v. Port Authority', owner: 'Partner: R. Vance', slot: 'Commercial Litigation', amount: 14800, stage: 2, notes: 'Motion deadline verified 7 days ahead.' },
         { id: 'CL-402', name: 'Northstar Holdings Acquisition', owner: 'Partner: M. Delgado', slot: 'Corporate M&A', amount: 22500, stage: 1, notes: 'Due diligence binder 80% complete.' },
@@ -62,7 +62,7 @@
     },
     fleetguard: {
       name: 'FleetGuard & LogiTrack', unit: '$', unitPos: 'pre', maxVal: 150000, uniqueSlot: false,
-      prices: { USA: [590, 1990, 3490], EUR: [545, 1830, 3210], LATAM: [415, 1395, 2445], AR: [325, 1095, 1920] },
+      prices: { USA: [790, 2490, 4190], EUR: [725, 2290, 3855], LATAM: [555, 1745, 2935], AR: [435, 1370, 2305] },
       owners: ['TRK-104 · Freightliner', 'TRK-108 · Kenworth', 'VAN-202 · Sprinter'],
       slots: ['Preventive PM', 'DOT Compliance', 'Fuel Audit', 'Brake & Tire Service'],
       en: { sub: 'Preventive maintenance schedules, expiring DOT compliance documents, and fuel cost tracking per unit.', stages: ['Scheduled', 'In Bay', 'Inspection', 'Road Ready'], cols: ['Service / Log', 'Fleet Unit', 'Category', 'Cost', 'Stage'], fName: 'Maintenance / Fuel Entry', fOwner: 'Fleet Unit', fSlot: 'Category', fAmt: 'Cost (USD)', kpiVol: 'Fleet Spend Tracked', dupErr: 'Duplicate log.' },
@@ -76,7 +76,7 @@
     },
     fixflow: {
       name: 'FixFlow', unit: '$', unitPos: 'pre', maxVal: 50000, uniqueSlot: false,
-      prices: { USA: [350, 950, 1650], EUR: [320, 875, 1520], LATAM: [245, 665, 1155], AR: [195, 520, 910] },
+      prices: { USA: [590, 1690, 2790], EUR: [545, 1555, 2565], LATAM: [415, 1185, 1955], AR: [325, 930, 1535] },
       owners: ['Bench 1 · Alex', 'Bench 2 · Sofia', 'Bench 3 · Marcus'],
       slots: ['Hardware Diagnostics', 'Warranty RMA', 'Board Replacement', 'Calibration'],
       en: { sub: 'Repair shop intake tickets, diagnostic quotes, RMA warranties, and parts margin control.', stages: ['Intake', 'Diagnosing', 'In Repair', 'Ready'], cols: ['Device / Ticket', 'Technician', 'Service Type', 'Quote', 'Stage'], fName: 'Customer & Equipment', fOwner: 'Assigned Bench', fSlot: 'Service Type', fAmt: 'Repair Quote (USD)', kpiVol: 'Open Bench Revenue', dupErr: 'Duplicate ticket.' },
@@ -90,10 +90,10 @@
     },
     rentvault: {
       name: 'RentVault', unit: '$', unitPos: 'pre', maxVal: 100000, uniqueSlot: true,
-      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
+      prices: { USA: [690, 1990, 3290], EUR: [635, 1830, 3025], LATAM: [485, 1395, 2305], AR: [380, 1095, 1810] },
       owners: ['Kit: ARRI Alexa Mini', 'Kit: Line Array PA 12kW', 'Unit: Scissor Lift 26ft'],
       slots: ['Dec 02–04', 'Dec 05–07', 'Dec 09–11', 'Dec 14–16', 'Dec 18–20'],
-      en: { sub: 'Equipment and AV rental calendars with overlap blocks, security deposits, and return inspections.', stages: ['Reserved', 'Checked Out', 'Return QC', 'Deposit Settled'], cols: ['Client / Production', 'Equipment Kit', 'Rental Dates', 'Deposit + Fee', 'Stage'], fName: 'Client / Production Name', fOwner: 'Equipment Kit', fSlot: 'Rental Dates', fAmt: 'Rental + Deposit (USD)', kpiVol: 'Booked Rental Value', dupErr: 'That equipment kit is already reserved for those exact dates.' },
+      en: { sub: 'Equipment & AV rental calendars with serialized QR/barcode asset tracking, overlap blocks, security deposits, and return QC.', stages: ['Reserved', 'Checked Out', 'Return QC', 'Deposit Settled'], cols: ['Client / Production', 'Serialized Kit', 'Rental Dates', 'Deposit + Fee', 'Stage'], fName: 'Client / Production Name', fOwner: 'Serialized Equipment Kit', fSlot: 'Rental Dates', fAmt: 'Rental + Deposit (USD)', kpiVol: 'Booked Rental Value', dupErr: 'That serialized equipment kit is already reserved for those exact dates.' },
       es: { sub: 'Alquiler de equipos y audiovisual sin solapamientos, con depósitos de garantía e inspección.', stages: ['Reservado', 'Entregado', 'Inspección', 'Cerrado'], cols: ['Cliente / Producción', 'Equipo', 'Fechas', 'Alquiler + Dep.', 'Etapa'], fName: 'Cliente / Producción', fOwner: 'Equipo / Kit', fSlot: 'Fechas de Alquiler', fAmt: 'Monto + Depósito (USD)', kpiVol: 'Reservas Activas', dupErr: 'Ese equipo ya está reservado para esas mismas fechas.' },
       seed: [
         { id: 'RV-601', name: 'Horizon Film Studio', owner: 'Kit: ARRI Alexa Mini', slot: 'Dec 02–04', amount: 2400, stage: 1, notes: 'ID & $1,000 security hold verified.' },
@@ -103,7 +103,7 @@
     },
     compliancevault: {
       name: 'ComplianceVault ISO/SOC2', unit: '%', unitPos: 'post', maxVal: 100, uniqueSlot: false,
-      prices: { USA: [690, 1990, 3290], EUR: [635, 1830, 3025], LATAM: [485, 1395, 2305], AR: [380, 1095, 1810] },
+      prices: { USA: [990, 3490, 5490], EUR: [910, 3210, 5050], LATAM: [695, 2445, 3845], AR: [545, 1920, 3020] },
       owners: ['ISO 27001 · A.8', 'SOC2 · CC6.1', 'SOC2 · CC7.2'],
       slots: ['Access Control', 'Backup & DR', 'Vendor Risk', 'Incident Response'],
       en: { sub: 'Audit-ready ISO 27001 / SOC2 control registry, risk scoring, and timestamped evidence vault.', stages: ['Gap Identified', 'Evidence Pending', 'Auditor Review', 'Verified'], cols: ['Control / Evidence', 'Framework', 'Domain', 'Readiness', 'Stage'], fName: 'Control / Evidence Item', fOwner: 'Framework', fSlot: 'Control Domain', fAmt: 'Readiness Score (1-100%)', kpiVol: 'Avg Control Readiness', dupErr: 'Control already tracked.' },
@@ -116,7 +116,7 @@
     },
     quoteflow: {
       name: 'QuoteFlow', unit: '$', unitPos: 'pre', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [390, 1090, 1790], EUR: [360, 1005, 1645], LATAM: [275, 765, 1255], AR: [215, 600, 985] },
+      prices: { USA: [690, 2190, 3490], EUR: [635, 2015, 3210], LATAM: [485, 1535, 2445], AR: [380, 1205, 1920] },
       owners: ['Rep: Daniel Cruz', 'Rep: Sarah Mills', 'Rep: Owen Park'],
       slots: ['Standard 28% Margin', 'Volume 22% Margin', 'Custom BOM 32%'],
       en: { sub: 'Fast B2B CPQ quoting with automatic gross margin guardrails and one-click PDF proposals.', stages: ['Drafting', 'Margin Check', 'Sent to Buyer', 'Approved'], cols: ['Account / Quote', 'Sales Rep', 'Pricing Tier', 'Quote Total', 'Stage'], fName: 'Account & Quote Title', fOwner: 'Sales Rep', fSlot: 'Margin Tier', fAmt: 'Quote Value (USD)', kpiVol: 'Active Quote Pipeline', dupErr: 'Duplicate quote.' },
@@ -129,7 +129,7 @@
     },
     propledger: {
       name: 'PropLedger', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
+      prices: { USA: [790, 2490, 4190], EUR: [725, 2290, 3855], LATAM: [555, 1745, 2935], AR: [435, 1370, 2305] },
       owners: ['Oakridge Apartments', 'Harbor Retail Plaza', 'Sunset Townhomes'],
       slots: ['Monthly Rent', 'CAM Reconciliation', 'Lease Indexation', 'Maintenance Reserve'],
       en: { sub: 'Property & HOA ledger with automated lease indexation, delinquency flags, and owner statements.', stages: ['Billed', 'Due Soon', 'Overdue Flag', 'Collected'], cols: ['Unit / Tenant', 'Property', 'Ledger Type', 'Amount', 'Stage'], fName: 'Unit & Tenant Name', fOwner: 'Property', fSlot: 'Charge Type', fAmt: 'Amount (USD)', kpiVol: 'Monthly Ledger Volume', dupErr: 'Duplicate charge.' },
@@ -142,7 +142,7 @@
     },
     lablims: {
       name: 'LabLIMS', unit: 'samples', unitPos: 'post', maxVal: 5000, uniqueSlot: false,
-      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [695, 2445, 4195], AR: [545, 1920, 3295] },
+      prices: { USA: [1490, 5990, 9490], EUR: [1370, 5510, 8730], LATAM: [1045, 4195, 6645], AR: [820, 3295, 5220] },
       owners: ['Microbiology Lab', 'Analytical Chemistry', 'Water & Soil QA'],
       slots: ['ISO 17025 Panel', 'Heavy Metals ICP', 'Microbial Plate', 'Potency Assay'],
       en: { sub: 'Laboratory sample chain-of-custody, pass/fail assay checks, and verifiable QR Certificates of Analysis.', stages: ['Received', 'In Assay', 'QA Review', 'COA Issued'], cols: ['Sample Batch', 'Lab Unit', 'Test Method', 'Specimens', 'Stage'], fName: 'Client & Batch ID', fOwner: 'Lab Department', fSlot: 'Assay Method', fAmt: 'Specimen Count', kpiVol: 'Tracked Specimens', dupErr: 'Duplicate batch.' },
@@ -155,7 +155,7 @@
     },
     lottrace: {
       name: 'LotTrace', unit: 'kg', unitPos: 'post', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [890, 2790, 4890], EUR: [820, 2565, 4500], LATAM: [625, 1955, 3425], AR: [490, 1535, 2690] },
+      prices: { USA: [1290, 4990, 7990], EUR: [1185, 4590, 7350], LATAM: [905, 3495, 5595], AR: [710, 2745, 4395] },
       owners: ['Cold Room A (2°C)', 'Blast Freezer (-18°C)', 'Ambient Bay 4'],
       slots: ['FSMA-204 Produce', 'Dairy Cold Chain', 'Protein Packaging', 'Dry Ingredients'],
       en: { sub: 'End-to-end food lot genealogy, cold-chain telemetry logs, and 60-second FSMA-204 mock recall.', stages: ['Received', 'In Processing', 'QA Hold', 'Released'], cols: ['Production Lot', 'Storage Zone', 'Compliance Rule', 'Batch Mass', 'Stage'], fName: 'Product & Lot Code', fOwner: 'Storage Zone', fSlot: 'Traceability Rule', fAmt: 'Batch Mass (kg)', kpiVol: 'Traceable Mass', dupErr: 'Duplicate lot.' },
@@ -168,7 +168,7 @@
     },
     tradeflow: {
       name: 'TradeFlow', unit: '$', unitPos: 'pre', maxVal: 1000000, uniqueSlot: false,
-      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
+      prices: { USA: [1190, 3890, 6290], EUR: [1095, 3580, 5785], LATAM: [835, 2725, 4405], AR: [655, 2140, 3460] },
       owners: ['Port of Houston', 'Port of Los Angeles', 'Port of Savannah'],
       slots: ['40ft FCL Ocean', '20ft Reefer FCL', 'Air Freight Express'],
       en: { sub: 'Customs brokerage files, true landed-cost breakdown, and demurrage free-day countdown alerts.', stages: ['Docs Filed', 'At Port', 'Customs Cleared', 'Delivered'], cols: ['Container / BL', 'Port of Entry', 'Mode', 'Landed Cost', 'Stage'], fName: 'Importer & Container #', fOwner: 'Port of Entry', fSlot: 'Shipping Mode', fAmt: 'Landed Cost (USD)', kpiVol: 'Active Landed Value', dupErr: 'Duplicate container.' },
@@ -181,7 +181,7 @@
     },
     clientpulse: {
       name: 'ClientPulse', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
+      prices: { USA: [690, 2190, 3490], EUR: [635, 2015, 3210], LATAM: [485, 1535, 2445], AR: [380, 1205, 1920] },
       owners: ['Pod A · Growth', 'Pod B · Brand & Web', 'Pod C · Engineering'],
       slots: ['Monthly Retainer', 'Fixed Sprint', 'Performance Audit'],
       en: { sub: 'Agency client portal, retainer burn-rate alerts, and deliverable approval tracking.', stages: ['Scoped', 'In Production', 'Client Review', 'Approved'], cols: ['Client Deliverable', 'Delivery Pod', 'Engagement', 'Retainer Value', 'Stage'], fName: 'Client & Deliverable', fOwner: 'Delivery Pod', fSlot: 'Engagement Type', fAmt: 'Retainer Value (USD)', kpiVol: 'Active Retainer MRR', dupErr: 'Duplicate deliverable.' },
@@ -194,7 +194,7 @@
     },
     subguard: {
       name: 'SubGuard', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [350, 990, 1690], EUR: [320, 910, 1555], LATAM: [245, 695, 1185], AR: [195, 545, 930] },
+      prices: { USA: [690, 2490, 3990], EUR: [635, 2290, 3670], LATAM: [485, 1745, 2795], AR: [380, 1370, 2195] },
       owners: ['Dept: Engineering', 'Dept: Sales & RevOps', 'Dept: Marketing'],
       slots: ['Annual Auto-Renew', 'Monthly Per-Seat', 'Usage Tier'],
       en: { sub: 'Corporate SaaS spend ledger, unused seat detection, and 30-day auto-renewal cancellation alerts.', stages: ['Active', 'Idle Seats Flag', 'Renegotiating', 'Savings Locked'], cols: ['SaaS Vendor', 'Department', 'Contract Term', 'Annual Spend', 'Stage'], fName: 'SaaS Vendor & Plan', fOwner: 'Department', fSlot: 'Contract Type', fAmt: 'Annual Spend (USD)', kpiVol: 'Audited Annual Spend', dupErr: 'Vendor already tracked.' },
@@ -207,7 +207,7 @@
     },
     shiftroster: {
       name: 'ShiftRoster', unit: 'h', unitPos: 'post', maxVal: 500, uniqueSlot: true,
-      prices: { USA: [290, 790, 1390], EUR: [265, 725, 1280], LATAM: [205, 555, 975], AR: [160, 435, 765] },
+      prices: { USA: [590, 1490, 2490], EUR: [545, 1370, 2290], LATAM: [415, 1045, 1745], AR: [325, 820, 1370] },
       owners: ['Site: Downtown Hotel', 'Site: Logistics Gate A', 'Site: West Clinic'],
       slots: ['Mon 06:00–14:00', 'Mon 14:00–22:00', 'Mon 22:00–06:00', 'Tue 06:00–14:00'],
       en: { sub: 'Rotating shift rosters with overlap prevention, clock-in verification, and overtime threshold alerts.', stages: ['Assigned', 'Confirmed', 'Clocked In', 'Payroll Ready'], cols: ['Staff Member', 'Work Site', 'Shift Window', 'Hours', 'Stage'], fName: 'Employee Full Name', fOwner: 'Work Site', fSlot: 'Shift Window', fAmt: 'Shift Hours', kpiVol: 'Scheduled Hours', dupErr: 'Overlap detected for that site and shift window.' },
@@ -220,7 +220,7 @@
     },
     agrofield: {
       name: 'AgroField & Stock', unit: 'ha', unitPos: 'post', maxVal: 50000, uniqueSlot: false,
-      prices: { USA: [590, 2090, 4290], EUR: [545, 1925, 3945], LATAM: [415, 1465, 3005], AR: [325, 1150, 2360] },
+      prices: { USA: [890, 2790, 4690], EUR: [820, 2565, 4315], LATAM: [625, 1955, 3285], AR: [490, 1535, 2580] },
       owners: ['North Ranch · Corn', 'River Plot · Soybeans', 'West Sector · Wheat'],
       slots: ['Seeding', 'Fertilizing', 'Spraying', 'Harvest & Grain'],
       en: { sub: 'Plot-level farm traceability, seed/chemical inventory ledger, and true net margin per hectare.', stages: ['Planned', 'In Field', 'Harvested', 'Settled'], cols: ['Plot / Campaign', 'Field Sector', 'Operation', 'Area', 'Stage'], fName: 'Plot & Campaign Name', fOwner: 'Field Sector', fSlot: 'Field Operation', fAmt: 'Hectares', kpiVol: 'Tracked Hectares', dupErr: 'Duplicate plot.' },
@@ -233,7 +233,7 @@
     },
     educampus: {
       name: 'EduCampus & Certify', unit: '%', unitPos: 'post', maxVal: 100, uniqueSlot: false,
-      prices: { USA: [450, 990, 2490], EUR: [415, 910, 2290], LATAM: [315, 695, 1745], AR: [250, 545, 1370] },
+      prices: { USA: [690, 2190, 3490], EUR: [635, 2015, 3210], LATAM: [485, 1535, 2445], AR: [380, 1205, 1920] },
       owners: ['Cohort 2026-A · Data', 'Cohort 2026-B · ESG', 'Cohort 2026-C · Cyber'],
       slots: ['Full Tuition', '25% Scholarship', 'Corporate Sponsored'],
       en: { sub: 'Academy enrollment management, attendance eligibility checks, and SHA-256 QR certificates.', stages: ['Applicant', 'Enrolled', 'Active', 'Certified'], cols: ['Student', 'Cohort', 'Tuition Plan', 'Attendance', 'Stage'], fName: 'Student Full Name', fOwner: 'Cohort', fSlot: 'Tuition Plan', fAmt: 'Attendance % (1-100)', kpiVol: 'Avg Attendance', dupErr: 'Student already enrolled.' },
@@ -246,7 +246,7 @@
     },
     ecometrics_suite: {
       name: 'EcoMetrics Suite', unit: 'tCO2e', unitPos: 'post', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [890, 2490, 3490], EUR: [820, 2290, 3210], LATAM: [625, 1745, 2445], AR: [490, 1370, 1920] },
+      prices: { USA: [1190, 3490, 5290], EUR: [1095, 3210, 4865], LATAM: [835, 2445, 3705], AR: [655, 1920, 2910] },
       owners: ['Scope 1 · Fleet & Gas', 'Scope 2 · Electricity', 'Scope 3 · Supply Chain'],
       slots: ['DEFRA 2025 Factor', 'EPA eGRID US', 'IPCC AR6 Standard'],
       en: { sub: 'Auditable Scope 1/2/3 carbon footprint accounting (177 DEFRA/IPCC factors) and QR ESG certificates.', stages: ['Data Intake', 'Calculated', 'Auditor Check', 'Certified'], cols: ['Facility / Source', 'GHG Scope', 'Factor Set', 'Emissions', 'Stage'], fName: 'Facility / Emission Source', fOwner: 'GHG Scope', fSlot: 'Emission Factor', fAmt: 'Emissions (tCO2e)', kpiVol: 'Total Footprint', dupErr: 'Source already recorded.' },
@@ -259,7 +259,7 @@
     },
     voluntarios_db: {
       name: 'VoluntariosDB', unit: 'h', unitPos: 'post', maxVal: 500, uniqueSlot: true,
-      prices: { USA: [490, 1790, 2390], EUR: [450, 1645, 2200], LATAM: [345, 1255, 1675], AR: [270, 985, 1315] },
+      prices: { USA: [590, 1790, 2690], EUR: [545, 1645, 2475], LATAM: [415, 1255, 1885], AR: [325, 985, 1480] },
       owners: ['Central Food Bank', 'Community Health Van', 'Youth Literacy Hub'],
       slots: ['Sat 08:00–12:00', 'Sat 13:00–17:00', 'Sun 09:00–13:00'],
       en: { sub: 'Multi-site nonprofit volunteer shifts, QR check-in hours, and donor-ready impact certificates.', stages: ['Assigned', 'Confirmed', 'Checked In', 'Verified'], cols: ['Volunteer', 'Site / Program', 'Shift Slot', 'Hours', 'Stage'], fName: 'Volunteer Full Name', fOwner: 'Program Site', fSlot: 'Shift Slot', fAmt: 'Verified Hours', kpiVol: 'Verified Impact Hours', dupErr: 'Volunteer shift already assigned.' },
@@ -304,16 +304,87 @@
 
   const store = {};
   const auditStore = {};
-  const tourDone = { added: false, moved: false, exported: false };
-
-  function fakeSha(str) {
-    let h = 2166136261;
-    for (let i = 0; i < str.length; i++) {
-      h ^= str.charCodeAt(i);
-      h = Math.imul(h, 16777619);
-    }
-    return ('00000000' + (h >>> 0).toString(16)).slice(-8) + 'a4f9c2e1' + ('00000000' + ((h * 31) >>> 0).toString(16)).slice(-8);
+  const tourDoneBySlug = {};
+  function getTourDone(s) {
+    if (!tourDoneBySlug[s]) tourDoneBySlug[s] = { added: false, moved: false, exported: false };
+    return tourDoneBySlug[s];
   }
+
+  /* Authentic RFC 6234 SHA-256 (64-char hex digest, zero external deps, works offline/HTTP/HTTPS) */
+  function sha256Hex(ascii) {
+    const rightRotate = (value, amount) => (value >>> amount) | (value << (32 - amount));
+    const maxWord = Math.pow(2, 32);
+    let result = '';
+    const words = [];
+    const utf8 = unescape(encodeURIComponent(String(ascii)));
+    const bitLen = utf8.length * 8;
+    const hash = sha256Hex.h || (sha256Hex.h = []);
+    const k = sha256Hex.k || (sha256Hex.k = []);
+    if (!k.length) {
+      let primeCounter = 0;
+      const isComposite = {};
+      for (let candidate = 2; primeCounter < 64; candidate++) {
+        if (!isComposite[candidate]) {
+          for (let i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+          if (primeCounter < 8) hash[primeCounter] = (Math.pow(candidate, 0.5) * maxWord) | 0;
+          k[primeCounter++] = (Math.pow(candidate, 1 / 3) * maxWord) | 0;
+        }
+      }
+    }
+    const h = hash.slice(0);
+    const padded = utf8 + '\x80';
+    let padLen = padded.length;
+    while (padLen % 64 !== 56) padLen++;
+    const msg = padded + '\x00'.repeat(padLen - padded.length);
+    for (let i = 0; i < msg.length; i++) words[i >> 2] |= msg.charCodeAt(i) << ((3 - (i % 4)) * 8);
+    words[words.length] = (bitLen / maxWord) | 0;
+    words[words.length] = bitLen | 0;
+    for (let j = 0; j < words.length;) {
+      const w = words.slice(j, (j += 16));
+      const oldH = h.slice(0);
+      for (let i = 0; i < 64; i++) {
+        const w15 = w[i - 15], w2 = w[i - 2];
+        const a = h[0], e = h[4];
+        const temp1 = h[7] + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) + ((e & h[5]) ^ (~e & h[6])) + k[i] +
+          (w[i] = i < 16 ? w[i] : (w[i - 16] + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3)) + w[i - 7] + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) | 0);
+        const temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) + ((a & h[1]) ^ (a & h[2]) ^ (h[1] & h[2]));
+        h.unshift((temp1 + temp2) | 0);
+        h[4] = (h[4] + temp1) | 0;
+        h.pop();
+      }
+      for (let i = 0; i < 8; i++) h[i] = (h[i] + oldH[i]) | 0;
+    }
+    for (let i = 0; i < 8; i++) {
+      for (let j = 3; j + 1; j--) {
+        const b = (h[i] >> (j * 8)) & 255;
+        result += (b < 16 ? '0' : '') + b.toString(16);
+      }
+    }
+    return result;
+  }
+
+  const ROI_DEFAULTS = {
+    voluntarios_db: { users: 8, saas: 18 },
+    ecometrics_suite: { users: 6, saas: 95 },
+    medflow: { users: 8, saas: 85 },
+    fleetguard: { users: 12, saas: 45 },
+    buildcost: { users: 10, saas: 75 },
+    compliancevault: { users: 8, saas: 110 },
+    agrofield: { users: 8, saas: 55 },
+    educampus: { users: 10, saas: 40 },
+    quoteflow: { users: 10, saas: 59 },
+    fixflow: { users: 6, saas: 39 },
+    rentvault: { users: 8, saas: 49 },
+    shiftroster: { users: 25, saas: 12 },
+    clientpulse: { users: 12, saas: 45 },
+    subguard: { users: 8, saas: 85 },
+    propledger: { users: 8, saas: 65 },
+    lablims: { users: 10, saas: 125 },
+    lottrace: { users: 10, saas: 110 },
+    caseledger: { users: 8, saas: 89 },
+    tradeflow: { users: 8, saas: 115 },
+    fieldops: { users: 12, saas: 69 },
+  };
 
   function ensureState(s) {
     if (!store[s]) {
@@ -327,7 +398,7 @@
     if (!auditStore[s]) {
       const ts = new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
       auditStore[s] = [
-        { ts, action: 'WORKSPACE_INIT', detail: PRODUCTS[s].name + ' initialized with verified sample dataset (' + store[s].length + ' records).', hash: fakeSha(s + ts) },
+        { ts, action: 'WORKSPACE_INIT', detail: PRODUCTS[s].name + ' initialized with verified sample dataset (' + store[s].length + ' records).', hash: sha256Hex('genesis|' + s + '|' + ts) },
       ];
     }
   }
@@ -336,7 +407,7 @@
     ensureState(slug);
     const ts = new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
     const prev = auditStore[slug][0] ? auditStore[slug][0].hash : 'genesis';
-    auditStore[slug].unshift({ ts, action, detail, hash: fakeSha(prev + action + detail + ts) });
+    auditStore[slug].unshift({ ts, action, detail, hash: sha256Hex(prev + '|' + action + '|' + detail + '|' + ts) });
   }
 
   function syncUrl() {
@@ -387,12 +458,13 @@
 
   function renderTour() {
     const isEs = lang === 'es';
-    $('step-1').textContent = (tourDone.added ? '✓ ' : '1. ') + (isEs ? 'Crear un registro' : 'Add a record');
-    $('step-1').classList.toggle('done', tourDone.added);
-    $('step-2').textContent = (tourDone.moved ? '✓ ' : '2. ') + (isEs ? 'Mover tarjeta Kanban' : 'Advance a Kanban card');
-    $('step-2').classList.toggle('done', tourDone.moved);
-    $('step-3').textContent = (tourDone.exported ? '✓ ' : '3. ') + (isEs ? 'Exportar CSV o ver Auditoría' : 'Export CSV or view Audit');
-    $('step-3').classList.toggle('done', tourDone.exported);
+    const td = getTourDone(slug);
+    $('step-1').textContent = (td.added ? '✓ ' : '1. ') + (isEs ? 'Crear o editar registro' : 'Add or edit a record');
+    $('step-1').classList.toggle('done', td.added);
+    $('step-2').textContent = (td.moved ? '✓ ' : '2. ') + (isEs ? 'Mover tarjeta Kanban' : 'Advance a Kanban card');
+    $('step-2').classList.toggle('done', td.moved);
+    $('step-3').textContent = (td.exported ? '✓ ' : '3. ') + (isEs ? 'Exportar CSV o ver SHA-256' : 'Export CSV or verify SHA-256');
+    $('step-3').classList.toggle('done', td.exported);
     $('btn-reset-demo').textContent = isEs ? 'Restaurar datos demo' : 'Reset sample data';
   }
 
@@ -582,7 +654,8 @@
     const stages = PRODUCTS[slug][lang].stages;
     const prevLbl = stages[rec.stage];
     rec.stage = next;
-    tourDone.moved = true;
+    const td = getTourDone(slug);
+    td.moved = true;
     persistSharedStore(slug);
     logAudit('STAGE_TRANSITION', rec.id + ' (' + rec.name + '): ' + prevLbl + ' → ' + stages[next]);
     toast(rec.id + ' → ' + stages[next]);
@@ -610,15 +683,16 @@
         const meta = document.createElement('div'); meta.className = 'k-card-meta'; meta.textContent = r.owner + ' · ' + r.slot;
         const foot = document.createElement('div'); foot.className = 'k-card-foot';
         const amt = document.createElement('strong'); amt.className = 'mono'; amt.style.fontSize = '0.82rem'; amt.textContent = fmtVal(r.amount, p);
-        const btns = document.createElement('div'); btns.style.display = 'flex'; btns.style.gap = '4px';
+        const btns = document.createElement('div'); btns.style.display = 'flex'; btns.style.gap = '6px'; btns.style.flexWrap = 'wrap';
         if (idx > 0) {
-          const bPrev = document.createElement('button'); bPrev.type = 'button'; bPrev.className = 'btn btn-ghost btn-sm'; bPrev.textContent = '←';
+          const bPrev = document.createElement('button'); bPrev.type = 'button'; bPrev.className = 'btn btn-secondary btn-sm';
+          bPrev.textContent = lang === 'es' ? '← Atrás' : '← Back';
           bPrev.title = lang === 'es' ? 'Retroceder etapa' : 'Move back';
           bPrev.addEventListener('click', (e) => { e.stopPropagation(); moveStage(r.id, -1); });
           btns.appendChild(bPrev);
         }
         if (idx < 3) {
-          const bNext = document.createElement('button'); bNext.type = 'button'; bNext.className = 'btn btn-secondary btn-sm';
+          const bNext = document.createElement('button'); bNext.type = 'button'; bNext.className = 'btn btn-primary btn-sm';
           bNext.textContent = lang === 'es' ? 'Avanzar →' : 'Advance →';
           bNext.addEventListener('click', (e) => { e.stopPropagation(); moveStage(r.id, 1); });
           btns.appendChild(bNext);
@@ -650,17 +724,17 @@
     });
 
     const archItems = isEs ? [
-      ['Propiedad 100% del Código y Base de Datos', 'Python 3.11 + SQLite WAL + Docker Compose. Corre en su propio servidor o entorno local sin bloqueo de proveedor.'],
-      ['Seguridad y Control de Acceso (RBAC)', 'Sesiones Bearer + protección CSRF + auditoría inmutable con hash SHA-256 y manifiesto verificable MANIFEST_SHA256.'],
-      ['Despliegue en 1 Clic o Local (Sin Tocar Docker)', 'Funciona en nube privada en 5 min (Render/Railway/VPS), local en oficina o con hosting administrado opcional ($49/mes).'],
-      ['API REST, Webhooks (Zapier/Make) y QuickBooks/Xero', 'Webhooks firmados HMAC-SHA256 hacia Zapier, Make o n8n, más exportación contable QuickBooks/Xero y Google Workspace SSO.'],
-      ['Privacidad y Soberanía de Datos', 'Ningún registro clínico, financiero o comercial abandona su infraestructura. Ideal para equipos que requieren control estricto.'],
-      ['Piloto 14 Días + Escrow 50/50 + SLA Opcional', 'Pruebe con 3 registros reales antes de abonar. Hitos 50/50 con Escrow/Upwork, 90 días de garantía y plan SLA anual opcional ($390/año).'],
+      ['Instalación Llave en Mano en Su Nube Privada (Sin Equipo IT)', 'Incluido sin cargo en SQL+Web e Híbrido: lo desplegamos en 24h en su propia cuenta Render/Railway/VPS con SSL, dominio propio y backups diarios automáticos. Nunca toca Docker.'],
+      ['Seguridad, SBOM y Auditoría Criptográfica Real (SHA-256)', 'Sesiones Bearer + CSRF + RBAC por rol + cadena SHA-256 real (64 hex RFC 6234) + manifiesto de dependencias fijas (SBOM) y 735+ tests automatizados.'],
+      ['Integraciones Listas: QuickBooks, Xero, Nómina CSV y Webhooks', 'Exportación contable/nómina en 1 clic (QuickBooks, Xero, Gusto/ADP CSV), API REST documentada y Webhooks firmados HMAC-SHA256 hacia Zapier, Make o n8n.'],
+      ['PWA Móvil + Cumplimiento Regulatorio (HIPAA / GDPR / FSMA / ISO)', 'App web instalable en celulares (iOS/Android) sin tienda. Cero telemetría externa: ningún dato clínico, legal o financiero sale de su servidor.'],
+      ['Piloto 14 Días Gratis + Escrow 50/50 + SLA Anual Opcional', 'Validación con 3 registros reales antes de abonar $1. Contratos Escrow.com/Upwork 50/50, garantía correctiva 90 días y SLA anual de parches/soporte ($390/año).'],
     ] : [
-      ['1-Click Private Cloud or Offline Self-Host', 'Zero Docker CLI required: launch on your private Render/Railway/VPS cloud in 5 min, run offline on LAN, or add optional managed hosting ($49/mo).'],
-      ['REST API, Webhooks (Zapier/Make) & QuickBooks/Xero', 'HMAC-signed webhooks for Zapier, Make, or n8n, 1-click QuickBooks Online / Xero accounting CSV export, and Google Workspace SSO support.'],
-      ['Self-Hosted Data Sovereignty & RBAC', 'Sensitive clinical, legal, or financial records never leave your infrastructure. Signed role sessions and tamper-evident audit logging included.'],
-      ['14-Day Free Pilot + 50/50 Escrow + Optional SLA', 'Validate 3 real workflow records before paying $1. 50/50 Upwork/Escrow milestones, 90-day free warranty, plus optional Annual SLA ($390/yr).'],
+      ['Done-For-You 1-Click Private Cloud Setup (Zero IT Team Required)', 'Included free with SQL+Web & Hybrid: we deploy directly onto your own Render, Railway, or VPS account in 24h with SSL, custom domain, and automated encrypted daily backups. Never touch Docker CLI.'],
+      ['Verified Security, SBOM & Authentic 64-Char SHA-256 Audit Chain', 'Bearer + CSRF + Role-Based Access Control, real RFC 6234 64-hex SHA-256 audit log, pinned dependency manifest (SBOM), and 735+ passing automated tests.'],
+      ['Plug-and-Play Integrations: QuickBooks, Xero, Payroll CSV & API', '1-click QuickBooks Online, Xero, and Payroll (Gusto/ADP) CSV exports, documented REST API, and HMAC-SHA256 signed webhooks for Zapier, Make, or n8n.'],
+      ['Mobile PWA + Regulated Compliance Ready (HIPAA / GDPR / FSMA / ISO)', 'Installable mobile web app (iOS/Android) for field & floor staff. Zero external telemetry: sensitive patient, legal, or audit data never leaves your private infrastructure.'],
+      ['Free 14-Day Private Pilot + 50/50 Escrow + Optional $390/yr SLA', 'Test with 3 real operational records before paying $1. 50/50 Upwork/Escrow.com milestones, 90-day defect warranty, and optional Annual Security & Patch SLA ($390/yr).'],
     ];
     const archEl = $('arch-list');
     archEl.replaceChildren();
@@ -672,13 +746,30 @@
     });
     const intBar = document.createElement('div');
     intBar.style.display = 'flex'; intBar.style.gap = '8px'; intBar.style.flexWrap = 'wrap'; intBar.style.marginTop = '10px';
+    const whPreview = document.createElement('pre');
+    whPreview.className = 'webhook-preview';
+    whPreview.hidden = true;
     const whBtn = document.createElement('button');
     whBtn.type = 'button'; whBtn.className = 'btn btn-secondary btn-sm';
-    whBtn.textContent = lang === 'es' ? 'Probar Webhook (Zapier/Make)' : 'Test Zapier/Make Webhook';
+    whBtn.textContent = lang === 'es' ? 'Inspeccionar Payload Webhook HMAC' : 'Inspect HMAC Webhook Payload';
     whBtn.addEventListener('click', () => {
-      logAudit('WEBHOOK_SENT', lang === 'es' ? 'Webhook HMAC-SHA256 enviado (200 OK · Zapier/Make)' : 'HMAC-SHA256 webhook dispatched (200 OK · Zapier/Make)');
-      renderAll();
-      toast(lang === 'es' ? 'Webhook firmado registrado en auditoría' : 'Signed webhook logged to audit chain');
+      const sampleRec = (store[slug] && store[slug][0]) || { id: 'REC-101', name: 'Sample', amount: 100 };
+      const payloadObj = {
+        event: 'record.stage_updated',
+        product: slug,
+        timestamp: new Date().toISOString(),
+        record: { id: sampleRec.id, name: sampleRec.name, owner: sampleRec.owner, amount: sampleRec.amount, stage: sampleRec.stage },
+      };
+      const rawJson = JSON.stringify(payloadObj, null, 2);
+      const sig = sha256Hex('demo-webhook-secret|' + rawJson);
+      whPreview.textContent =
+        `// Sandbox preview (no external HTTP request sent from browser)\n` +
+        `POST https://your-endpoint.example.com/webhooks/kreta\n` +
+        `X-Kreta-Signature: sha256=${sig}\n\n` +
+        rawJson;
+      whPreview.hidden = false;
+      logAudit('WEBHOOK_PAYLOAD_PREVIEWED', (lang === 'es' ? 'Payload JSON + firma SHA-256 (64 hex) inspeccionados para ' : 'JSON payload + 64-hex SHA-256 signature inspected for ') + sampleRec.id);
+      toast(lang === 'es' ? 'Payload HMAC-SHA256 real generado abajo' : 'Real HMAC-SHA256 payload preview rendered below');
     });
     const qbBtn = document.createElement('button');
     qbBtn.type = 'button'; qbBtn.className = 'btn btn-secondary btn-sm';
@@ -703,8 +794,52 @@
       renderAll();
       toast(lang === 'es' ? 'CSV contable QuickBooks descargado' : 'QuickBooks CSV downloaded');
     });
-    intBar.append(whBtn, qbBtn);
-    archEl.appendChild(intBar);
+    const ddBtn = document.createElement('button');
+    ddBtn.type = 'button'; ddBtn.className = 'btn btn-primary btn-sm';
+    ddBtn.textContent = lang === 'es' ? 'Descargar Pack Due-Diligence & Compliance (JSON)' : 'Download Compliance & Due-Diligence Pack (JSON)';
+    ddBtn.addEventListener('click', () => {
+      const pack = {
+        vendor: 'Kreta Software (Andres Francisco Mazzuferi)',
+        product: PRODUCTS[slug].name,
+        slug,
+        generated_at_utc: new Date().toISOString(),
+        deployment_modes: ['Done-For-You 1-Click Private Cloud (Render/Railway/VPS - Zero IT required)', 'On-Premise LAN / Docker Compose', 'Google Sheets + Apps Script'],
+        security_posture: {
+          telemetry: 'ZERO external telemetry or phone-home',
+          data_residency: '100% customer-owned private infrastructure (HIPAA/GDPR/FSMA/ISO self-hosted ready)',
+          authentication: 'Signed Bearer sessions + CSRF protection + Role-Based Access Control (RBAC)',
+          audit_trail: 'Authentic RFC 6234 64-hex SHA-256 hash chain',
+          automated_tests_verified: '735+ pytest + browser E2E checks',
+          sbom_policy: 'Pinned dependency manifests + MANIFEST_SHA256.txt in every delivery ZIP',
+        },
+        commercial_guarantees: {
+          license: 'Perpetual commercial source-code ownership (LICENSE_COMERCIAL.md) + Day-1 Private GitHub Repo Transfer to customer org',
+          continuity: 'Zero vendor-ghosting risk: standard Python 3.11 + SQL + 735+ automated tests maintainable by any in-house or freelance engineer',
+          migration: 'Free white-glove historical CSV migration from spreadsheets, Clio, Fleetio, CargoWise, ServiceTitan, or legacy exports',
+          escrow: '50/50 milestone protection via Escrow.com or Upwork',
+          pilot: '14-day free private pilot with 3 real customer records',
+          warranty: '90-day corrective defect warranty included',
+          optional_sla: '$390/year optional Priority 4h-Response Security Patches & Support SLA (no forced lock-in)',
+        },
+        vertical_connectors: {
+          rentvault: 'PWA mobile camera QR/barcode check-in/out + offline warehouse sync + serialized maintenance logs',
+          fleetguard: 'Samsara/Geotab/Motive ELD telematics CSV & webhook bridge + 1-click DOT Audit Binder export',
+          ecometrics_suite: 'GHG Protocol / CSRD Scope 1-3 audit-ready certificate generator + ERP CSV/REST API',
+          quoteflow: 'Multi-tier gross-margin guardrails + Epicor/SAP/QuickBooks/Xero CSV & REST API connectors',
+        }[slug] || 'Documented REST API + HMAC-SHA256 webhooks (Zapier/Make/n8n) + QuickBooks/Xero/Payroll CSV exports',
+        latest_audit_chain_head: (auditStore[slug] && auditStore[slug][0]) || null,
+      };
+      const blob = new Blob([JSON.stringify(pack, null, 2)], { type: 'application/json;charset=utf-8;' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `${slug}_due_diligence_compliance_pack.json`;
+      a.click();
+      logAudit('COMPLIANCE_PACK_EXPORTED', lang === 'es' ? 'Pack técnico Due-Diligence & SBOM descargado' : 'Technical Due-Diligence & SBOM Compliance Pack downloaded');
+      renderAll();
+      toast(lang === 'es' ? 'Pack Due-Diligence & Compliance descargado' : 'Due-Diligence & Compliance Pack downloaded');
+    });
+    intBar.append(ddBtn, whBtn, qbBtn);
+    archEl.append(intBar, whPreview);
   }
 
   function renderStagePills() {
@@ -727,16 +862,95 @@
     });
   }
 
-  function openDrawer(id) {
+  function openDrawer(id, editMode) {
     const rec = store[slug].find((r) => r.id === id);
     if (!rec) return;
     drawerId = id;
     const p = PRODUCTS[slug];
     const t = p[lang];
     const isEs = lang === 'es';
-    $('drw-title').textContent = rec.id + ' — ' + rec.name;
+    $('drw-title').textContent = (editMode ? (isEs ? 'Editar — ' : 'Edit — ') : '') + rec.id + ' · ' + rec.name;
     const body = $('drw-body');
     body.replaceChildren();
+
+    if (editMode) {
+      const form = document.createElement('form');
+      form.style.display = 'grid'; form.style.gap = '12px';
+      const errBanner = document.createElement('div');
+      errBanner.className = 'form-banner';
+      form.appendChild(errBanner);
+
+      const mkField = (lbl, el) => {
+        const d = document.createElement('div'); d.className = 'field';
+        const l = document.createElement('label'); l.textContent = lbl;
+        d.append(l, el);
+        return d;
+      };
+      const inpName = document.createElement('input'); inpName.type = 'text'; inpName.value = rec.name; inpName.required = true;
+      const selOwner = document.createElement('select');
+      p.owners.forEach((o) => { const op = document.createElement('option'); op.value = o; op.textContent = o; if (o === rec.owner) op.selected = true; selOwner.appendChild(op); });
+      const selSlot = document.createElement('select');
+      p.slots.forEach((s) => { const op = document.createElement('option'); op.value = s; op.textContent = s; if (s === rec.slot) op.selected = true; selSlot.appendChild(op); });
+      const inpAmt = document.createElement('input'); inpAmt.type = 'number'; inpAmt.step = 'any'; inpAmt.min = '1'; inpAmt.value = String(rec.amount);
+      const selStage = document.createElement('select');
+      t.stages.forEach((st, i) => { const op = document.createElement('option'); op.value = String(i); op.textContent = st; if (i === rec.stage) op.selected = true; selStage.appendChild(op); });
+      const inpNotes = document.createElement('textarea'); inpNotes.value = rec.notes || '';
+
+      form.append(
+        mkField(t.fName, inpName),
+        mkField(t.fOwner, selOwner),
+        mkField(t.fSlot, selSlot),
+        mkField(t.fAmt, inpAmt),
+        mkField(isEs ? 'Etapa' : 'Stage', selStage),
+        mkField(isEs ? 'Notas' : 'Notes', inpNotes),
+      );
+
+      const btnRow = document.createElement('div');
+      btnRow.style.display = 'flex'; btnRow.style.gap = '8px'; btnRow.style.justifyContent = 'flex-end';
+      const bCancel = document.createElement('button'); bCancel.type = 'button'; bCancel.className = 'btn btn-secondary';
+      bCancel.textContent = isEs ? 'Cancelar' : 'Cancel';
+      bCancel.addEventListener('click', () => openDrawer(rec.id, false));
+      const bSave = document.createElement('button'); bSave.type = 'submit'; bSave.className = 'btn btn-primary';
+      bSave.textContent = isEs ? 'Guardar cambios' : 'Save changes';
+      btnRow.append(bCancel, bSave);
+      form.appendChild(btnRow);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nm = inpName.value.trim();
+        const amt = Number(inpAmt.value);
+        if (nm.length < 2 || !Number.isFinite(amt) || amt <= 0 || amt > p.maxVal) {
+          errBanner.textContent = isEs ? 'Verifique nombre y monto válido.' : 'Please check name and valid amount.';
+          errBanner.className = 'form-banner show err';
+          return;
+        }
+        if (p.uniqueSlot) {
+          const norm = (x) => String(x).toLowerCase().replace(/[^a-z0-9]/g, '');
+          const clash = store[slug].some((r) => r.id !== rec.id && norm(r.owner) === norm(selOwner.value) && norm(r.slot) === norm(selSlot.value));
+          if (clash) {
+            errBanner.textContent = t.dupErr;
+            errBanner.className = 'form-banner show err';
+            return;
+          }
+        }
+        rec.name = nm;
+        rec.owner = selOwner.value;
+        rec.slot = selSlot.value;
+        rec.amount = amt;
+        rec.stage = Number(selStage.value);
+        rec.notes = inpNotes.value.trim();
+        persistSharedStore(slug);
+        logAudit('RECORD_UPDATED', rec.id + ' (' + rec.name + ' · ' + rec.owner + ' · ' + fmtVal(rec.amount, p) + ') updated.');
+        toast(isEs ? 'Registro actualizado: ' + rec.id : 'Record updated: ' + rec.id);
+        renderAll();
+        openDrawer(rec.id, false);
+      });
+
+      body.appendChild(form);
+      $('detail-drawer').hidden = false;
+      inpName.focus();
+      return;
+    }
 
     const meta = document.createElement('div');
     meta.style.display = 'grid'; meta.style.gap = '10px'; meta.style.marginBottom = '16px';
@@ -756,6 +970,11 @@
 
     const acts = document.createElement('div');
     acts.style.display = 'flex'; acts.style.flexWrap = 'wrap'; acts.style.gap = '8px';
+    const bEdit = document.createElement('button'); bEdit.type = 'button'; bEdit.className = 'btn btn-primary';
+    bEdit.textContent = isEs ? 'Editar registro' : 'Edit record';
+    bEdit.addEventListener('click', () => openDrawer(rec.id, true));
+    acts.appendChild(bEdit);
+
     if (rec.stage > 0) {
       const b1 = document.createElement('button'); b1.type = 'button'; b1.className = 'btn btn-secondary';
       b1.textContent = isEs ? '← Etapa anterior' : '← Previous stage';
@@ -763,7 +982,7 @@
       acts.appendChild(b1);
     }
     if (rec.stage < 3) {
-      const b2 = document.createElement('button'); b2.type = 'button'; b2.className = 'btn btn-primary';
+      const b2 = document.createElement('button'); b2.type = 'button'; b2.className = 'btn btn-secondary';
       b2.textContent = isEs ? 'Avanzar etapa →' : 'Advance stage →';
       b2.addEventListener('click', () => moveStage(rec.id, 1));
       acts.appendChild(b2);
@@ -772,6 +991,7 @@
     bDel.textContent = isEs ? 'Eliminar registro' : 'Delete record';
     bDel.addEventListener('click', () => {
       store[slug] = store[slug].filter((x) => x.id !== rec.id);
+      persistSharedStore(slug);
       logAudit('RECORD_DELETED', rec.id + ' (' + rec.name + ') removed from workspace.');
       $('detail-drawer').hidden = true; drawerId = null;
       toast(isEs ? 'Registro eliminado.' : 'Record deleted.');
@@ -815,6 +1035,21 @@
     };
     fillSel($('f-owner'), p.owners);
     fillSel($('f-slot'), p.slots);
+    if (p.uniqueSlot) {
+      const norm = (x) => String(x).toLowerCase().replace(/[^a-z0-9]/g, '');
+      let found = false;
+      for (const ow of p.owners) {
+        for (const sl of p.slots) {
+          if (!store[slug].some((r) => norm(r.owner) === norm(ow) && norm(r.slot) === norm(sl))) {
+            $('f-owner').value = ow;
+            $('f-slot').value = sl;
+            found = true;
+            break;
+          }
+        }
+        if (found) break;
+      }
+    }
     const stSel = $('f-stage'); stSel.replaceChildren();
     t.stages.forEach((st, i) => { const o = document.createElement('option'); o.value = String(i); o.textContent = st; stSel.appendChild(o); });
 
@@ -921,7 +1156,7 @@
     a.href = URL.createObjectURL(blob);
     a.download = slug + '_export.csv';
     document.body.appendChild(a); a.click(); a.remove();
-    tourDone.exported = true;
+    getTourDone(slug).exported = true;
     logAudit('CSV_EXPORT', 'Exported ' + store[slug].length + ' records to ' + slug + '_export.csv');
     toast(lang === 'es' ? 'CSV exportado correctamente.' : 'CSV exported successfully.');
     renderAll();
@@ -929,7 +1164,7 @@
 
   function setView(v) {
     activeView = v;
-    if (v === 'audit') tourDone.exported = true;
+    if (v === 'audit') getTourDone(slug).exported = true;
     document.querySelectorAll('.ws-view').forEach((sec) => { sec.hidden = sec.id !== 'view-' + v; });
     document.querySelectorAll('.nav-item[data-view]').forEach((btn) => {
       btn.setAttribute('aria-current', btn.dataset.view === v ? 'page' : 'false');
@@ -962,6 +1197,12 @@
     });
   }
 
+  function applyRoiDefaultsForSlug(s) {
+    const d = ROI_DEFAULTS[s] || { users: 10, saas: 49 };
+    $('sl-users').value = String(d.users);
+    $('sl-saas').value = String(d.saas);
+  }
+
   function switchProduct(nextSlug) {
     if (!PRODUCTS[nextSlug]) return;
     slug = nextSlug;
@@ -971,6 +1212,7 @@
     $('detail-drawer').hidden = true;
     drawerId = null;
     $('prod-select').value = slug;
+    applyRoiDefaultsForSlug(slug);
     syncUrl();
     renderAll();
   }
@@ -1067,9 +1309,9 @@
       const prefix = slug.slice(0, 3).toUpperCase();
       const baseNum = 500 + store[slug].length;
       const samples = [
-        { name: isEs ? 'Importación Excel #1 — Cuenta Prioritaria' : 'Excel Import #1 — Priority Account', stage: 0, mult: 1.0 },
-        { name: isEs ? 'Importación Excel #2 — Operación Activa' : 'Excel Import #2 — Active Workflow', stage: 1, mult: 1.35 },
-        { name: isEs ? 'Importación Excel #3 — Cierre Validado' : 'Excel Import #3 — Verified Closeout', stage: 3, mult: 0.85 },
+        { name: isEs ? 'Lote Q4 — Operación Prioritaria' : 'Q4 Batch — Priority Case', stage: 0, mult: 1.0 },
+        { name: isEs ? 'Lote Q4 — Seguimiento Activo' : 'Q4 Batch — Active Review', stage: 1, mult: 1.35 },
+        { name: isEs ? 'Lote Q4 — Cierre Validado' : 'Q4 Batch — Verified Closeout', stage: 3, mult: 0.85 },
       ];
       const baseAmt = Math.max(10, Math.round((p.seed[0] && p.seed[0].amount) || 150));
       samples.forEach((sm, i) => {
@@ -1080,10 +1322,10 @@
           slot: p.slots[(i + 2) % p.slots.length],
           amount: Math.min(p.maxVal, Math.max(1, Math.round(baseAmt * sm.mult))),
           stage: sm.stage,
-          notes: isEs ? 'Migrado desde Excel/CSV en 1 clic sin errores.' : 'Migrated from Excel/CSV in 1 click with zero errors.',
+          notes: isEs ? 'Migrado desde planilla CSV en 1 clic sin errores.' : 'Imported cleanly from CSV spreadsheet in 1 click.',
         });
       });
-      tourDone.added = true;
+      getTourDone(slug).added = true;
       persistSharedStore(slug);
       logAudit('EXCEL_IMPORT', '3 records imported cleanly from spreadsheet simulation.');
       toast(isEs ? '3 filas importadas desde Excel — KPIs actualizados' : '3 Excel rows imported — KPIs & charts updated');
@@ -1091,7 +1333,7 @@
     });
   }
   $('btn-export-csv').addEventListener('click', exportCsv);
-  $('btn-print').addEventListener('click', () => { tourDone.exported = true; renderTour(); window.print(); });
+  $('btn-print').addEventListener('click', () => { getTourDone(slug).exported = true; renderTour(); window.print(); });
   $('btn-reset-demo').addEventListener('click', () => {
     delete store[slug]; delete auditStore[slug]; stageFilter = null; searchQuery = '';
     try {
@@ -1189,7 +1431,7 @@
     const prefix = slug.slice(0, 3).toUpperCase();
     const newId = prefix + '-' + (100 + store[slug].length + Math.floor(Math.random() * 800));
     store[slug].unshift({ id: newId, name, owner, slot, amount, stage, notes });
-    tourDone.added = true;
+    getTourDone(slug).added = true;
     persistSharedStore(slug);
     logAudit('RECORD_CREATED', newId + ' (' + name + ' · ' + owner + ' · ' + fmtVal(amount, p) + ') saved.');
     $('modal-new').hidden = true;
@@ -1198,6 +1440,7 @@
   });
 
   populateHeaderSelects();
+  applyRoiDefaultsForSlug(slug);
   syncUrl();
   renderAll();
 })();
