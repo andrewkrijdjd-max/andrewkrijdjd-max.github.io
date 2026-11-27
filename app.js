@@ -1,886 +1,687 @@
 (function () {
   'use strict';
 
-  var WA_NUMBER = '5493518119981';
-  var EMAIL = 'andrewkrijdjd@gmail.com';
-
-  // Single global international USD price list (no public regional switcher)
-  var PRODUCTS = [
+  const PRODUCTS = [
     {
-      sku: 'MED',
-      slug: 'medflow',
-      cat: 'ops',
-      saasPerUserMonth: 40,
-      name: 'MedFlow',
-      demoUrl: 'medflow.kreta.app',
-      sector: { en: 'Clinics & Medical Practices', es: 'Clínicas y Consultorios' },
-      headline: {
-        en: 'End double-booked appointments and keep every patient record private.',
-        es: 'Terminá con los turnos superpuestos y protegé las historias clínicas de tu equipo.'
-      },
-      bullets: {
-        en: [
-          'Multi-provider calendar that prevents scheduling conflicts',
-          'Private clinical notes visible only to doctors and admins',
-          'Itemized patient billing & appointment reminder queue'
-        ],
-        es: [
-          'Agenda multi-profesional que evita choques de horarios',
-          'Historias clínicas privadas solo para médicos y admins',
-          'Facturación por prestación y cola de recordatorios'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 790 },
-        { key: 'sql_web', price: 2490 },
-        { key: 'hibrido', price: 4290 }
-      ]
+      slug: 'medflow', img: 'medflow', cat: 'core', name: 'MedFlow / ClinicOps',
+      editions: [{ key: 'sheets', price: 790 }, { key: 'sql_web', price: 2490 }, { key: 'hibrido', price: 4290 }],
+      prices: { USA: [790, 2490, 4290], EUR: [730, 2290, 3950], LATAM: [550, 1740, 3000], AR: [430, 1370, 2360] },
+      en: { desc: 'Multi-provider clinic scheduling, restricted clinical records, and visit billing without per-practitioner SaaS subscriptions.', inv: 'Enforces overlap-free appointments (HTTP 409), role-based medical notes, and instant invoicing.' },
+      es: { desc: 'Agenda clínica multi-profesional, historia clínica con roles y facturación de consultas sin abonos mensuales por profesional.', inv: 'Bloqueo estricto de turnos superpuestos (HTTP 409), notas por rol y liquidación inmediata.' },
     },
     {
-      sku: 'FLT',
-      slug: 'fleetguard',
-      cat: 'ops',
-      saasPerUserMonth: 45,
-      name: 'FleetGuard',
-      demoUrl: 'fleetguard.kreta.app',
-      sector: { en: 'Trucking & Commercial Fleets', es: 'Flotas y Transporte' },
-      headline: {
-        en: 'Know your real fuel cost per mile and never miss an inspection again.',
-        es: 'Conocé tu costo real de combustible por km y no pierdas nunca un vencimiento.'
-      },
-      bullets: {
-        en: [
-          'Fuel log analytics with instant cost-per-distance tracking',
-          'In-house workshop maintenance orders & mileage validation',
-          'Automatic 30-day alerts for DOT/inspections, insurance & PM'
-        ],
-        es: [
-          'Cargas de combustible con consumo y costo por km automático',
-          'Órdenes de taller propio y validación real de odómetros',
-          'Alertas automáticas a 30 días de VTV, seguros y service'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 890 },
-        { key: 'sql_web', price: 2990 },
-        { key: 'hibrido', price: 4990 }
-      ]
+      slug: 'buildcost', img: 'buildcost', cat: 'core', name: 'BuildCost Pro',
+      editions: [{ key: 'sheets', price: 990 }, { key: 'sql_web', price: 3490 }, { key: 'hibrido', price: 5990 }],
+      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [690, 2440, 4190], AR: [545, 1920, 3290] },
+      en: { desc: 'Line-item construction job costing, subcontractor variance tracking, and capped progress certifications.', inv: 'Automatically blocks progress draws exceeding budgeted line balances and highlights margin drift.' },
+      es: { desc: 'Control presupuestario por rubro de obra, gastos de subcontratistas y certificaciones de avance con tope automático.', inv: 'Bloquea sobrecertificaciones que exceden el presupuesto y detecta desvíos de margen en tiempo real.' },
     },
     {
-      sku: 'BLD',
-      slug: 'buildcost',
-      cat: 'field',
-      saasPerUserMonth: 55,
-      name: 'BuildCost',
-      demoUrl: 'buildcost.kreta.app',
-      sector: { en: 'Construction & Remodeling', es: 'Constructoras y Obras' },
-      headline: {
-        en: 'Stop losing margin to surprise subcontractor bills and over-billing.',
-        es: 'Frená los sobrecostos de obra y controlá certificaciones y subcontratistas.'
-      },
-      bullets: {
-        en: [
-          'Line-item job budgets that automatically recalculate totals',
-          'Progress billing cap that blocks over-certification past 100%',
-          'Instant budget vs. actual overrun report per project'
-        ],
-        es: [
-          'Presupuesto de obra por partidas con cálculo total automático',
-          'Tope automático que impide certificar más del 100% previsto',
-          'Reporte inmediato de desvío real vs. presupuestado por obra'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 990 },
-        { key: 'sql_web', price: 3490 },
-        { key: 'hibrido', price: 5990 }
-      ]
+      slug: 'fleetguard', img: 'fleetguard', cat: 'core', name: 'FleetGuard & LogiTrack',
+      editions: [{ key: 'sheets', price: 890 }, { key: 'sql_web', price: 2990 }, { key: 'hibrido', price: 4990 }],
+      prices: { USA: [890, 2990, 4990], EUR: [820, 2750, 4590], LATAM: [620, 2090, 3490], AR: [490, 1640, 2740] },
+      en: { desc: 'Preventive maintenance schedules, expiring DOT/compliance documents, shop orders, and fuel cost tracking per unit.', inv: 'Validates odometer continuity, flags overdue service intervals, and surfaces fuel anomalies per vehicle.' },
+      es: { desc: 'Mantenimiento preventivo, vencimientos de documentación, órdenes de taller y control de combustible por unidad.', inv: 'Valida continuidad de odómetro, alerta services vencidos y detecta desvíos de consumo por vehículo.' },
     },
     {
-      sku: 'CMP',
-      slug: 'compliancevault',
-      cat: 'esg',
-      saasPerUserMonth: 50,
-      name: 'ComplianceVault',
-      demoUrl: 'compliance.kreta.app',
-      sector: { en: 'ISO 27001 & SOC 2 Audits', es: 'Auditorías ISO y SOC 2' },
-      headline: {
-        en: 'Stay audit-ready all year without scrambling through scattered folders.',
-        es: 'Pasá auditorías ISO 27001 y SOC 2 sin correr detrás de carpetas sueltas.'
-      },
-      bullets: {
-        en: [
-          'Clear control coverage dashboard & live risk scoring matrix',
-          'Protected evidence vault with tamper-proof cryptographic proof',
-          'One-click PDF audit packet ready for external assessors'
-        ],
-        es: [
-          'Tablero claro de cobertura de controles y matriz de riesgos',
-          'Bóveda de evidencias protegida contra alteraciones (SHA-256)',
-          'Reporte PDF de auditoría en 1 clic listo para evaluadores'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 990 },
-        { key: 'sql_web', price: 2490 },
-        { key: 'hibrido', price: 4490 }
-      ]
+      slug: 'compliancevault', img: 'compliancevault', cat: 'core', name: 'ComplianceVault ISO/SOC2',
+      editions: [{ key: 'sheets', price: 990 }, { key: 'sql_web', price: 2490 }, { key: 'hibrido', price: 4490 }],
+      prices: { USA: [990, 2490, 4490], EUR: [910, 2290, 4130], LATAM: [690, 1740, 3140], AR: [545, 1370, 2470] },
+      en: { desc: 'Audit-ready control register, risk matrix, regulatory permits, and timestamped evidence packages for ISO 27001 / SOC 2.', inv: 'Generates verifiable SHA-256 audit reports and monitors expiring permits and control ownership.' },
+      es: { desc: 'Matriz de controles y riesgos, habilitaciones regulatorias y repositorio de evidencias para auditorías ISO / SOC2.', inv: 'Emite informes de auditoría verificables con SHA-256 y alerta vencimientos críticos.' },
     },
     {
-      sku: 'ECO',
-      slug: 'ecometrics',
-      cat: 'esg',
-      saasPerUserMonth: 42,
-      name: 'EcoMetrics',
-      demoUrl: 'ecometrics.kreta.app',
-      sector: { en: 'ESG & Carbon Reporting', es: 'ESG y Huella de Carbono' },
-      headline: {
-        en: 'Deliver audit-ready carbon reports your clients and funders trust.',
-        es: 'Generá reportes auditables de huella de carbono con tu propia marca.'
-      },
-      bullets: {
-        en: [
-          'Scope 1–3 carbon & sustainability calculators (177 official factors)',
-          '100% white-label with your logo, domain, and custom brand colors',
-          'Verifiable PDF certificates with scannable QR authenticity check'
-        ],
-        es: [
-          'Calculadoras Alcance 1–3 y sostenibilidad (177 factores oficiales)',
-          '100% marca blanca con tu logo, colores y encabezados propios',
-          'Certificados PDF con código QR público de verificación'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 1050 },
-        { key: 'sql', price: 1750 },
-        { key: 'sheets_web', price: 2370 },
-        { key: 'sql_web', price: 2895 },
-        { key: 'hibrido', price: 3510 }
-      ]
+      slug: 'agrofield', img: 'agrofield', cat: 'core', name: 'AgroField & Stock',
+      editions: [{ key: 'sheets', price: 690 }, { key: 'sql_web', price: 2640 }, { key: 'hibrido', price: 5720 }],
+      prices: { USA: [690, 2640, 5720], EUR: [635, 2510, 5435], LATAM: [485, 1850, 4005], AR: [380, 1450, 3145] },
+      en: { desc: 'Agricultural input inventory, field application logs, harvest receipts, and true net margin per lot and season.', inv: 'Links chemical/seed stock directly to field activities and harvest income for per-acre profitability.' },
+      es: { desc: 'Control de stock de insumos, labores agrícolas, cartas de porte y margen neto real por lote y campaña.', inv: 'Vincula cada movimiento de insumo y labor con el rinde de cosecha para calcular margen real por hectárea.' },
     },
     {
-      sku: 'AGR',
-      slug: 'agrofield',
-      cat: 'field',
-      saasPerUserMonth: 35,
-      name: 'AgroField',
-      demoUrl: 'agrofield.kreta.app',
-      sector: { en: 'Farms & Agronomy', es: 'Agro y Acopios' },
-      headline: {
-        en: 'See exact net profit per acre/hectare across every field and harvest.',
-        es: 'Conocé tu margen neto real por hectárea en cada lote y cosecha.'
-      },
-      bullets: {
-        en: [
-          'Input inventory control that prevents stock errors and negative balances',
-          'Track field operations, labor costs, and harvest delivery tickets',
-          'Automatic net profitability breakdown for every parcel'
-        ],
-        es: [
-          'Control real de stock de insumos sin negativos ni errores de unidad',
-          'Seguimiento de labores, costos de campo y cartas de porte',
-          'Cálculo automático de rentabilidad neta por cada lote'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 690 },
-        { key: 'sql_web', price: 2640 },
-        { key: 'hibrido', price: 5720 }
-      ]
+      slug: 'educampus', img: 'educampus', cat: 'core', name: 'EduCampus & Certify',
+      editions: [{ key: 'sheets', price: 590 }, { key: 'sql_web', price: 1240 }, { key: 'hibrido', price: 3990 }],
+      prices: { USA: [590, 1240, 3990], EUR: [545, 1180, 3670], LATAM: [415, 870, 2790], AR: [325, 680, 2190] },
+      en: { desc: 'Cohort enrollment, attendance eligibility thresholds, scholarship/tuition balances, and QR-verified certificates.', inv: 'Enforces minimum attendance and payment clearance before issuing tamper-evident PDF credentials.' },
+      es: { desc: 'Gestión de cohortes, asistencias mínimas, becas/cuotas y emisión de certificados PDF con validación QR pública.', inv: 'Verifica porcentaje mínimo de asistencia y saldo antes de emitir cada certificado verificable.' },
     },
     {
-      sku: 'EDU',
-      slug: 'educampus',
-      cat: 'edu',
-      saasPerUserMonth: 28,
-      name: 'EduCampus',
-      demoUrl: 'educampus.kreta.app',
-      sector: { en: 'Academies & Training', es: 'Academias e Institutos' },
-      headline: {
-        en: 'Automate student attendance, tuition tracking, and QR-verified diplomas.',
-        es: 'Automatizá asistencias, cuotas/becas y diplomas PDF verificables por QR.'
-      },
-      bullets: {
-        en: [
-          'Cohorts, attendance rules, and scholarship-adjusted balances',
-          'Automatic check blocking diplomas until requirements are met',
-          'Instant PDF certificates with public employer QR verification'
-        ],
-        es: [
-          'Cohortes, reglas de asistencia mínima y control de becas/pagos',
-          'Bloqueo automático de diplomas si falta asistencia o aprobación',
-          'Certificados PDF instantáneos con validación pública por QR'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 590 },
-        { key: 'sql_web', price: 1240 },
-        { key: 'hibrido', price: 3990 }
-      ]
+      slug: 'quoteflow', img: 'quoteflow', cat: 'smb', name: 'QuoteFlow',
+      prices: { USA: [450, 1290, 2190], EUR: [415, 1185, 2015], LATAM: [315, 905, 1535], AR: [250, 710, 1205] },
+      en: { desc: 'Structured B2B quoting with enforced gross-margin floors, approval workflows, and weighted close pipeline.', inv: 'Automatically blocks quotes below minimum margin threshold and exports QR-verified PDF proposals.' },
+      es: { desc: 'Cotizador B2B con piso obligatorio de margen bruto, aprobaciones y pipeline ponderado de cierre.', inv: 'Bloquea presupuestos debajo del margen mínimo configurado y emite PDFs con verificación QR.' },
     },
     {
-      sku: 'VOL',
-      slug: 'voluntariosdb',
-      cat: 'edu',
-      saasPerUserMonth: 26,
-      name: 'VoluntariosDB',
-      demoUrl: 'voluntarios.kreta.app',
-      sector: { en: 'Nonprofits & Universities', es: 'ONGs y Universidades' },
-      headline: {
-        en: 'Track volunteers, event shifts, and QR check-in hours in one place.',
-        es: 'Centralizá voluntarios, cupos de eventos y horas acreditadas con QR.'
-      },
-      bullets: {
-        en: [
-          'Volunteer directory, event capacities, and instant QR check-in',
-          'Automatic cumulative hour reports ready for grants & donors',
-          'Includes both lightweight Web Portal and PostgreSQL 16 schema'
-        ],
-        es: [
-          'Directorio de voluntarios, cupos de jornadas y check-in QR',
-          'Cálculo automático de horas listo para donantes y universidades',
-          'Incluye portal web inmediato y base enterprise PostgreSQL 16'
-        ]
-      },
-      editions: [
-        { key: 'sheets', price: 610 },
-        { key: 'sql', price: 1050 },
-        { key: 'sheets_web', price: 1930 },
-        { key: 'sql_web', price: 2370 },
-        { key: 'hibrido', price: 2720 }
-      ]
-    }
+      slug: 'fixflow', img: 'fixflow', cat: 'smb', name: 'FixFlow',
+      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
+      en: { desc: 'Repair shop and service workshop work orders, parts markup tracking, SLA turnaround alerts, and pickup receipts.', inv: 'Tracks repair turnaround time (TAT), parts margin, and customer pickup verification via QR.' },
+      es: { desc: 'Órdenes de taller mecánico o servicio técnico, margen de repuestos, alertas de plazo SLA y comprobante QR.', inv: 'Mide tiempo de reparación (TAT), controla rentabilidad de repuestos y valida entregas al cliente.' },
+    },
+    {
+      slug: 'rentvault', img: 'rentvault', cat: 'smb', name: 'RentVault',
+      prices: { USA: [450, 1290, 2290], EUR: [415, 1185, 2105], LATAM: [315, 905, 1605], AR: [250, 710, 1260] },
+      en: { desc: 'Equipment, audiovisual, and event inventory rentals with conflict-free date reservations and asset ROI analytics.', inv: 'Strict date-overlap lock (HTTP 409) prevents double bookings while measuring utilization per asset.' },
+      es: { desc: 'Alquiler de equipos, maquinaria y eventos con reservas sin solapamiento y análisis de retorno por activo.', inv: 'Bloqueo estricto de doble reserva por fechas (HTTP 409) y medición real de utilización y ROI.' },
+    },
+    {
+      slug: 'shiftroster', img: 'shiftroster', cat: 'smb', name: 'ShiftRoster',
+      prices: { USA: [390, 990, 1790], EUR: [360, 910, 1645], LATAM: [275, 695, 1255], AR: [215, 545, 985] },
+      en: { desc: 'Conflict-free employee shift rosters with real-time overtime, weekend, and night-differential cost previews.', inv: 'Prevents overlapping staff assignments (HTTP 409) and calculates payroll surcharge impact upfront.' },
+      es: { desc: 'Planificación de turnos sin superposiciones con cálculo inmediato de horas extras y recargos nocturnos.', inv: 'Impide asignar doble turno simultáneo (HTTP 409) y proyecta el costo laboral antes de liquidar.' },
+    },
+    {
+      slug: 'clientpulse', img: 'clientpulse', cat: 'smb', name: 'ClientPulse',
+      prices: { USA: [450, 1390, 2390], EUR: [415, 1280, 2200], LATAM: [315, 975, 1675], AR: [250, 765, 1315] },
+      en: { desc: 'Agency and studio project portal with formal client deliverable sign-offs before invoicing and scope-creep tracking.', inv: 'Enforces documented client approval gate (HTTP 409) before billing and isolates out-of-scope requests.' },
+      es: { desc: 'Portal de proyectos para agencias y estudios con aprobación formal de entregables antes de facturar.', inv: 'Exige conformidad registrada del cliente antes de facturar (HTTP 409) y cuantifica trabajo fuera de alcance.' },
+    },
+    {
+      slug: 'subguard', img: 'subguard', cat: 'smb', name: 'SubGuard',
+      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
+      en: { desc: 'Software license and vendor renewal register that exposes unused seats and 12-month recurring spend leaks.', inv: 'Validates active-vs-paid seat limits and flags upcoming auto-renewals ahead of billing dates.' },
+      es: { desc: 'Control centralizado de suscripciones, licencias ociosas y alertas tempranas de renovación anual.', inv: 'Controla licencias activas vs contratadas y anticipa renovaciones automáticas para recortar gasto fijo.' },
+    },
+    {
+      slug: 'propledger', img: 'propledger', cat: 'enterprise', name: 'PropLedger',
+      prices: { USA: [790, 2690, 4690], EUR: [725, 2475, 4315], LATAM: [555, 1885, 3285], AR: [435, 1480, 2580] },
+      en: { desc: 'Commercial and residential property portfolio ledger with compound rent indexation, NOI, and Cap Rate modeling.', inv: 'Enforces one active lease per unit (HTTP 409) with auditable NOI and escalation schedules.' },
+      es: { desc: 'Administración de propiedades y contratos con ajuste compuesto por índice, NOI y Cap Rate auditables.', inv: 'Garantiza un único contrato activo por unidad (HTTP 409) y calcula rentabilidad neta en tiempo real.' },
+    },
+    {
+      slug: 'lablims', img: 'lablims', cat: 'enterprise', name: 'LabLIMS',
+      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [695, 2445, 4195], AR: [545, 1920, 3295] },
+      en: { desc: 'Analytical laboratory sample chain of custody, statistical Z-score outlier flags, and instant QR-verified COAs.', inv: 'Tracks every sample handoff, flags statistical anomalies, and generates verifiable PDF Certificates of Analysis.' },
+      es: { desc: 'Gestión de laboratorio con cadena de custodia de muestras, alertas de desvíos Z-score y COA PDF con QR.', inv: 'Registra custodia completa, señala anomalías estadísticas y emite certificados de análisis verificables.' },
+    },
+    {
+      slug: 'lottrace', img: 'lottrace', cat: 'enterprise', name: 'LotTrace',
+      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [695, 2445, 4195], AR: [545, 1920, 3295] },
+      en: { desc: 'Food, pharma, and cold-chain batch traceability with FEFO expiry ordering, mass balance, and instant recall tree.', inv: 'Enforces First-Expired-First-Out dispatch and traces raw-to-finished batch lineage in seconds.' },
+      es: { desc: 'Trazabilidad de lotes para alimentos y farma con despacho FEFO, balance de masa y recall instantáneo.', inv: 'Ordena salidas por vencimiento más próximo y reconstruye la genealogía completa de cualquier lote.' },
+    },
+    {
+      slug: 'caseledger', img: 'caseledger', cat: 'enterprise', name: 'CaseLedger',
+      prices: { USA: [890, 2990, 5290], EUR: [820, 2750, 4865], LATAM: [625, 2095, 3705], AR: [490, 1645, 2910] },
+      en: { desc: 'Law firm matter docket, fatal court deadline alerts, billable WIP hours, and case risk provisioning.', inv: 'Prioritizes critical statutory deadlines and links attorney WIP time directly to matter billing.' },
+      es: { desc: 'Gestión de expedientes jurídicos, alertas de plazos fatales, horas WIP facturables y provisión de riesgo.', inv: 'Prioriza vencimientos procesales críticos y vincula horas trabajadas con la facturación por causa.' },
+    },
+    {
+      slug: 'tradeflow', img: 'tradeflow', cat: 'enterprise', name: 'TradeFlow',
+      prices: { USA: [990, 3690, 6290], EUR: [910, 3395, 5785], LATAM: [695, 2585, 4405], AR: [545, 2030, 3460] },
+      en: { desc: 'Import/export landed-cost allocation (CIF, freight, duties, brokerage) per SKU with true net margin preview.', inv: 'Prorates shipment duties and logistics fees across every SKU before commercial pricing is locked.' },
+      es: { desc: 'Prorrateo exacto de costo nacionalizado (CIF, flete, seguro, aranceles) por SKU y margen neto por embarque.', inv: 'Distribuye costos de importación por artículo antes de fijar listas de precios comerciales.' },
+    },
+    {
+      slug: 'fieldops', img: 'fieldops', cat: 'enterprise', name: 'FieldOps',
+      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
+      en: { desc: 'Field service dispatch, P1/P2/P3 SLA compliance, MTTR/FTFR metrics, and closeout-verified invoicing.', inv: 'Blocks invoicing until documented field closeout is recorded (HTTP 409) and monitors response SLAs.' },
+      es: { desc: 'Despacho de técnicos en campo, control SLA P1/P2/P3, métricas MTTR/FTFR y bloqueo de factura sin cierre.', inv: 'Impide facturar visitas sin parte de cierre conformado (HTTP 409) y audita tiempos de respuesta.' },
+    },
+    {
+      slug: 'ecometrics_suite', img: 'ecometrics', cat: 'impact', name: 'EcoMetrics Suite',
+      prices: { USA: [1050, 2895, 3510], EUR: [960, 2630, 3160], LATAM: [695, 2015, 2365], AR: [520, 1485, 1750] },
+      en: { desc: 'Auditable Scope 1–3 carbon footprint, industrial sustainability scoring, and SHA-256 environmental certificates.', inv: 'Applies documented emissions factors with full formula transparency and instant PDF certificates.' },
+      es: { desc: 'Huella de carbono auditable, índice de sustentabilidad industrial y certificados ambientales con hash SHA-256.', inv: 'Aplica factores de emisión trazables con fórmulas abiertas y emisión inmediata de certificados PDF.' },
+    },
+    {
+      slug: 'voluntarios_db', img: 'voluntariosdb', cat: 'impact', name: 'VoluntariosDB',
+      prices: { USA: [610, 2370, 2720], EUR: [570, 2190, 2455], LATAM: [430, 1660, 1840], AR: [340, 1220, 1310] },
+      en: { desc: 'Nonprofit volunteer roster, verified shift hours, donor impact reporting, and verifiable service certificates.', inv: 'Centralizes volunteer participation logs and exports donor-ready hours and attendance certificates.' },
+      es: { desc: 'Gestión integral de voluntariado, horas verificadas por programa, reportes a donantes y constancias oficiales.', inv: 'Centraliza turnos y horas servidas con trazabilidad completa para rendición de cuentas.' },
+    },
   ];
 
-  var EDITION_META = {
-    sheets: {
-      en: ['Google Sheets Starter', 'Automated Sheets + Apps Script workflows'],
-      es: ['Inicial Google Sheets', 'Planillas pro automatizadas con Apps Script']
-    },
-    sql: {
-      en: ['SQL Database + API', 'PostgreSQL schema, triggers & REST API'],
-      es: ['Base SQL + API', 'Esquema PostgreSQL, triggers y API REST']
-    },
-    sheets_web: {
-      en: ['Sheets + Web Portal', 'Branded web frontend synced to Sheets'],
-      es: ['Sheets + Portal Web', 'Portal web propio conectado a Google Sheets']
-    },
-    sql_web: {
-      en: ['Complete Web App (Most Popular)', 'Full web portal, user roles, SQL database & Docker'],
-      es: ['App Web Completa (Más elegida)', 'Portal web completo, roles, base SQL y Docker']
-    },
-    hibrido: {
-      en: ['All-in-One Hybrid', 'Web Portal + SQL database + Google Sheets sync'],
-      es: ['Paquete Híbrido Total', 'Portal web + base SQL + sincronización Sheets']
-    }
-  };
+  const FEATURED_SLUGS = ['medflow', 'buildcost', 'quoteflow', 'propledger', 'lablims'];
 
-  var I18N = {
+  const I18N = {
     en: {
       skip_link: 'Skip to main content',
-      nav_platforms: 'Platforms',
-      nav_samples: 'Samples',
-      nav_process: 'How it works',
+      nav_catalog: 'Catalog (20)',
+      nav_demo: 'Interactive Demo',
+      nav_savings: 'Own vs. Rent',
+      nav_samples: 'PDF Samples',
+      nav_process: 'Delivery',
       nav_faq: 'FAQ',
-      nav_contact: 'Contact',
-      nav_cta: 'Book a demo',
-      hero_tag: 'Pay once · Own 100% of your software & data',
-      hero_h1: 'Software built for your business—without monthly subscriptions.',
-      hero_lead: 'Replace messy spreadsheets and expensive per-user SaaS bills with a ready-to-run system you actually own. Test a live demo first, pay by milestones, and keep the full source code and database forever.',
-      hero_cta_1: 'See all 8 systems',
-      hero_cta_2: 'Compare plans & demo',
-      m_1: 'Working systems ready today',
-      m_2: 'Safe milestone payments',
-      m_3: 'Recurring software fees',
-      calc_title: 'Own vs. Rent: 3-Year Savings Calculator',
-      calc_sub: 'Compare any edition (Google Sheets, SQL, Web Portal, or Hybrid) against typical monthly SaaS subscriptions.',
-      calc_ind_lbl: 'Platform',
-      calc_ed_lbl: 'Edition',
-      calc_team_lbl: 'Team size',
-      tick_1: '5–15 (1.0×)',
-      tick_2: '16–35 (1.25×)',
-      tick_3: '36–60+ (1.5×)',
-      calc_saas_lbl: 'Typical SaaS (36 months)',
-      calc_save_lbl: 'Estimated 3-year savings',
-      calc_inspect: 'See this plan',
-      cat_h2: 'Real working software—ready for your team',
-      cat_sub: 'Every preview below is a real screen from the working application. Click any platform to compare Google Sheets, Web Portal, and Hybrid editions.',
-      f_all: 'All platforms (8)',
-      f_ops: 'Clinics & Fleets',
-      f_field: 'Construction & Agro',
-      f_esg: 'ESG & Compliance',
-      f_edu: 'Education & Nonprofits',
-      sheets_lbl: 'Google Sheets',
-      webapp_lbl: 'Full Web App',
-      view_btn: 'Demo & pricing',
-      cust_h3: 'Need custom fields, integrations, or a system built around your spreadsheet?',
-      cust_p: 'We adapt any platform to your logo, terminology, and workflow—or quote a dedicated system with the same one-time ownership model.',
-      cust_wa: 'Chat on WhatsApp',
-      cust_gm: 'Open in Gmail',
-      flow_h2: 'How buying works—simple and zero risk',
-      flow_sub: 'You test the real software before paying anything, approve a clear written quote, and own 100% of what we deliver.',
-      st1_h: 'Test a live demo first',
-      st1_p: 'We walk you through the working web app or Google Sheets system with sample data so your team can see every screen firsthand.',
-      st2_h: 'Approve your closed PDF quote',
-      st2_p: 'You receive a fixed-scope PDF proposal listing exact features, timeline, and one-time investment—zero hidden fees or surprise renewals.',
-      st3_h: 'Pay by milestones & own it forever',
-      st3_p: 'Pay 50% to start and 50% on handover (or 40/30/30 via Payoneer USD ACH, Escrow, or Binance Pay USDT with 5% off) and keep full code & data.',
-      faq_h2: 'Questions buyers ask most',
-      faq_sub: 'Straightforward answers on ownership, setup, team scaling, and payments.',
-      q1_q: 'Are there really zero monthly fees after I buy?',
-      q1_a: 'Yes. You pay once and receive the complete source code, database, and spreadsheet templates under your company\'s ownership. No recurring seat licenses ever.',
-      q2_q: 'Does the price change if my team grows?',
-      q2_a: 'Initial implementation is sized by organization tier (up to 15 users, 16–35 users, or 36+ users) so setup and onboarding match your complexity. Once delivered, you own the software with zero per-user monthly charges.',
-      q3_q: 'Where is our data stored? Do you control our hosting?',
-      q3_a: 'Your data stays 100% under your control. Every system ships ready to run in 1 command on your own server, cloud account (AWS, Google Cloud, Render, VPS), or local office computer—you never depend on us for hosting.',
-      q4_q: 'How do payments work internationally?',
-      q4_a: 'We work in safe milestones (50/50 or 40/30/30). You can pay via Payoneer (USD ACH), freelance Escrow (Upwork/Freelancer), or Binance Pay / USDT (which includes an instant 5% prompt-payment discount).',
-      q5_q: 'Can we start with Google Sheets and upgrade later?',
-      q5_a: 'Yes. You can launch with the Google Sheets Edition today and upgrade to the full Web Portal + SQL Edition whenever you are ready.',
-      ct_pill: 'Direct with engineering · Fast reply',
-      ct_h2: 'Ready to see your system running live?',
-      ct_lead: 'Kreta Software is led by Andrés Francisco Mazzuferi (Software & Data Engineer · CUIT 20-43812534-6), working remotely with businesses across the US, Europe, and Latin America. Message us on WhatsApp or Gmail and we will send a tailored demo walkthrough and closed PDF quote.',
-      ct_btn_wa: 'Message on WhatsApp',
-      ct_btn_gm: 'Compose in Gmail',
-      ct_btn_copy: 'Copy email',
-      st_card_h: 'Every Kreta Software delivery includes',
-      st_l1: '100% source code & database ownership—zero lock-in',
-      st_l2: '1-command Docker deployment + setup guide for your team',
-      st_l3: 'Verified quality (730+ automated & real-browser tests)',
-      smp_h2: 'Inspect real outputs before you even talk to us',
-      smp_sub: 'Download authentic PDFs generated directly by our systems (100% synthetic sample data) and see exactly what ships inside every SHA-256 verified delivery ZIP.',
-      smp1_h: 'Executive Fixed-Scope Proposal',
-      smp1_p: 'Sample one-time quote with 50/50 milestones, -5% Binance Pay USDT option, scope & acceptance criteria.',
-      smp2_h: 'EcoMetrics Carbon Certificate',
-      smp2_p: 'White-label Scope 1–3 carbon certificate with vector QR verification and canonical SHA-256 integrity hash.',
-      smp3_h: 'ComplianceVault Audit Report',
-      smp3_p: 'Assessor-ready audit packet summarizing control coverage, immutable evidence counts, and QR verification.',
-      smp4_h: 'EduCampus Verified Diploma',
-      smp4_p: 'Tamper-evident academic diploma with public verification code and zero-PII employer check.',
-      smp_dl: 'Open Sample PDF',
-      zip_h: "What's inside every SHA-256 delivery ZIP",
-      zip_1: 'Full Source Code (Python / Web / SQL)',
-      zip_2: '1-Command Docker Compose + .env.example',
-      zip_3: 'MANIFEST_SHA256.txt Integrity Proof',
-      zip_4: 'Perpetual Commercial Ownership License',
-      zip_5: '2-Minute White-Label & EN/ES Setup Guide',
-      zip_6: 'Zero Real Data · Zero Hardcoded Secrets',
-      st_l4: 'Safe milestones · Payoneer ACH · Binance USDT (-5%) · Escrow',
-      dr_features: 'What your team gets',
-      dr_tier: '1. Organization size',
-      tier_1: 'Up to 15 users (1.0×)',
-      tier_2: '16–35 users (1.25×)',
-      tier_3: '36+ users (1.5×)',
-      dr_editions: '2. Choose edition (one-time)',
-      dr_usdt: 'Apply 5% prompt-payment discount (Binance Pay / USDT)',
-      dr_total_lbl: 'One-time investment',
-      dr_total_note: '0 monthly fees · Full code yours',
-      dr_cta_wa: 'Request live demo on WhatsApp',
-      dr_cta_gm: 'Open in Gmail',
-      dr_cta_copy: 'Copy inquiry',
-      users_word: 'users',
-      tier_name_1: 'Standard',
-      tier_name_2: 'Growing Team',
-      tier_name_3: 'Scale',
-      split_fmt: 'Milestones: {half} to start · {half} on delivery',
-      copied_email: 'Email copied: andrewkrijdjd@gmail.com',
-      copied_inquiry: 'Inquiry summary copied to clipboard'
+      nav_cta: 'Request Proposal',
+      region_label: 'Pricing region',
+      hero_pill: '20 production systems ready for deployment',
+      hero_h1: 'Operational software built to own, not rent every month.',
+      hero_lead: 'Replace fragile spreadsheets and compounding per-seat SaaS subscriptions with a complete operational platform delivered under a single one-time fee. Full source code, SQL database, and Google Sheets editions included.',
+      hero_cta_demo: 'Launch 60s Interactive Demo',
+      hero_cta_catalog: 'Explore all 20 systems',
+      trust_1: '100% source code & data ownership',
+      trust_2: 'Safe 50/50 milestone delivery',
+      trust_3: 'Zero recurring seat fees',
+      hero_try_this: 'Open interactive sandbox',
+      proof_1: 'Production-ready vertical systems',
+      proof_2: 'Mandatory software subscription fees',
+      proof_3: 'Editions: Sheets, Web+SQL, or Hybrid',
+      proof_4: 'Milestone payments after live verification',
+      cat_h2: 'Complete 20-System Portfolio',
+      cat_sub: 'Every preview below is captured directly from the running application. Select your region to view exact one-time ownership pricing across all three editions.',
+      search_label: 'Search systems',
+      search_ph: 'Search by industry, workflow, or system name…',
+      cat_all: 'All (20)',
+      cat_core: 'Core Operations (6)',
+      cat_smb: 'Fast SMB (6)',
+      cat_ent: 'High-Margin Verticals (6)',
+      cat_impact: 'ESG & Nonprofits (2)',
+      family_core: 'Core Operations',
+      family_smb: 'Fast SMB',
+      family_enterprise: 'High-Margin',
+      family_impact: 'ESG & Nonprofit',
+      btn_compare: 'Compare editions',
+      btn_demo: 'Live 60s demo',
+      price_from_lbl: 'One-time ownership',
+      price_zero_lbl: '$0/mo recurring',
+      calc_h2: 'Own vs. Rent: 36-Month Total Cost Analysis',
+      calc_sub: 'Compare one-time software ownership against typical per-user monthly SaaS subscriptions over three years.',
+      calc_prod_lbl: 'Operational System',
+      calc_ed_lbl: 'Delivery Edition',
+      ed_sheets: 'Google Sheets Automation',
+      ed_sqlweb: 'SQL + Web Portal',
+      ed_hybrid: 'Hybrid (Web + SQL + Sheets)',
+      calc_users_lbl: 'Active team seats',
+      calc_seat_lbl: 'Comparable SaaS cost / seat / month',
+      calc_bar_saas: 'Typical SaaS (36 months)',
+      calc_bar_own: 'Kreta One-Time Ownership',
+      calc_save_lbl: 'Projected 3-year net savings',
+      calc_btn_demo: 'Try 60s demo',
+      calc_btn_inspect: 'Inspect editions',
+      samples_h2: 'Verified PDF Deliverables & Audit Artifacts',
+      samples_sub: 'Inspect real PDF outputs generated directly by our systems—complete with cryptographic verification hashes and structured executive summaries.',
+      smp_1_t: 'Executive Commercial Proposal',
+      smp_1_d: 'Sample fixed-scope proposal detailing deliverables, exclusions, acceptance criteria, and 50/50 milestone terms.',
+      smp_2_t: 'ComplianceVault ISO/SOC2 Audit Report',
+      smp_2_d: 'Control register, risk matrix summary, and timestamped evidence verification log.',
+      smp_3_t: 'EcoMetrics Carbon Footprint Certificate',
+      smp_3_d: 'Scope 1–3 emissions calculation output with traceable factor disclosure and verification code.',
+      smp_4_t: 'EduCampus Verifiable QR Certificate',
+      smp_4_d: 'Issued student credential tied to attendance eligibility with public QR verification.',
+      smp_open: 'Open PDF sample',
+      proc_h2: 'Fixed-Scope Delivery Process',
+      proc_sub: 'Clear milestones, live verification before payment, and full code handover.',
+      p1_t: 'Interactive Verification',
+      p1_d: 'Test the 60-second browser demo or request three sample records tailored to your workflow at no cost before committing.',
+      p2_t: 'Scope & Edition Selection',
+      p2_d: 'Select Google Sheets, SQL + Web Portal, or Hybrid. Written proposal defines exact scope, acceptance criteria, and one-time fee.',
+      p3_t: 'Milestone Build & Customization',
+      p3_d: 'Branding, roles, business thresholds, and regional rules are configured and verified against your acceptance checklist (50/50 milestones).',
+      p4_t: 'Complete Ownership Handover',
+      p4_d: 'Receive the full verified package (source code, SQL schema, Docker setup, SHA-256 manifest, and documentation) with zero recurring fees.',
+      faq_h2: 'Frequently Asked Questions',
+      q1: 'Is this genuinely a one-time payment with no recurring license fees?',
+      a1: 'Yes. Every edition is delivered as a closed fixed-scope project under a single one-time fee (typically split 50/50 across milestones). There are no mandatory monthly subscriptions, per-user seat fees, or automatic renewals.',
+      q2: 'Where does the software run and who owns the database?',
+      a2: 'You retain 100% ownership of the source code and database. It runs locally, on your own server via Docker, or on any cloud host you contract directly—never locked inside a third-party SaaS vendor.',
+      q3: 'Can we start with the Google Sheets edition and upgrade later?',
+      a3: 'Yes. Any Google Sheets edition can be upgraded to SQL + Web Portal or Hybrid later with 100% of your initial payment credited toward the upgrade.',
+      q4: 'What support or maintenance is available after delivery?',
+      a4: 'Each delivery includes a corrective warranty for defects within the agreed scope at zero cost. Optional future changes or maintenance are handled strictly on demand via fixed work orders or a prepaid 5-hour pack valid for 12 months—never recurring retainers.',
+      q5: 'Which payment methods are accepted internationally?',
+      a5: 'US/EU B2B bank transfer (ACH USD / SEPA EUR via Payoneer/DolarApp), escrow via Upwork/Fiverr, local bank transfer with invoice in Argentina, or USDT / Binance Pay (with a 5% early-payment discount).',
+      ct_h2: 'Evaluate a system with your own operational examples.',
+      ct_sub: 'Share your industry and current workflow. We can provide direct access to an interactive preview or prepare three sample records tailored to your operation—with no obligation and no sales call required.',
+      ct_email: 'Request Demo / Proposal via Email',
+      ct_copy: 'Copy Email (andrewkrijdjd@gmail.com)',
+      ct_copied: 'Copied: andrewkrijdjd@gmail.com',
+      ft_note: 'Fixed-scope operational software · One-time ownership · Zero recurring SaaS fees',
+      m_demo: 'Launch 60s Interactive Demo',
+      m_quote: 'Request Formal Proposal',
+      ed_note_sheets: 'Automated Sheets + scripts · 100% credited on upgrade',
+      ed_note_sql: 'Complete web app + SQL + Docker + RBAC + PDF reports',
+      ed_note_hyb: 'Full Web + SQL + Sheets sync + priority onboarding',
     },
     es: {
       skip_link: 'Saltar al contenido principal',
-      nav_platforms: 'Plataformas',
+      nav_catalog: 'Catálogo (20)',
+      nav_demo: 'Demo Interactiva',
+      nav_savings: 'Comprar vs. Alquilar',
       nav_samples: 'Muestras PDF',
-      nav_process: 'Cómo funciona',
+      nav_process: 'Entrega',
       nav_faq: 'Preguntas',
-      nav_contact: 'Contacto',
-      nav_cta: 'Pedir demo',
-      hero_tag: 'Pago único · 100% propiedad del código y tus datos',
-      hero_h1: 'Software hecho para tu empresa—sin suscripciones mensuales.',
-      hero_lead: 'Reemplazá planillas desordenadas y cuotas caras por usuario con un sistema listo para usar que es realmente tuyo. Probás la demo primero, pagás por hitos y te quedás con todo el código.',
-      hero_cta_1: 'Ver los 8 sistemas',
-      hero_cta_2: 'Comparar planes y demo',
-      m_1: 'Sistemas reales listos hoy',
-      m_2: 'Pagos seguros por hitos',
-      m_3: 'Cuotas mensuales obligatorias',
-      calc_title: 'Comprar vs. Alquilar: Ahorro en 3 años',
-      calc_sub: 'Compará cualquier modalidad (Google Sheets, SQL, App Web o Híbrido) contra un SaaS mensual tradicional.',
-      calc_ind_lbl: 'Plataforma',
-      calc_ed_lbl: 'Modalidad',
-      calc_team_lbl: 'Tamaño de tu equipo',
-      tick_1: '5–15 (1.0×)',
-      tick_2: '16–35 (1.25×)',
-      tick_3: '36–60+ (1.5×)',
-      calc_saas_lbl: 'SaaS tradicional (36 meses)',
-      calc_save_lbl: 'Ahorro estimado en 3 años',
-      calc_inspect: 'Ver este plan',
-      cat_h2: 'Software real funcionando—listo para tu equipo',
-      cat_sub: 'Cada vista previa de abajo es una pantalla real de la aplicación funcionando. Hacé clic en cualquiera para comparar Google Sheets, App Web e Híbrido.',
-      f_all: 'Todas (8)',
-      f_ops: 'Clínicas y Flotas',
-      f_field: 'Obras y Agro',
-      f_esg: 'ESG y Auditoría',
-      f_edu: 'Educación y ONGs',
-      sheets_lbl: 'Google Sheets',
-      webapp_lbl: 'App Web Completa',
-      view_btn: 'Ver demo y precios',
-      cust_h3: '¿Necesitás campos a medida, integraciones o pasar tu planilla a sistema propio?',
-      cust_p: 'Adaptamos cualquier plataforma con tu logo, flujo y reportes—o cotizamos un desarrollo dedicado bajo el mismo esquema de pago único.',
-      cust_wa: 'Hablar por WhatsApp',
-      cust_gm: 'Abrir en Gmail',
-      flow_h2: 'Cómo comprar—simple y sin riesgo',
-      flow_sub: 'Primero probás la demo real, después aprobás una propuesta PDF cerrada y al finalizar te quedás con el 100% del código.',
-      st1_h: 'Probá una demo real primero',
-      st1_p: 'Te mostramos el portal web o las planillas funcionando con datos de prueba para que tu equipo valide cada pantalla.',
-      st2_h: 'Aprobá tu propuesta PDF cerrada',
-      st2_p: 'Recibís alcance exacto, plazos e inversión por pago único por escrito—cero costos ocultos ni renovaciones.',
-      st3_h: 'Pagá por hitos y quedate con todo',
-      st3_p: 'Pagás 50% al iniciar y 50% al entregar (o 40/30/30 vía Payoneer USD ACH, Escrow o Binance Pay USDT con 5% OFF) y el código es tuyo para siempre.',
-      faq_h2: 'Preguntas frecuentes de clientes',
-      faq_sub: 'Respuestas claras sobre propiedad, instalación, crecimiento del equipo y pagos.',
-      q1_q: '¿Realmente no hay cuotas mensuales después de comprar?',
-      q1_a: 'Exacto. Pagás una sola vez y recibís el código fuente completo, la base de datos y las plantillas a nombre de tu empresa. Cero licencias mensuales por usuario.',
-      q2_q: '¿El precio varía según el tamaño del equipo?',
-      q2_a: 'La implementación inicial se dimensiona por tramo de organización (hasta 15, 16–35 o 36+ usuarios) según complejidad y puesta en marcha. Una vez entregado, no hay cuotas recurrentes por usuario.',
-      q3_q: '¿Dónde quedan nuestros datos? ¿Ustedes controlan el servidor?',
-      q3_a: 'Tus datos son 100% tuyos. Cada sistema viene listo para levantar en 1 comando en tu propio servidor, nube (AWS, Google Cloud, Render, VPS) o red interna, sin depender de nosotros.',
-      q4_q: '¿Cómo se pagan los proyectos internacionalmente?',
-      q4_a: 'Se trabaja en hitos seguros (50/50 o 40/30/30). Aceptamos Payoneer (USD ACH), Escrow de plataformas y Binance Pay / USDT (con 5% de descuento inmediato).',
-      q5_q: '¿Podemos empezar con Google Sheets y pasar a App Web después?',
-      q5_a: 'Sí. Podés arrancar hoy con la Edición Google Sheets y escalar al Portal Web + SQL cuando tu operación lo necesite.',
-      ct_pill: 'Trato directo con ingeniería · Respuesta rápida',
-      ct_h2: '¿Querés ver tu sistema funcionando en vivo?',
-      ct_lead: 'Kreta Software es dirigido por Andrés Francisco Mazzuferi (Ingeniero de Software y Datos · CUIT 20-43812534-6), trabajando en remoto para empresas de EE. UU., Europa y Latinoamérica. Escribinos por WhatsApp o Gmail y te enviamos una demo personalizada y propuesta PDF.',
-      ct_btn_wa: 'Escribir por WhatsApp',
-      ct_btn_gm: 'Redactar en Gmail',
-      ct_btn_copy: 'Copiar email',
-      st_card_h: 'Cada entrega de Kreta Software incluye',
-      st_l1: '100% propiedad del código fuente y base de datos—sin lock-in',
-      st_l2: 'Despliegue Docker en 1 comando + guía clara de puesta en marcha',
-      st_l3: 'Calidad verificada (730+ pruebas automatizadas y en navegador real)',
-      smp_h2: 'Inspeccioná entregables reales antes de hablar con nosotros',
-      smp_sub: 'Descargá PDFs auténticos generados directamente por nuestros sistemas (100% datos sintéticos) y revisá qué incluye cada ZIP verificable con SHA-256.',
-      smp1_h: 'Propuesta Comercial Ejecutiva',
-      smp1_p: 'Ejemplo real de cotización cerrada por pago único, hitos 50/50, opción -5% Binance Pay USDT y criterios de aceptación.',
-      smp2_h: 'Certificado de Carbono EcoMetrics',
-      smp2_p: 'Certificado white-label Alcance 1–3 con QR vectorial de verificación pública y hash criptográfico SHA-256.',
-      smp3_h: 'Reporte de Auditoría ComplianceVault',
-      smp3_p: 'Informe listo para auditores externos con cobertura de controles, evidencias inmutables y QR verificable.',
-      smp4_h: 'Diploma Verificable EduCampus',
-      smp4_p: 'Certificado académico anti-alteración con código público de verificación y cero PII expuesto.',
-      smp_dl: 'Abrir PDF de muestra',
-      zip_h: 'Qué trae adentro cada ZIP de entrega verificado (SHA-256)',
-      zip_1: 'Código fuente completo (Python / Web / SQL)',
-      zip_2: 'Docker Compose en 1 comando + .env.example',
-      zip_3: 'Prueba criptográfica MANIFEST_SHA256.txt',
-      zip_4: 'Licencia comercial de propiedad perpetua',
-      zip_5: 'Guía rápida White-Label y EN/ES (2 min)',
-      zip_6: 'Cero datos reales · Cero secretos hardcodeados',
-      st_l4: 'Hitos seguros · Payoneer ACH · Binance USDT (-5%) · Escrow',
-      dr_features: 'Qué resuelve para tu equipo',
-      dr_tier: '1. Tamaño de la organización',
-      tier_1: 'Hasta 15 usuarios (1.0×)',
-      tier_2: '16–35 usuarios (1.25×)',
-      tier_3: '36+ usuarios (1.5×)',
-      dr_editions: '2. Elegí modalidad (pago único)',
-      dr_usdt: 'Aplicar 5% de descuento pronto pago (Binance Pay / USDT)',
-      dr_total_lbl: 'Inversión de pago único',
-      dr_total_note: '0 cuotas mensuales · Código 100% tuyo',
-      dr_cta_wa: 'Pedir demo en vivo por WhatsApp',
-      dr_cta_gm: 'Abrir en Gmail',
-      dr_cta_copy: 'Copiar consulta',
-      users_word: 'usuarios',
-      tier_name_1: 'Estándar',
-      tier_name_2: 'En crecimiento',
-      tier_name_3: 'Escala',
-      split_fmt: 'Hitos: {half} al inicio · {half} a la entrega',
-      copied_email: 'Email copiado: andrewkrijdjd@gmail.com',
-      copied_inquiry: 'Consulta copiada al portapapeles'
-    }
+      nav_cta: 'Solicitar Propuesta',
+      region_label: 'Región tarifaria',
+      hero_pill: '20 sistemas operativos listos para implementar',
+      hero_h1: 'Software operativo diseñado para ser propio, no alquilado mes a mes.',
+      hero_lead: 'Reemplace planillas frágiles y suscripciones SaaS por usuario con una plataforma completa entregada bajo un único pago. Incluye código fuente completo, base de datos SQL y modalidad Google Sheets.',
+      hero_cta_demo: 'Abrir Demo Interactiva (60s)',
+      hero_cta_catalog: 'Explorar los 20 sistemas',
+      trust_1: '100% propiedad del código y los datos',
+      trust_2: 'Entrega segura por hitos 50/50',
+      trust_3: 'Cero cuotas mensuales por usuario',
+      hero_try_this: 'Abrir sandbox interactivo',
+      proof_1: 'Sistemas verticales listos para operar',
+      proof_2: 'Cuotas mensuales obligatorias',
+      proof_3: 'Modalidades: Sheets, Web+SQL o Híbrido',
+      proof_4: 'Pagos por hitos tras verificación en vivo',
+      cat_h2: 'Portafolio Completo de 20 Sistemas',
+      cat_sub: 'Cada vista previa corresponde a una captura real del sistema en ejecución. Seleccione su región para consultar las tarifas exactas de pago único en las tres modalidades.',
+      search_label: 'Buscar sistemas',
+      search_ph: 'Buscar por industria, flujo o nombre del sistema…',
+      cat_all: 'Todos (20)',
+      cat_core: 'Operaciones Core (6)',
+      cat_smb: 'PyME Rápida (6)',
+      cat_ent: 'Verticales Alto Margen (6)',
+      cat_impact: 'ESG y ONG (2)',
+      family_core: 'Operación Core',
+      family_smb: 'PyME Rápida',
+      family_enterprise: 'Alto Margen',
+      family_impact: 'ESG / ONG',
+      btn_compare: 'Comparar modalidades',
+      btn_demo: 'Demo en vivo (60s)',
+      price_from_lbl: 'Licencia pago único',
+      price_zero_lbl: '$0/mes recurrente',
+      calc_h2: 'Comprar vs. Alquilar: Análisis de Costo a 36 Meses',
+      calc_sub: 'Compare la adquisición por pago único frente al costo acumulado de una suscripción SaaS mensual por usuario durante tres años.',
+      calc_prod_lbl: 'Sistema Operativo',
+      calc_ed_lbl: 'Modalidad de Entrega',
+      ed_sheets: 'Automatización Google Sheets',
+      ed_sqlweb: 'Portal Web + Base SQL',
+      ed_hybrid: 'Híbrido (Web + SQL + Sheets)',
+      calc_users_lbl: 'Usuarios activos del equipo',
+      calc_seat_lbl: 'Costo SaaS comparable / usuario / mes',
+      calc_bar_saas: 'SaaS tradicional (36 meses)',
+      calc_bar_own: 'Propiedad Pago Único Kreta',
+      calc_save_lbl: 'Ahorro neto estimado en 3 años',
+      calc_btn_demo: 'Probar demo 60s',
+      calc_btn_inspect: 'Ver modalidades',
+      samples_h2: 'Muestras PDF Verificadas y Reportes de Auditoría',
+      samples_sub: 'Revise documentos PDF reales generados directamente por nuestros sistemas, con verificación criptográfica y resúmenes ejecutivos.',
+      smp_1_t: 'Propuesta Comercial Ejecutiva',
+      smp_1_d: 'Ejemplo de propuesta cerrada con alcance, exclusiones, criterios de aceptación y pagos por hitos 50/50.',
+      smp_2_t: 'Informe de Auditoría ComplianceVault',
+      smp_2_d: 'Registro de controles ISO/SOC2, matriz de riesgos y evidencias con sello temporal.',
+      smp_3_t: 'Certificado de Huella EcoMetrics',
+      smp_3_d: 'Cálculo de emisiones Alcance 1–3 con factores trazables y código de verificación.',
+      smp_4_t: 'Certificado QR Verificable EduCampus',
+      smp_4_d: 'Credencial académica emitida según elegibilidad de asistencia con verificación QR pública.',
+      smp_open: 'Abrir muestra PDF',
+      proc_h2: 'Proceso de Entrega Cerrado',
+      proc_sub: 'Hitos claros, verificación previa en vivo y transferencia total del código.',
+      p1_t: 'Verificación Interactiva',
+      p1_d: 'Pruebe la demo en navegador de 60 segundos o solicite tres casos de ejemplo adaptados a su operación sin cargo.',
+      p2_t: 'Alcance y Modalidad',
+      p2_d: 'Seleccione Google Sheets, Web + SQL o Híbrido. La propuesta escrita fija alcance, criterios de aceptación y precio único.',
+      p3_t: 'Configuración por Hitos',
+      p3_d: 'Se adaptan marca, roles, reglas de negocio y umbrales sobre su checklist de aceptación (hitos 50/50).',
+      p4_t: 'Entrega en Propiedad Total',
+      p4_d: 'Recibe el paquete completo verificado (código fuente, esquema SQL, Docker, manifiesto SHA-256 y documentación) sin cuotas mensuales.',
+      faq_h2: 'Preguntas Frecuentes',
+      q1: '¿Es realmente un pago único sin cuotas mensuales obligatorias?',
+      a1: 'Sí. Cada modalidad se entrega como un proyecto cerrado de pago único (generalmente dividido 50/50 por hitos). No existen suscripciones mensuales, cargos por usuario ni renovaciones automáticas.',
+      q2: '¿Dónde se ejecuta el sistema y quién es dueño de los datos?',
+      a2: 'Su organización conserva el 100% de la propiedad del código fuente y la base de datos. Funciona en forma local, en su servidor mediante Docker o en el proveedor cloud que usted elija directamente.',
+      q3: '¿Podemos comenzar con Google Sheets y actualizar después?',
+      a3: 'Sí. Cualquier edición Google Sheets puede actualizarse posteriormente a Portal Web + SQL o Híbrido acreditando el 100% del monto inicial.',
+      q4: '¿Qué soporte o mantenimiento existe después de la entrega?',
+      a4: 'Cada entrega incluye garantía correctiva sin costo para defectos dentro del alcance acordado. El mantenimiento o mejoras futuras son opcionales bajo demanda por orden puntual o bono prepago de 5 horas (vigencia 12 meses).',
+      q5: '¿Qué medios de pago se aceptan?',
+      a5: 'Transferencia internacional B2B (ACH USD / SEPA EUR vía Payoneer o DolarApp), escrow en Upwork/Fiverr, transferencia local en Argentina con factura o USDT / Binance Pay (con 5% de descuento por pronto pago).',
+      ct_h2: 'Evalúe un sistema con ejemplos reales de su operación.',
+      ct_sub: 'Comparta su rubro y flujo actual. Podemos brindarle acceso directo a la vista interactiva o preparar tres registros de ejemplo adaptados a su empresa, sin compromiso ni reunión previa.',
+      ct_email: 'Solicitar Demo / Propuesta por Email',
+      ct_copy: 'Copiar Email (andrewkrijdjd@gmail.com)',
+      ct_copied: 'Copiado: andrewkrijdjd@gmail.com',
+      ft_note: 'Software operativo a alcance cerrado · Propiedad por pago único · Cero cuotas mensuales',
+      m_demo: 'Abrir Demo Interactiva (60s)',
+      m_quote: 'Solicitar Propuesta Formal',
+      ed_note_sheets: 'Sheets automatizado + scripts · 100% acreditable al escalar',
+      ed_note_sql: 'App Web + SQL + Docker + roles RBAC + reportes PDF',
+      ed_note_hyb: 'Web + SQL + sincronización Sheets + puesta en marcha',
+    },
   };
 
-  var state = {
-    lang: 'en',
-    category: 'all',
-    calcSku: 'MED',
-    calcEdition: 'sql_web',
-    calcUsers: 15,
-    drawerSku: null,
-    drawerEdition: 'sql_web',
-    drawerMult: 1,
-    drawerUsdt: false,
-    lastTrigger: null
-  };
+  const $ = function (id) { return document.getElementById(id); };
+  let lang = (new URLSearchParams(window.location.search).get('lang') || 'en').toLowerCase() === 'es' ? 'es' : 'en';
+  let region = 'USA';
+  let activeCat = 'all';
+  let searchQuery = '';
+  let heroSlug = 'medflow';
+  let modalSlug = null;
 
-  function fmtUSD(amount) {
-    return '$' + Math.round(Number(amount)).toLocaleString('en-US') + ' USD';
+  function fmtMoney(n) {
+    return '$' + Number(n).toLocaleString('en-US');
+  }
+  function getProduct(slug) {
+    return PRODUCTS.find(function (p) { return p.slug === slug; }) || PRODUCTS[0];
+  }
+  function familyLabel(cat) {
+    const t = I18N[lang];
+    return cat === 'core' ? t.family_core : cat === 'smb' ? t.family_smb : cat === 'enterprise' ? t.family_enterprise : t.family_impact;
   }
 
-  function fmtShort(amount) {
-    return '$' + Math.round(Number(amount)).toLocaleString('en-US');
-  }
-
-  function tierForUsers(u) {
-    if (u <= 15) return { mult: 1, key: 'tier_name_1' };
-    if (u <= 35) return { mult: 1.25, key: 'tier_name_2' };
-    return { mult: 1.5, key: 'tier_name_3' };
-  }
-
-  function el(tag, attrs, text) {
-    var node = document.createElement(tag);
-    if (attrs) {
-      Object.keys(attrs).forEach(function (k) { node.setAttribute(k, attrs[k]); });
-    }
-    if (text !== undefined) node.textContent = text;
-    return node;
-  }
-
-  function findProduct(sku) {
-    return PRODUCTS.find(function (p) { return p.sku === sku; }) || PRODUCTS[0];
-  }
-
-  function showToast(message) {
-    var toast = document.getElementById('toast');
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.add('show');
-    toast.setAttribute('aria-hidden', 'false');
-    clearTimeout(showToast._t);
-    showToast._t = setTimeout(function () {
-      toast.classList.remove('show');
-      toast.setAttribute('aria-hidden', 'true');
-    }, 2600);
-  }
-
-  function announce(msg) {
-    var live = document.getElementById('live-announcer');
-    if (live) live.textContent = msg;
-  }
-
-  function populateCalcSelects() {
-    var prodSel = document.getElementById('calc-product');
-    var edSel = document.getElementById('calc-edition');
-    if (!prodSel || !edSel) return;
-
-    prodSel.replaceChildren();
-    PRODUCTS.forEach(function (p) {
-      var opt = el('option', { value: p.sku }, p.name + ' — ' + p.sector[state.lang]);
-      if (p.sku === state.calcSku) opt.selected = true;
-      prodSel.appendChild(opt);
+  function applyTranslations() {
+    const t = I18N[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      const k = el.getAttribute('data-i18n');
+      if (t[k]) el.textContent = t[k];
     });
+    const searchEl = $('catalog-search');
+    if (searchEl) searchEl.placeholder = t.search_ph;
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
+    });
+    $('nav-demo-link').href = 'demo.html?producto=' + heroSlug + '&lang=' + lang + '&region=' + region;
+    $('hero-demo-btn').href = 'demo.html?producto=' + heroSlug + '&lang=' + lang + '&region=' + region;
+  }
 
-    var currentProd = findProduct(state.calcSku);
-    var hasEd = currentProd.editions.some(function (e) { return e.key === state.calcEdition; });
-    if (!hasEd) {
-      var pref = currentProd.editions.find(function (e) { return e.key === 'sql_web'; });
-      state.calcEdition = pref ? pref.key : currentProd.editions[0].key;
-    }
-
-    edSel.replaceChildren();
-    currentProd.editions.forEach(function (ed) {
-      var label = EDITION_META[ed.key][state.lang][0];
-      var opt = el('option', { value: ed.key }, label);
-      if (ed.key === state.calcEdition) opt.selected = true;
-      edSel.appendChild(opt);
+  function syncRegionUI() {
+    if ($('nav-region')) $('nav-region').value = region;
+    document.querySelectorAll('#catalog-region-pills .r-pill').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-region') === region));
     });
   }
 
-  function updateCalculator() {
-    var dict = I18N[state.lang];
-    var prod = findProduct(state.calcSku);
-    var ed = prod.editions.find(function (e) { return e.key === state.calcEdition; }) || prod.editions[0];
-    var tier = tierForUsers(state.calcUsers);
-
-    document.getElementById('calc-users-val').textContent =
-      state.calcUsers + ' ' + dict.users_word + ' · ' + dict[tier.key] + ' (' + tier.mult + '×)';
-
-    var kretaCost = Math.round(ed.price * tier.mult);
-    var saas3yr = Math.round(state.calcUsers * prod.saasPerUserMonth * 36);
-    if (saas3yr < kretaCost * 2.1) saas3yr = Math.round(kretaCost * 2.4);
-    var savings = Math.max(0, saas3yr - kretaCost);
-    var pct = Math.max(10, Math.min(90, Math.round((kretaCost / saas3yr) * 100)));
-
-    var edShort = EDITION_META[ed.key][state.lang][0];
-    document.getElementById('calc-kreta-label').textContent = 'Kreta Software (' + edShort + ')';
-    document.getElementById('calc-saas-num').textContent = fmtUSD(saas3yr);
-    document.getElementById('calc-kreta-num').textContent = fmtUSD(kretaCost);
-    document.getElementById('calc-save-num').textContent = fmtUSD(savings);
-    document.getElementById('bar-kreta').style.width = pct + '%';
-
-    var half = fmtShort(Math.round(kretaCost / 2));
-    document.getElementById('calc-milestone-note').textContent = dict.split_fmt.replace(/\{half\}/g, half);
-  }
-
-  function renderGrid() {
-    var grid = document.getElementById('product-grid');
-    if (!grid) return;
-    var dict = I18N[state.lang];
-    grid.replaceChildren();
-    var visible = 0;
-
-    PRODUCTS.forEach(function (prod) {
-      var show = state.category === 'all' || prod.cat === state.category;
-      if (show) visible += 1;
-
-      var card = el('article', {
-        class: 'p-card' + (show ? '' : ' hidden'),
-        'data-sku': prod.sku,
-        'data-cat': prod.cat
-      });
-
-      // Browser mockup with REAL working screenshot
-      var frame = el('div', { class: 'browser-frame' });
-      var bar = el('div', { class: 'browser-bar', 'aria-hidden': 'true' });
-      bar.append(el('span', { class: 'b-dot' }), el('span', { class: 'b-dot' }), el('span', { class: 'b-dot' }), el('span', { class: 'b-url' }, prod.demoUrl));
-      var shot = el('div', { class: 'browser-shot' });
-      var img = el('img', {
-        src: 'assets/screens/' + state.lang + '/' + prod.slug + '.png',
-        alt: prod.name + ' — ' + prod.sector[state.lang] + ' live interface',
-        width: '1280',
-        height: '800',
-        loading: 'lazy'
-      });
-      shot.appendChild(img);
-      frame.append(bar, shot);
-
-      // Copy body
-      var body = el('div', { class: 'p-body' });
-      body.append(
-        el('span', { class: 'p-sector' }, prod.sector[state.lang]),
-        el('h3', null, prod.name),
-        el('p', { class: 'p-desc' }, prod.headline[state.lang])
-      );
-      var ul = el('ul', { class: 'p-bullets' });
-      prod.bullets[state.lang].forEach(function (b) { ul.appendChild(el('li', null, b)); });
-      body.appendChild(ul);
-
-      // Footer with clear transparent dual pricing (Sheets + Full Web App)
-      var sheetsEd = prod.editions.find(function (e) { return e.key === 'sheets'; }) || prod.editions[0];
-      var webEd = prod.editions.find(function (e) { return e.key === 'sql_web'; }) || prod.editions[prod.editions.length - 1];
-
-      var foot = el('div', { class: 'p-foot' });
-      var prices = el('div', { class: 'p-prices' });
-      var t1 = el('div', { class: 'p-tier' });
-      t1.append(el('span', { class: 'p-tier-lbl' }, dict.sheets_lbl), el('span', { class: 'p-tier-val tabular' }, fmtShort(sheetsEd.price)));
-      var t2 = el('div', { class: 'p-tier' });
-      t2.append(el('span', { class: 'p-tier-lbl' }, dict.webapp_lbl), el('span', { class: 'p-tier-val primary tabular' }, fmtShort(webEd.price)));
-      prices.append(t1, t2);
-
-      var btn = el('button', { type: 'button', class: 'btn btn-primary btn-sm' }, dict.view_btn);
+  function renderHeroShowcase() {
+    const tabsEl = $('hero-tabs');
+    tabsEl.replaceChildren();
+    FEATURED_SLUGS.forEach(function (slug) {
+      const p = getProduct(slug);
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 's-tab';
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', String(slug === heroSlug));
+      btn.textContent = p.name.split(' ')[0];
       btn.addEventListener('click', function () {
-        openDrawer(prod.sku, 'sql_web', 1, btn);
+        heroSlug = slug;
+        renderHeroShowcase();
       });
-      foot.append(prices, btn);
+      tabsEl.appendChild(btn);
+    });
 
-      card.append(frame, body, foot);
+    const cur = getProduct(heroSlug);
+    const pr = cur.prices[region];
+    $('hero-url').textContent = 'app.kretasoftware.local/' + cur.slug;
+    $('hero-screen').src = 'assets/screens/' + lang + '/' + cur.img + '.png';
+    $('hero-screen').alt = cur.name + ' UI';
+    $('hero-prod-name').textContent = cur.name;
+    $('hero-prod-inv').textContent = cur[lang].inv;
+    $('hero-prod-price').textContent = fmtMoney(pr[0]) + ' – ' + fmtMoney(pr[2]) + ' USD (' + region + ')';
+    const demoHref = 'demo.html?producto=' + cur.slug + '&lang=' + lang + '&region=' + region;
+    $('hero-prod-demo').href = demoHref;
+    $('hero-demo-btn').href = demoHref;
+    $('nav-demo-link').href = demoHref;
+  }
+
+  function renderCatalog() {
+    const t = I18N[lang];
+    const q = searchQuery.trim().toLowerCase();
+    const list = PRODUCTS.filter(function (p) {
+      if (activeCat !== 'all' && p.cat !== activeCat) return false;
+      if (!q) return true;
+      const hay = (p.name + ' ' + p.slug + ' ' + p[lang].desc + ' ' + p[lang].inv).toLowerCase();
+      return hay.indexOf(q) !== -1;
+    });
+
+    $('catalog-count').textContent = lang === 'es'
+      ? 'Mostrando ' + list.length + ' de 20 sistemas · Tarifas de pago único para región ' + region + (region === 'AR' ? ' (USD o equivalente ARS)' : ' (USD)')
+      : 'Showing ' + list.length + ' of 20 systems · Exact one-time ownership pricing for ' + region + ' (USD)';
+
+    const grid = $('product-grid');
+    grid.replaceChildren();
+    list.forEach(function (p) {
+      const pr = p.prices[region];
+      const card = document.createElement('article');
+      card.className = 'prod-card';
+
+      const media = document.createElement('div');
+      media.className = 'prod-media';
+      const sw = document.createElement('div');
+      sw.className = 'prod-screen-wrap';
+      const img = document.createElement('img');
+      img.src = 'assets/screens/' + lang + '/' + p.img + '.png';
+      img.alt = p.name + ' interface preview';
+      img.width = 1280;
+      img.height = 800;
+      img.loading = 'lazy';
+      sw.appendChild(img);
+      media.appendChild(sw);
+
+      const body = document.createElement('div');
+      body.className = 'prod-body';
+
+      const top = document.createElement('div');
+      top.className = 'prod-top';
+      const h3 = document.createElement('h3');
+      h3.className = 'prod-title';
+      h3.textContent = p.name;
+      const fam = document.createElement('span');
+      fam.className = 'prod-family';
+      fam.textContent = familyLabel(p.cat);
+      top.appendChild(h3);
+      top.appendChild(fam);
+
+      const desc = document.createElement('p');
+      desc.className = 'prod-desc';
+      desc.textContent = p[lang].desc;
+
+      const inv = document.createElement('div');
+      inv.className = 'prod-invariant';
+      inv.textContent = p[lang].inv;
+
+      const pricing = document.createElement('div');
+      pricing.className = 'prod-pricing';
+      const pLeft = document.createElement('div');
+      const pf = document.createElement('div');
+      pf.className = 'price-from';
+      pf.textContent = t.price_from_lbl + ' (' + region + ')';
+      const prEl = document.createElement('div');
+      prEl.className = 'price-range mono';
+      prEl.textContent = fmtMoney(pr[0]) + ' – ' + fmtMoney(pr[2]);
+      pLeft.appendChild(pf);
+      pLeft.appendChild(prEl);
+      const pz = document.createElement('div');
+      pz.className = 'price-zero mono';
+      pz.textContent = t.price_zero_lbl;
+      pricing.appendChild(pLeft);
+      pricing.appendChild(pz);
+
+      const acts = document.createElement('div');
+      acts.className = 'prod-actions';
+      const btnCmp = document.createElement('button');
+      btnCmp.type = 'button';
+      btnCmp.className = 'btn btn-outline';
+      btnCmp.textContent = t.btn_compare;
+      btnCmp.addEventListener('click', function () { openModal(p.slug); });
+
+      const btnDemo = document.createElement('a');
+      btnDemo.className = 'btn btn-primary';
+      btnDemo.href = 'demo.html?producto=' + p.slug + '&lang=' + lang + '&region=' + region;
+      btnDemo.textContent = t.btn_demo;
+
+      acts.appendChild(btnCmp);
+      acts.appendChild(btnDemo);
+
+      body.appendChild(top);
+      body.appendChild(desc);
+      body.appendChild(inv);
+      body.appendChild(pricing);
+      body.appendChild(acts);
+
+      card.appendChild(media);
+      card.appendChild(body);
       grid.appendChild(card);
     });
-
-    announce(visible + ' platforms displayed');
   }
 
-  function renderDrawer() {
-    if (!state.drawerSku) return;
-    var prod = findProduct(state.drawerSku);
-    var dict = I18N[state.lang];
+  function populateCalcSelect() {
+    const sel = $('calc-product');
+    const prev = sel.value || 'medflow';
+    sel.replaceChildren();
+    PRODUCTS.forEach(function (p) {
+      const opt = document.createElement('option');
+      opt.value = p.slug;
+      opt.textContent = p.name;
+      if (p.slug === prev) opt.selected = true;
+      sel.appendChild(opt);
+    });
+  }
 
-    document.getElementById('drawer-sector').textContent = prod.sector[state.lang];
-    document.getElementById('drawer-title').textContent = prod.name;
-    document.getElementById('drawer-desc').textContent = prod.headline[state.lang];
+  function renderCalculator() {
+    const slug = $('calc-product').value || 'medflow';
+    const ed = $('calc-edition').value || 'sql_web';
+    const users = Number($('calc-users').value);
+    const seatCost = Number($('calc-saas-seat').value);
+    $('calc-users-val').textContent = String(users);
+    $('calc-saas-val').textContent = fmtMoney(seatCost);
 
-    var img = document.getElementById('drawer-img');
-    img.src = 'assets/screens/' + state.lang + '/' + prod.slug + '.png';
-    img.alt = prod.name + ' live application screen';
+    const p = getProduct(slug);
+    const idx = ed === 'sheets' ? 0 : ed === 'hibrido' ? 2 : 1;
+    const ownCost = p.prices[region][idx];
+    const saas36 = users * seatCost * 36;
+    const savings = Math.max(0, saas36 - ownCost);
+    const payback = Math.max(1, Math.ceil(ownCost / Math.max(1, users * seatCost)));
 
-    var featList = document.getElementById('drawer-features');
-    featList.replaceChildren();
-    prod.bullets[state.lang].forEach(function (item) {
-      featList.appendChild(el('li', null, item));
+    $('out-saas-total').textContent = fmtMoney(saas36) + ' USD';
+    $('out-own-total').textContent = fmtMoney(ownCost) + ' USD';
+    $('out-savings').textContent = fmtMoney(savings) + ' USD';
+    $('out-payback').textContent = lang === 'es'
+      ? 'Recuperación estimada en ~' + payback + ' meses · 5% de descuento por pronto pago vía USDT'
+      : 'Estimated break-even in ~' + payback + ' months · 5% early-payment discount available via USDT';
+
+    const maxV = Math.max(saas36, ownCost, 1);
+    $('bar-saas').style.width = Math.max(8, Math.round((saas36 / maxV) * 100)) + '%';
+    $('bar-own').style.width = Math.max(8, Math.round((ownCost / maxV) * 100)) + '%';
+    $('calc-demo-link').href = 'demo.html?producto=' + slug + '&lang=' + lang + '&region=' + region;
+  }
+
+  function openModal(slug) {
+    modalSlug = slug;
+    const p = getProduct(slug);
+    const pr = p.prices[region];
+    const t = I18N[lang];
+    $('modal-cat').textContent = familyLabel(p.cat) + ' · ' + region;
+    $('modal-title').textContent = p.name;
+    $('modal-img').src = 'assets/screens/' + lang + '/' + p.img + '.png';
+    $('modal-img').alt = p.name + ' UI';
+    $('modal-desc').textContent = p[lang].desc;
+    $('modal-invariants').textContent = p[lang].inv;
+
+    const edWrap = $('modal-editions');
+    edWrap.replaceChildren();
+    [
+      [t.ed_sheets, pr[0], t.ed_note_sheets, false],
+      [t.ed_sqlweb, pr[1], t.ed_note_sql, true],
+      [t.ed_hybrid, pr[2], t.ed_note_hyb, false],
+    ].forEach(function (item) {
+      const box = document.createElement('div');
+      box.className = 'edition-box' + (item[3] ? ' is-featured' : '');
+      const n = document.createElement('div');
+      n.className = 'edition-name';
+      n.textContent = item[0];
+      const v = document.createElement('div');
+      v.className = 'edition-price mono';
+      v.textContent = fmtMoney(item[1]) + ' USD';
+      const d = document.createElement('div');
+      d.className = 'edition-note';
+      d.textContent = item[2];
+      box.appendChild(n);
+      box.appendChild(v);
+      box.appendChild(d);
+      edWrap.appendChild(box);
     });
 
-    document.querySelectorAll('.tier-btn').forEach(function (tb) {
-      tb.setAttribute('aria-checked', Number(tb.dataset.mult) === state.drawerMult ? 'true' : 'false');
+    $('modal-demo-btn').href = 'demo.html?producto=' + p.slug + '&lang=' + lang + '&region=' + region;
+    const subj = '[KRETA-PROPUESTA] ' + p.name + ' (' + region + ')';
+    const body = lang === 'es'
+      ? 'Estimado equipo de Kreta Software,\n\nDeseo solicitar una propuesta formal y evaluación para ' + p.name + ' (región ' + region + ').\n\nAtentamente,'
+      : 'Dear Kreta Software Team,\n\nI would like to request a formal proposal and evaluation for ' + p.name + ' (' + region + ' region).\n\nKind regards,';
+    $('modal-quote-btn').href = 'mailto:andrewkrijdjd@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+
+    $('product-modal').hidden = false;
+    $('modal-close').focus();
+  }
+
+  function closeModal() {
+    $('product-modal').hidden = true;
+    modalSlug = null;
+  }
+
+  function syncContactEmailLink() {
+    const btn = $('contact-email-btn');
+    if (!btn) return;
+    const subj = '[KRETA-DEMO] Evaluation Request (' + region + ')';
+    const body = lang === 'es'
+      ? 'Estimado equipo de Kreta Software,\n\nDeseo solicitar una evaluación o demostración adaptada a nuestra operación (región ' + region + ').\n\nRubro / Sistema de interés:\n\nAtentamente,'
+      : 'Dear Kreta Software Team,\n\nI would like to request an evaluation or tailored demonstration for our operation (' + region + ' region).\n\nIndustry / System of interest:\n\nKind regards,';
+    btn.href = 'mailto:andrewkrijdjd@gmail.com?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
+  }
+
+  function setRegion(nextReg) {
+    region = nextReg;
+    syncRegionUI();
+    syncContactEmailLink();
+    renderHeroShowcase();
+    renderCatalog();
+    renderCalculator();
+    if (modalSlug) openModal(modalSlug);
+  }
+
+  function setLang(nextLang) {
+    lang = nextLang;
+    applyTranslations();
+    syncContactEmailLink();
+    renderHeroShowcase();
+    renderCatalog();
+    renderCalculator();
+    if (modalSlug) openModal(modalSlug);
+  }
+
+  // Event wiring
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+  });
+  $('nav-region').addEventListener('change', function (e) { setRegion(e.target.value); });
+  document.querySelectorAll('#catalog-region-pills .r-pill').forEach(function (btn) {
+    btn.addEventListener('click', function () { setRegion(btn.getAttribute('data-region')); });
+  });
+  document.querySelectorAll('#category-filters .filter-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activeCat = btn.getAttribute('data-cat');
+      document.querySelectorAll('#category-filters .filter-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      renderCatalog();
     });
+  });
+  $('catalog-search').addEventListener('input', function (e) {
+    searchQuery = e.target.value;
+    renderCatalog();
+  });
+  ['calc-product', 'calc-edition', 'calc-users', 'calc-saas-seat'].forEach(function (id) {
+    $(id).addEventListener('input', renderCalculator);
+    $(id).addEventListener('change', renderCalculator);
+  });
+  $('calc-inspect-btn').addEventListener('click', function () {
+    openModal($('calc-product').value || 'medflow');
+  });
+  $('modal-close').addEventListener('click', closeModal);
+  $('product-modal').addEventListener('click', function (e) {
+    if (e.target === $('product-modal')) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !$('product-modal').hidden) closeModal();
+  });
 
-    var hasCurrent = prod.editions.some(function (e) { return e.key === state.drawerEdition; });
-    if (!hasCurrent) {
-      var pref = prod.editions.find(function (e) { return e.key === 'sql_web'; });
-      state.drawerEdition = pref ? pref.key : prod.editions[0].key;
-    }
-
-    var edContainer = document.getElementById('drawer-editions');
-    edContainer.replaceChildren();
-    var selectedPrice = 0;
-    var selectedLabel = '';
-
-    prod.editions.forEach(function (ed) {
-      var meta = EDITION_META[ed.key][state.lang];
-      var scaled = Math.round(ed.price * state.drawerMult);
-      var isSel = ed.key === state.drawerEdition;
-      if (isSel) {
-        selectedPrice = scaled;
-        selectedLabel = meta[0];
+  if ($('contact-copy-btn')) {
+    $('contact-copy-btn').addEventListener('click', function () {
+      const btn = $('contact-copy-btn');
+      const addr = 'andrewkrijdjd@gmail.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).catch(function () {});
       }
-      var btn = el('button', {
-        type: 'button',
-        class: 'edition-opt',
-        role: 'radio',
-        'aria-checked': isSel ? 'true' : 'false'
-      });
-      var left = el('span');
-      left.append(el('span', { class: 'ed-name' }, meta[0]), el('span', { class: 'ed-sub' }, meta[1]));
-      var right = el('span', { class: 'ed-price tabular' }, fmtUSD(scaled));
-      btn.append(left, right);
-      btn.addEventListener('click', function () {
-        state.drawerEdition = ed.key;
-        renderDrawer();
-      });
-      edContainer.appendChild(btn);
+      btn.textContent = I18N[lang].ct_copied;
+      setTimeout(function () { btn.textContent = I18N[lang].ct_copy; }, 2200);
     });
-
-    var finalTotal = state.drawerUsdt ? Math.round(selectedPrice * 0.95) : selectedPrice;
-    var half = fmtShort(Math.round(finalTotal / 2));
-    document.getElementById('drawer-total').textContent = fmtUSD(finalTotal);
-    document.getElementById('drawer-milestones').textContent = dict.split_fmt.replace(/\{half\}/g, half);
-
-    var tierLabel = state.drawerMult === 1 ? dict.tier_1 : state.drawerMult === 1.25 ? dict.tier_2 : dict.tier_3;
-    var msg = (state.lang === 'es'
-      ? 'Hola Kreta Software, quiero solicitar una demo en vivo y propuesta PDF cerrada para:\n• Plataforma: ' + prod.name + '\n• Modalidad: ' + selectedLabel + '\n• Tamaño: ' + tierLabel + '\n• Referencia pago único: ' + fmtUSD(finalTotal) + (state.drawerUsdt ? ' (con 5% OFF Binance Pay USDT)' : '')
-      : 'Hi Kreta Software, I would like a live demo walkthrough and fixed-scope PDF quote for:\n• Platform: ' + prod.name + '\n• Edition: ' + selectedLabel + '\n• Team tier: ' + tierLabel + '\n• One-time reference: ' + fmtUSD(finalTotal) + (state.drawerUsdt ? ' (incl. 5% Binance Pay USDT discount)' : ''));
-
-    var subj = 'Kreta Software — ' + prod.name + ' (' + selectedLabel + ')';
-    document.getElementById('drawer-wa-cta').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
-    document.getElementById('drawer-gm-cta').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + EMAIL + '&su=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(msg);
-    document.getElementById('drawer-copy-cta').dataset.copyText = msg;
   }
 
-  function openDrawer(sku, edition, mult, triggerEl) {
-    state.drawerSku = sku;
-    state.drawerEdition = edition || 'sql_web';
-    state.drawerMult = mult || 1;
-    state.lastTrigger = triggerEl || document.activeElement;
-    renderDrawer();
-    var drawer = document.getElementById('product-drawer');
-    var backdrop = document.getElementById('drawer-backdrop');
-    drawer.classList.add('open');
-    drawer.setAttribute('aria-hidden', 'false');
-    backdrop.classList.add('open');
-    backdrop.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('drawer-close').focus();
-  }
-
-  function closeDrawer() {
-    var drawer = document.getElementById('product-drawer');
-    var backdrop = document.getElementById('drawer-backdrop');
-    drawer.classList.remove('open');
-    drawer.setAttribute('aria-hidden', 'true');
-    backdrop.classList.remove('open');
-    backdrop.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (state.lastTrigger && typeof state.lastTrigger.focus === 'function') {
-      state.lastTrigger.focus();
-    }
-  }
-
-  function applyLang(lang) {
-    state.lang = lang === 'es' ? 'es' : 'en';
-    var dict = I18N[state.lang];
-    document.documentElement.lang = state.lang;
-    document.querySelectorAll('[data-i18n]').forEach(function (node) {
-      var k = node.dataset.i18n;
-      if (dict[k]) node.textContent = dict[k];
-    });
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.lang === state.lang ? 'true' : 'false');
-    });
-    populateCalcSelects();
-    updateCalculator();
-    renderGrid();
-    if (state.drawerSku) renderDrawer();
-  }
-
-  function applyCategory(cat) {
-    state.category = cat;
-    document.querySelectorAll('.cat-btn').forEach(function (b) {
-      b.setAttribute('aria-pressed', b.dataset.cat === cat ? 'true' : 'false');
-    });
-    renderGrid();
-  }
-
-  // Bindings
-  document.querySelectorAll('.lang-btn').forEach(function (b) {
-    b.addEventListener('click', function () { applyLang(b.dataset.lang); });
-  });
-  document.querySelectorAll('.cat-btn').forEach(function (b) {
-    b.addEventListener('click', function () { applyCategory(b.dataset.cat); });
-  });
-
-  document.getElementById('calc-product').addEventListener('change', function (ev) {
-    state.calcSku = ev.target.value;
-    populateCalcSelects();
-    updateCalculator();
-  });
-  document.getElementById('calc-edition').addEventListener('change', function (ev) {
-    state.calcEdition = ev.target.value;
-    updateCalculator();
-  });
-  document.getElementById('calc-users').addEventListener('input', function (ev) {
-    state.calcUsers = Number(ev.target.value);
-    updateCalculator();
-  });
-
-  document.getElementById('calc-inspect-btn').addEventListener('click', function (ev) {
-    openDrawer(state.calcSku, state.calcEdition, tierForUsers(state.calcUsers).mult, ev.currentTarget);
-  });
-  document.getElementById('hero-open-selected').addEventListener('click', function (ev) {
-    openDrawer(state.calcSku, state.calcEdition, tierForUsers(state.calcUsers).mult, ev.currentTarget);
-  });
-
-  document.querySelectorAll('.tier-btn').forEach(function (tb) {
-    tb.addEventListener('click', function () {
-      state.drawerMult = Number(tb.dataset.mult);
-      renderDrawer();
-    });
-  });
-
-  document.getElementById('drawer-close').addEventListener('click', closeDrawer);
-  document.getElementById('drawer-backdrop').addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape' && document.getElementById('product-drawer').classList.contains('open')) {
-      closeDrawer();
-    }
-  });
-
-  document.getElementById('drawer-usdt').addEventListener('change', function (ev) {
-    state.drawerUsdt = !!ev.target.checked;
-    renderDrawer();
-  });
-
-  document.getElementById('drawer-copy-cta').addEventListener('click', function (ev) {
-    var txt = ev.currentTarget.dataset.copyText || '';
-    if (navigator.clipboard && txt) {
-      navigator.clipboard.writeText(txt).then(function () {
-        showToast(I18N[state.lang].copied_inquiry);
-      }).catch(function () {
-        showToast(I18N[state.lang].copied_inquiry);
-      });
-    } else {
-      showToast(I18N[state.lang].copied_inquiry);
-    }
-  });
-
-  document.getElementById('copy-email-btn').addEventListener('click', function () {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(EMAIL).then(function () {
-        showToast(I18N[state.lang].copied_email);
-      }).catch(function () {
-        showToast(I18N[state.lang].copied_email);
-      });
-    } else {
-      showToast(I18N[state.lang].copied_email);
-    }
-  });
-
-  var params = new URLSearchParams(window.location.search);
-  applyLang(params.get('lang') === 'es' ? 'es' : 'en');
+  populateCalcSelect();
+  applyTranslations();
+  syncRegionUI();
+  syncContactEmailLink();
+  renderHeroShowcase();
+  renderCatalog();
+  renderCalculator();
 })();

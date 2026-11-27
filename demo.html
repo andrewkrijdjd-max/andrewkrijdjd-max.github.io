@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kreta Software — Interactive 60-Second Sandbox (20 Systems)</title>
+  <meta name="description" content="Evaluate any of Kreta Software's 20 production-ready operational systems directly in your browser with live invariant validation and 36-month savings modeling.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23090d16'/><path d='M30 24h14v24l24-24h18L58 50l28 26H68L44 52v24H30V24z' fill='%2338bdf8'/></svg>">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sandbox-hero {
+      background: var(--obsidian); color: var(--obsidian-ink);
+      padding: 36px 0 40px; border-bottom: 1px solid var(--obsidian-border);
+    }
+    .sandbox-bar {
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px;
+    }
+    .sandbox-bar h1 { font-size: clamp(1.6rem, 2.6vw, 2.25rem); color: #fff; margin-top: 6px; }
+    .sandbox-sub { color: #94a3b8; font-size: 0.94rem; margin-top: 6px; max-width: 64ch; }
+    .sandbox-select {
+      min-height: 44px; min-width: 240px; padding: 8px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--obsidian-border); background: var(--obsidian-elevated);
+      color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 0.96rem; cursor: pointer;
+    }
+    .sandbox-main { padding: 36px 0 72px; }
+    .sandbox-grid {
+      display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+      gap: 28px; align-items: start;
+    }
+    @media (max-width: 960px) { .sandbox-grid { grid-template-columns: 1fr; } }
+    .s-panel {
+      background: var(--porcelain); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px;
+      box-shadow: 0 8px 28px rgba(11, 18, 32, 0.04);
+    }
+    .s-panel h2 { font-size: 1.15rem; margin-bottom: 6px; }
+    .s-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+    @media (max-width: 640px) { .s-kpis { grid-template-columns: 1fr; } }
+    .s-kpi {
+      padding: 14px 16px; border-radius: var(--radius-md);
+      background: var(--slate-wash); border: 1px solid var(--border);
+    }
+    .s-kpi small { display: block; font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+    .s-kpi strong { display: block; margin-top: 4px; font-size: 1.38rem; color: var(--ink); }
+    .s-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    @media (max-width: 640px) { .s-form { grid-template-columns: 1fr; } }
+    .s-form input {
+      min-height: 44px; padding: 9px 12px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong); font-family: inherit; font-size: 0.9rem; color: var(--ink);
+    }
+    .s-alert {
+      margin-top: 12px; padding: 11px 14px; border-radius: var(--radius-sm);
+      font-size: 0.88rem; font-weight: 600; display: none;
+    }
+    .s-alert.show { display: block; }
+    .s-alert.ok { background: var(--emerald-soft); color: #065f46; border: 1px solid #a7f3d0; }
+    .s-alert.err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+    .s-table-wrap { overflow-x: auto; margin-top: 16px; }
+    .s-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .s-table th, .s-table td {
+      text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border);
+    }
+    .s-table th { background: var(--slate-wash); font-weight: 600; color: var(--ink-secondary); }
+    .tag-ok {
+      display: inline-block; padding: 3px 9px; border-radius: 999px;
+      background: var(--emerald-soft); color: #065f46; font-weight: 600; font-size: 0.76rem;
+    }
+    .tag-warn {
+      display: inline-block; padding: 3px 9px; border-radius: 999px;
+      background: #fef3c7; color: #92400e; font-weight: 600; font-size: 0.76rem;
+    }
+    .s-screen-frame {
+      margin-top: 20px; border-radius: var(--radius-md); overflow: hidden;
+      border: 1px solid var(--border); background: var(--obsidian);
+    }
+    .s-screen-frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; }
+    .sim-card {
+      margin-top: 14px; padding: 18px; border-radius: var(--radius-md);
+      background: var(--slate-wash); border: 1px solid var(--border);
+    }
+    .sim-result {
+      margin-top: 14px; padding: 14px; border-radius: var(--radius-sm);
+      background: var(--emerald-soft); border: 1px solid #a7f3d0;
+    }
+    .sim-num { font-size: 1.65rem; font-weight: 700; color: #047857; margin-top: 2px; }
+    .cta-col { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#demo-main">Skip to interactive sandbox</a>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#121929" stroke="#26334d" stroke-width="1.2"/>
+          <path d="M9.5 7.5H14V15.2L21.5 7.5H27L18.2 16L27.2 24.5H21.6L14 16.8V24.5H9.5V7.5Z" fill="#38BDF8"/>
+        </svg>
+        <span class="brand-name">Kreta Software</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Back navigation">
+        <a href="index.html#platforms" id="nav-back">Back to 20-System Portfolio</a>
+      </nav>
+
+      <div class="nav-actions">
+        <label for="region-select" class="sr-only">Pricing region</label>
+        <select id="region-select" class="region-select" aria-label="Pricing region">
+          <option value="USA">USA · USD</option>
+          <option value="EUR">EUR · USD</option>
+          <option value="LATAM">LATAM · USD</option>
+          <option value="AR">AR · USD/ARS</option>
+        </select>
+
+        <div class="segmented" role="group" aria-label="Language">
+          <button type="button" class="seg-btn" id="lang-en" aria-pressed="true">EN</button>
+          <button type="button" class="seg-btn" id="lang-es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sandbox-hero">
+    <div class="container sandbox-bar">
+      <div>
+        <div class="hero-pill" style="margin-bottom:10px;">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <span id="lbl-badge">Interactive 60-second browser evaluation · No installation</span>
+        </div>
+        <h1 id="demo-title">Loading platform…</h1>
+        <p class="sandbox-sub" id="demo-tagline"></p>
+      </div>
+      <div>
+        <label for="prod-select" class="sr-only">Select platform</label>
+        <select id="prod-select" class="sandbox-select" aria-label="Select platform"></select>
+      </div>
+    </div>
+  </section>
+
+  <main id="demo-main" class="container sandbox-main">
+    <div class="sandbox-grid">
+      <section class="s-panel" aria-labelledby="sec-live-title">
+        <h2 id="sec-live-title">Live Record Validation &amp; Business Rule Test</h2>
+        <p style="font-size:0.88rem;color:var(--muted);" id="sec-live-sub">Add a record below or enter a duplicate/out-of-bounds value to observe the enforced business invariant in real time.</p>
+
+        <div class="s-kpis" id="demo-kpis" aria-live="polite"></div>
+
+        <form id="demo-form" class="s-form">
+          <input id="f-col1" required placeholder="Account / Entity">
+          <input id="f-col2" required placeholder="Reference / Date / Code">
+          <input id="f-col3" type="number" step="0.01" required placeholder="Amount / Metric">
+          <button type="submit" class="btn btn-primary" id="btn-add">Add &amp; Validate Record</button>
+        </form>
+        <div id="demo-alert" class="s-alert" role="status" aria-live="polite"></div>
+
+        <div class="s-table-wrap">
+          <table class="s-table">
+            <thead><tr id="demo-thead"></tr></thead>
+            <tbody id="demo-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="s-screen-frame">
+          <img id="demo-screen" src="" alt="Full application screenshot" width="1280" height="800" loading="lazy">
+        </div>
+      </section>
+
+      <aside class="s-panel">
+        <h2 id="sim-heading">36-Month Ownership Savings</h2>
+        <p style="font-size:0.88rem;color:var(--muted);" id="sim-sub">Compare one-time ownership pricing for your region against recurring monthly SaaS fees.</p>
+
+        <div class="sim-card">
+          <div class="field-group" style="margin-bottom:14px;">
+            <div class="slider-head">
+              <label for="sl-users" id="lbl-users">Active team seats</label>
+              <strong class="mono" id="val-users">10</strong>
+            </div>
+            <input id="sl-users" type="range" min="3" max="50" value="10">
+          </div>
+          <div class="field-group">
+            <div class="slider-head">
+              <label for="sl-saas" id="lbl-saas">Monthly SaaS fee / seat (USD)</label>
+              <strong class="mono" id="val-saas">$35</strong>
+            </div>
+            <input id="sl-saas" type="range" min="12" max="120" value="35">
+          </div>
+          <div class="sim-result">
+            <div style="font-size:0.8rem;font-weight:600;color:#065f46;" id="lbl-save-title">Projected 36-month net savings:</div>
+            <div class="sim-num mono" id="sim-savings">$0 USD</div>
+            <div style="font-size:0.8rem;color:#065f46;margin-top:4px;" id="sim-payback"></div>
+          </div>
+        </div>
+
+        <div class="cta-col">
+          <a id="cta-mail" class="btn btn-primary" href="#">Request Formal Demo / Proposal via Email</a>
+          <a id="cta-sample" class="btn btn-outline" href="#">Request Custom 3-Record Preview via Email</a>
+          <button type="button" id="cta-copy" class="btn btn-outline" style="font-size:0.84rem;">Copy Email (andrewkrijdjd@gmail.com)</button>
+        </div>
+        <p style="margin-top:14px;font-size:0.8rem;color:var(--muted);" id="lbl-own">Fixed-scope delivery · 50/50 milestone payments · Zero monthly SaaS fees · Complete source code and database ownership.</p>
+      </aside>
+    </div>
+  </main>
+
+  <script src="demo.js"></script>
+</body>
+</html>
