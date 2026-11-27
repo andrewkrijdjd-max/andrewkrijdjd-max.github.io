@@ -20,7 +20,7 @@
     },
     fieldops: {
       name: 'FieldOps', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
+      prices: { USA: [790, 2390, 4190], EUR: [725, 2200, 3855], LATAM: [555, 1675, 2935], AR: [435, 1315, 2305] },
       owners: ['Tech: Mike Torres', 'Tech: Jordan Vance', 'Tech: Luis Gomez'],
       slots: ['4h Emergency SLA', '8h Priority SLA', '24h Standard SLA', 'Preventive PM'],
       en: { sub: 'Commercial HVAC, elevator, and mechanical dispatch with SLA timers and verified job closeouts.', stages: ['Dispatched', 'On Site', 'QC Sign-off', 'Invoiced'], cols: ['Work Order / Site', 'Technician', 'SLA Tier', 'Estimate', 'Stage'], fName: 'Site & Equipment', fOwner: 'Assigned Technician', fSlot: 'SLA Tier', fAmt: 'Job Value (USD)', kpiVol: 'Active Dispatch Value', dupErr: 'Duplicate active work order.' },
@@ -48,7 +48,7 @@
     },
     caseledger: {
       name: 'CaseLedger', unit: '$', unitPos: 'pre', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [890, 2990, 5290], EUR: [820, 2750, 4865], LATAM: [625, 2095, 3705], AR: [490, 1645, 2910] },
+      prices: { USA: [690, 2190, 3790], EUR: [635, 2015, 3485], LATAM: [485, 1535, 2655], AR: [380, 1205, 2085] },
       owners: ['Partner: R. Vance', 'Assoc: E. Shaw', 'Partner: M. Delgado'],
       slots: ['Commercial Litigation', 'Corporate M&A', 'Employment Law', 'Estate & Trust'],
       en: { sub: 'Boutique law firm matter deadlines, billable WIP tracking, and segregated IOLTA trust ledger.', stages: ['Intake', 'Discovery', 'Court Filing', 'Billed'], cols: ['Matter / Client', 'Lead Attorney', 'Practice Area', 'WIP / Trust', 'Stage'], fName: 'Matter & Client Name', fOwner: 'Lead Attorney', fSlot: 'Practice Area', fAmt: 'WIP / Retainer (USD)', kpiVol: 'Billable WIP & Trust', dupErr: 'Duplicate matter reference.' },
@@ -76,7 +76,7 @@
     },
     fixflow: {
       name: 'FixFlow', unit: '$', unitPos: 'pre', maxVal: 50000, uniqueSlot: false,
-      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
+      prices: { USA: [350, 950, 1650], EUR: [320, 875, 1520], LATAM: [245, 665, 1155], AR: [195, 520, 910] },
       owners: ['Bench 1 · Alex', 'Bench 2 · Sofia', 'Bench 3 · Marcus'],
       slots: ['Hardware Diagnostics', 'Warranty RMA', 'Board Replacement', 'Calibration'],
       en: { sub: 'Repair shop intake tickets, diagnostic quotes, RMA warranties, and parts margin control.', stages: ['Intake', 'Diagnosing', 'In Repair', 'Ready'], cols: ['Device / Ticket', 'Technician', 'Service Type', 'Quote', 'Stage'], fName: 'Customer & Equipment', fOwner: 'Assigned Bench', fSlot: 'Service Type', fAmt: 'Repair Quote (USD)', kpiVol: 'Open Bench Revenue', dupErr: 'Duplicate ticket.' },
@@ -90,7 +90,7 @@
     },
     rentvault: {
       name: 'RentVault', unit: '$', unitPos: 'pre', maxVal: 100000, uniqueSlot: true,
-      prices: { USA: [450, 1290, 2290], EUR: [415, 1185, 2105], LATAM: [315, 905, 1605], AR: [250, 710, 1260] },
+      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
       owners: ['Kit: ARRI Alexa Mini', 'Kit: Line Array PA 12kW', 'Unit: Scissor Lift 26ft'],
       slots: ['Dec 02–04', 'Dec 05–07', 'Dec 09–11', 'Dec 14–16', 'Dec 18–20'],
       en: { sub: 'Equipment and AV rental calendars with overlap blocks, security deposits, and return inspections.', stages: ['Reserved', 'Checked Out', 'Return QC', 'Deposit Settled'], cols: ['Client / Production', 'Equipment Kit', 'Rental Dates', 'Deposit + Fee', 'Stage'], fName: 'Client / Production Name', fOwner: 'Equipment Kit', fSlot: 'Rental Dates', fAmt: 'Rental + Deposit (USD)', kpiVol: 'Booked Rental Value', dupErr: 'That equipment kit is already reserved for those exact dates.' },
@@ -116,7 +116,7 @@
     },
     quoteflow: {
       name: 'QuoteFlow', unit: '$', unitPos: 'pre', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [450, 1290, 2190], EUR: [415, 1185, 2015], LATAM: [315, 905, 1535], AR: [250, 710, 1205] },
+      prices: { USA: [390, 1090, 1790], EUR: [360, 1005, 1645], LATAM: [275, 765, 1255], AR: [215, 600, 985] },
       owners: ['Rep: Daniel Cruz', 'Rep: Sarah Mills', 'Rep: Owen Park'],
       slots: ['Standard 28% Margin', 'Volume 22% Margin', 'Custom BOM 32%'],
       en: { sub: 'Fast B2B CPQ quoting with automatic gross margin guardrails and one-click PDF proposals.', stages: ['Drafting', 'Margin Check', 'Sent to Buyer', 'Approved'], cols: ['Account / Quote', 'Sales Rep', 'Pricing Tier', 'Quote Total', 'Stage'], fName: 'Account & Quote Title', fOwner: 'Sales Rep', fSlot: 'Margin Tier', fAmt: 'Quote Value (USD)', kpiVol: 'Active Quote Pipeline', dupErr: 'Duplicate quote.' },
@@ -129,7 +129,7 @@
     },
     propledger: {
       name: 'PropLedger', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [790, 2690, 4690], EUR: [725, 2475, 4315], LATAM: [555, 1885, 3285], AR: [435, 1480, 2580] },
+      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
       owners: ['Oakridge Apartments', 'Harbor Retail Plaza', 'Sunset Townhomes'],
       slots: ['Monthly Rent', 'CAM Reconciliation', 'Lease Indexation', 'Maintenance Reserve'],
       en: { sub: 'Property & HOA ledger with automated lease indexation, delinquency flags, and owner statements.', stages: ['Billed', 'Due Soon', 'Overdue Flag', 'Collected'], cols: ['Unit / Tenant', 'Property', 'Ledger Type', 'Amount', 'Stage'], fName: 'Unit & Tenant Name', fOwner: 'Property', fSlot: 'Charge Type', fAmt: 'Amount (USD)', kpiVol: 'Monthly Ledger Volume', dupErr: 'Duplicate charge.' },
@@ -155,7 +155,7 @@
     },
     lottrace: {
       name: 'LotTrace', unit: 'kg', unitPos: 'post', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [695, 2445, 4195], AR: [545, 1920, 3295] },
+      prices: { USA: [890, 2790, 4890], EUR: [820, 2565, 4500], LATAM: [625, 1955, 3425], AR: [490, 1535, 2690] },
       owners: ['Cold Room A (2°C)', 'Blast Freezer (-18°C)', 'Ambient Bay 4'],
       slots: ['FSMA-204 Produce', 'Dairy Cold Chain', 'Protein Packaging', 'Dry Ingredients'],
       en: { sub: 'End-to-end food lot genealogy, cold-chain telemetry logs, and 60-second FSMA-204 mock recall.', stages: ['Received', 'In Processing', 'QA Hold', 'Released'], cols: ['Production Lot', 'Storage Zone', 'Compliance Rule', 'Batch Mass', 'Stage'], fName: 'Product & Lot Code', fOwner: 'Storage Zone', fSlot: 'Traceability Rule', fAmt: 'Batch Mass (kg)', kpiVol: 'Traceable Mass', dupErr: 'Duplicate lot.' },
@@ -168,7 +168,7 @@
     },
     tradeflow: {
       name: 'TradeFlow', unit: '$', unitPos: 'pre', maxVal: 1000000, uniqueSlot: false,
-      prices: { USA: [990, 3690, 6290], EUR: [910, 3395, 5785], LATAM: [695, 2585, 4405], AR: [545, 2030, 3460] },
+      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
       owners: ['Port of Houston', 'Port of Los Angeles', 'Port of Savannah'],
       slots: ['40ft FCL Ocean', '20ft Reefer FCL', 'Air Freight Express'],
       en: { sub: 'Customs brokerage files, true landed-cost breakdown, and demurrage free-day countdown alerts.', stages: ['Docs Filed', 'At Port', 'Customs Cleared', 'Delivered'], cols: ['Container / BL', 'Port of Entry', 'Mode', 'Landed Cost', 'Stage'], fName: 'Importer & Container #', fOwner: 'Port of Entry', fSlot: 'Shipping Mode', fAmt: 'Landed Cost (USD)', kpiVol: 'Active Landed Value', dupErr: 'Duplicate container.' },
@@ -181,7 +181,7 @@
     },
     clientpulse: {
       name: 'ClientPulse', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [450, 1390, 2390], EUR: [415, 1280, 2200], LATAM: [315, 975, 1675], AR: [250, 765, 1315] },
+      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
       owners: ['Pod A · Growth', 'Pod B · Brand & Web', 'Pod C · Engineering'],
       slots: ['Monthly Retainer', 'Fixed Sprint', 'Performance Audit'],
       en: { sub: 'Agency client portal, retainer burn-rate alerts, and deliverable approval tracking.', stages: ['Scoped', 'In Production', 'Client Review', 'Approved'], cols: ['Client Deliverable', 'Delivery Pod', 'Engagement', 'Retainer Value', 'Stage'], fName: 'Client & Deliverable', fOwner: 'Delivery Pod', fSlot: 'Engagement Type', fAmt: 'Retainer Value (USD)', kpiVol: 'Active Retainer MRR', dupErr: 'Duplicate deliverable.' },
@@ -194,7 +194,7 @@
     },
     subguard: {
       name: 'SubGuard', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
+      prices: { USA: [350, 990, 1690], EUR: [320, 910, 1555], LATAM: [245, 695, 1185], AR: [195, 545, 930] },
       owners: ['Dept: Engineering', 'Dept: Sales & RevOps', 'Dept: Marketing'],
       slots: ['Annual Auto-Renew', 'Monthly Per-Seat', 'Usage Tier'],
       en: { sub: 'Corporate SaaS spend ledger, unused seat detection, and 30-day auto-renewal cancellation alerts.', stages: ['Active', 'Idle Seats Flag', 'Renegotiating', 'Savings Locked'], cols: ['SaaS Vendor', 'Department', 'Contract Term', 'Annual Spend', 'Stage'], fName: 'SaaS Vendor & Plan', fOwner: 'Department', fSlot: 'Contract Type', fAmt: 'Annual Spend (USD)', kpiVol: 'Audited Annual Spend', dupErr: 'Vendor already tracked.' },
@@ -207,7 +207,7 @@
     },
     shiftroster: {
       name: 'ShiftRoster', unit: 'h', unitPos: 'post', maxVal: 500, uniqueSlot: true,
-      prices: { USA: [390, 990, 1790], EUR: [360, 910, 1645], LATAM: [275, 695, 1255], AR: [215, 545, 985] },
+      prices: { USA: [290, 790, 1390], EUR: [265, 725, 1280], LATAM: [205, 555, 975], AR: [160, 435, 765] },
       owners: ['Site: Downtown Hotel', 'Site: Logistics Gate A', 'Site: West Clinic'],
       slots: ['Mon 06:00–14:00', 'Mon 14:00–22:00', 'Mon 22:00–06:00', 'Tue 06:00–14:00'],
       en: { sub: 'Rotating shift rosters with overlap prevention, clock-in verification, and overtime threshold alerts.', stages: ['Assigned', 'Confirmed', 'Clocked In', 'Payroll Ready'], cols: ['Staff Member', 'Work Site', 'Shift Window', 'Hours', 'Stage'], fName: 'Employee Full Name', fOwner: 'Work Site', fSlot: 'Shift Window', fAmt: 'Shift Hours', kpiVol: 'Scheduled Hours', dupErr: 'Overlap detected for that site and shift window.' },
@@ -627,13 +627,15 @@
     const archItems = isEs ? [
       ['Propiedad 100% del Código y Base de Datos', 'Python 3.11 + SQLite WAL + Docker Compose. Corre en su propio servidor o entorno local sin bloqueo de proveedor.'],
       ['Seguridad y Control de Acceso (RBAC)', 'Sesiones Bearer + protección CSRF + auditoría inmutable con hash SHA-256 y manifiesto verificable MANIFEST_SHA256.'],
-      ['Privacidad y Soberanía de Datos', 'Ningún registro clínico, financiero o comercial abandona su infraestructura. Ideal para equipos que requieren control estricto de privacidad.'],
-      ['Entrega por Hitos 50/50 + Garantía Correctiva', '50% al iniciar y 50% tras verificación en vivo. Incluye garantía correctiva sobre el alcance acordado, sin suscripciones mensuales.'],
+      ['Despliegue en 1 Clic o Local (Sin Tocar Docker)', 'Funciona en nube privada en 5 min (Render/Railway/VPS), local en oficina o con hosting administrado opcional ($49/mes).'],
+      ['API REST, Webhooks (Zapier/Make) y QuickBooks/Xero', 'Webhooks firmados HMAC-SHA256 hacia Zapier, Make o n8n, más exportación contable QuickBooks/Xero y Google Workspace SSO.'],
+      ['Privacidad y Soberanía de Datos', 'Ningún registro clínico, financiero o comercial abandona su infraestructura. Ideal para equipos que requieren control estricto.'],
+      ['Piloto 14 Días + Escrow 50/50 + SLA Opcional', 'Pruebe con 3 registros reales antes de abonar. Hitos 50/50 con Escrow/Upwork, 90 días de garantía y plan SLA anual opcional ($390/año).'],
     ] : [
-      ['100% Source Code & Database Ownership', 'Python 3.11 + SQLite WAL + Docker Compose. Runs locally or on your private server with zero third-party SaaS lock-in.'],
-      ['Enterprise Security & RBAC Controls', 'Bearer authentication, CSRF protection, role-based access, and tamper-evident SHA-256 audit logging verified via MANIFEST_SHA256.'],
-      ['Self-Hosted Data Sovereignty', 'Sensitive client, clinical, or financial records never leave your infrastructure—built for privacy-conscious US & EU operations.'],
-      ['50/50 Milestone Delivery + Corrective Warranty', '50% kickoff, 50% upon live verification. Includes corrective warranty on delivered scope with zero mandatory recurring retainers.'],
+      ['1-Click Private Cloud or Offline Self-Host', 'Zero Docker CLI required: launch on your private Render/Railway/VPS cloud in 5 min, run offline on LAN, or add optional managed hosting ($49/mo).'],
+      ['REST API, Webhooks (Zapier/Make) & QuickBooks/Xero', 'HMAC-signed webhooks for Zapier, Make, or n8n, 1-click QuickBooks Online / Xero accounting CSV export, and Google Workspace SSO support.'],
+      ['Self-Hosted Data Sovereignty & RBAC', 'Sensitive clinical, legal, or financial records never leave your infrastructure. Signed role sessions and tamper-evident audit logging included.'],
+      ['14-Day Free Pilot + 50/50 Escrow + Optional SLA', 'Validate 3 real workflow records before paying $1. 50/50 Upwork/Escrow milestones, 90-day free warranty, plus optional Annual SLA ($390/yr).'],
     ];
     const archEl = $('arch-list');
     archEl.replaceChildren();
@@ -643,6 +645,41 @@
       const pr = document.createElement('p'); pr.textContent = pair[1];
       box.append(st, pr); archEl.appendChild(box);
     });
+    const intBar = document.createElement('div');
+    intBar.style.display = 'flex'; intBar.style.gap = '8px'; intBar.style.flexWrap = 'wrap'; intBar.style.marginTop = '10px';
+    const whBtn = document.createElement('button');
+    whBtn.type = 'button'; whBtn.className = 'btn btn-secondary btn-sm';
+    whBtn.textContent = lang === 'es' ? 'Probar Webhook (Zapier/Make)' : 'Test Zapier/Make Webhook';
+    whBtn.addEventListener('click', () => {
+      addAudit(lang === 'es' ? 'Webhook HMAC-SHA256 enviado (200 OK · Zapier/Make)' : 'HMAC-SHA256 webhook dispatched (200 OK · Zapier/Make)');
+      renderAudit();
+      toast(lang === 'es' ? 'Webhook firmado registrado en auditoría' : 'Signed webhook logged to audit chain');
+    });
+    const qbBtn = document.createElement('button');
+    qbBtn.type = 'button'; qbBtn.className = 'btn btn-secondary btn-sm';
+    qbBtn.textContent = lang === 'es' ? 'Exportar QuickBooks CSV' : 'Export QuickBooks CSV';
+    qbBtn.addEventListener('click', () => {
+      const header = ['Date', 'Description', 'Customer', 'Reference', 'Account', 'Amount'];
+      const today = new Date().toISOString().slice(0, 10);
+      const lines = [header.join(',')].concat((store[slug] || []).map((r) => [
+        today,
+        '"' + String(r.name || '').replace(/"/g, '""') + '"',
+        '"' + String(r.owner || '').replace(/"/g, '""') + '"',
+        r.id,
+        'Operating Revenue',
+        Number(r.amount || 0).toFixed(2),
+      ].join(',')));
+      const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `${slug}_quickbooks_export.csv`;
+      a.click();
+      addAudit(lang === 'es' ? 'Exportación contable QuickBooks CSV generada' : 'QuickBooks Online accounting CSV exported');
+      renderAudit();
+      toast(lang === 'es' ? 'CSV contable QuickBooks descargado' : 'QuickBooks CSV downloaded');
+    });
+    intBar.append(whBtn, qbBtn);
+    archEl.appendChild(intBar);
   }
 
   function renderStagePills() {

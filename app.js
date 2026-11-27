@@ -44,43 +44,43 @@
     },
     {
       slug: 'quoteflow', img: 'quoteflow', cat: 'smb', flagship: false, name: 'QuoteFlow',
-      prices: { USA: [450, 1290, 2190], EUR: [415, 1185, 2015], LATAM: [315, 905, 1535], AR: [250, 710, 1205] },
+      prices: { USA: [390, 1090, 1790], EUR: [360, 1005, 1645], LATAM: [275, 765, 1255], AR: [215, 600, 985] },
       en: { desc: 'Structured B2B quoting with enforced gross-margin floors, approval workflows, and weighted close pipeline.', rule: 'Blocks quotes below minimum gross-margin floor and exports QR-verified PDF proposals.' },
       es: { desc: 'Cotizador B2B con piso obligatorio de margen bruto, aprobaciones y pipeline ponderado de cierre.', rule: 'Bloquea presupuestos debajo del margen mínimo configurado y exporta PDFs con verificación QR.' },
     },
     {
       slug: 'fixflow', img: 'fixflow', cat: 'smb', flagship: false, name: 'FixFlow',
-      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
+      prices: { USA: [350, 950, 1650], EUR: [320, 875, 1520], LATAM: [245, 665, 1155], AR: [195, 520, 910] },
       en: { desc: 'Repair workshop work orders, parts markup tracking, SLA turnaround alerts, and customer pickup receipts.', rule: 'Tracks repair turnaround time (TAT), parts margin, and customer pickup verification.' },
       es: { desc: 'Órdenes de taller y servicio técnico, margen de repuestos, alertas de plazo SLA y comprobantes de entrega.', rule: 'Mide tiempo de reparación (TAT), controla margen de repuestos y registra entregas conformadas.' },
     },
     {
       slug: 'rentvault', img: 'rentvault', cat: 'smb', flagship: false, name: 'RentVault',
-      prices: { USA: [450, 1290, 2290], EUR: [415, 1185, 2105], LATAM: [315, 905, 1605], AR: [250, 710, 1260] },
+      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
       en: { desc: 'Equipment, audiovisual, and event inventory rentals with conflict-free date reservations and asset ROI analytics.', rule: 'Strict date-overlap lock prevents double bookings while measuring utilization and ROI per asset.' },
       es: { desc: 'Alquiler de equipos, maquinaria y eventos con reservas sin solapamiento y análisis de retorno por activo.', rule: 'Bloqueo estricto de doble reserva por fechas y medición real de utilización y retorno por activo.' },
     },
     {
       slug: 'shiftroster', img: 'shiftroster', cat: 'smb', flagship: false, name: 'ShiftRoster',
-      prices: { USA: [390, 990, 1790], EUR: [360, 910, 1645], LATAM: [275, 695, 1255], AR: [215, 545, 985] },
+      prices: { USA: [290, 790, 1390], EUR: [265, 725, 1280], LATAM: [205, 555, 975], AR: [160, 435, 765] },
       en: { desc: 'Conflict-free employee shift rosters with real-time overtime, weekend, and night-differential payroll previews.', rule: 'Prevents overlapping staff shifts and calculates surcharge impact before payroll runs.' },
       es: { desc: 'Planificación de turnos sin superposiciones con cálculo inmediato de horas extras y recargos nocturnos.', rule: 'Impide asignar doble turno simultáneo y proyecta el costo laboral antes de liquidar.' },
     },
     {
       slug: 'clientpulse', img: 'clientpulse', cat: 'smb', flagship: false, name: 'ClientPulse',
-      prices: { USA: [450, 1390, 2390], EUR: [415, 1280, 2200], LATAM: [315, 975, 1675], AR: [250, 765, 1315] },
+      prices: { USA: [390, 1090, 1890], EUR: [360, 1005, 1740], LATAM: [275, 765, 1325], AR: [215, 600, 1040] },
       en: { desc: 'Agency and studio project portal with formal client deliverable sign-offs before invoicing and scope-creep logs.', rule: 'Enforces documented client sign-off before invoicing and isolates out-of-scope change requests.' },
       es: { desc: 'Portal de proyectos para agencias y estudios con aprobación formal de entregables antes de facturar.', rule: 'Exige conformidad registrada del cliente antes de facturar y cuantifica trabajo fuera de alcance.' },
     },
     {
       slug: 'subguard', img: 'subguard', cat: 'smb', flagship: false, name: 'SubGuard',
-      prices: { USA: [490, 1490, 2490], EUR: [450, 1370, 2290], LATAM: [345, 1045, 1745], AR: [270, 820, 1370] },
+      prices: { USA: [350, 990, 1690], EUR: [320, 910, 1555], LATAM: [245, 695, 1185], AR: [195, 545, 930] },
       en: { desc: 'Software license and vendor renewal register that exposes unused seats and 12-month recurring spend leaks.', rule: 'Validates active-vs-paid seat counts and alerts upcoming auto-renewals ahead of billing dates.' },
       es: { desc: 'Control centralizado de suscripciones, licencias ociosas y alertas tempranas de renovación anual.', rule: 'Controla licencias activas vs contratadas y anticipa renovaciones automáticas para recortar gasto.' },
     },
     {
       slug: 'propledger', img: 'propledger', cat: 'enterprise', flagship: false, name: 'PropLedger',
-      prices: { USA: [790, 2690, 4690], EUR: [725, 2475, 4315], LATAM: [555, 1885, 3285], AR: [435, 1480, 2580] },
+      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
       en: { desc: 'Commercial and residential property ledger with compound rent indexation, NOI, and Cap Rate modeling.', rule: 'Enforces one active lease per unit with auditable NOI and escalation schedules.' },
       es: { desc: 'Administración de propiedades y contratos con ajuste compuesto por índice, NOI y Cap Rate auditables.', rule: 'Garantiza un único contrato activo por unidad y calcula rentabilidad neta en tiempo real.' },
     },
@@ -92,25 +92,25 @@
     },
     {
       slug: 'lottrace', img: 'lottrace', cat: 'enterprise', flagship: false, name: 'LotTrace',
-      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [695, 2445, 4195], AR: [545, 1920, 3295] },
+      prices: { USA: [890, 2790, 4890], EUR: [820, 2565, 4500], LATAM: [625, 1955, 3425], AR: [490, 1535, 2690] },
       en: { desc: 'Food, pharma, and cold-chain batch traceability with FEFO expiry ordering, mass balance, and instant recall tree.', rule: 'Enforces First-Expired-First-Out dispatch and traces raw-to-finished batch lineage in seconds.' },
       es: { desc: 'Trazabilidad de lotes para alimentos y farma con despacho FEFO, balance de masa y recall instantáneo.', rule: 'Ordena salidas por vencimiento más próximo y reconstruye la genealogía completa de cualquier lote.' },
     },
     {
       slug: 'caseledger', img: 'caseledger', cat: 'enterprise', flagship: true, name: 'CaseLedger',
-      prices: { USA: [890, 2990, 5290], EUR: [820, 2750, 4865], LATAM: [625, 2095, 3705], AR: [490, 1645, 2910] },
+      prices: { USA: [690, 2190, 3790], EUR: [635, 2015, 3485], LATAM: [485, 1535, 2655], AR: [380, 1205, 2085] },
       en: { desc: 'Law firm matter docket, fatal statutory deadline alerts, billable WIP hours, and case exposure provisioning.', rule: 'Prioritizes critical statutory deadlines and links attorney WIP time directly to matter billing.' },
       es: { desc: 'Gestión de expedientes jurídicos, alertas de plazos fatales, horas WIP facturables y provisión de riesgo.', rule: 'Prioriza vencimientos procesales críticos y vincula horas trabajadas con la facturación por causa.' },
     },
     {
       slug: 'tradeflow', img: 'tradeflow', cat: 'enterprise', flagship: false, name: 'TradeFlow',
-      prices: { USA: [990, 3690, 6290], EUR: [910, 3395, 5785], LATAM: [695, 2585, 4405], AR: [545, 2030, 3460] },
+      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
       en: { desc: 'Import/export landed-cost allocation (CIF, freight, duties, brokerage) per SKU with true net margin preview.', rule: 'Prorates shipment duties and logistics fees across every SKU before commercial pricing is locked.' },
       es: { desc: 'Prorrateo exacto de costo nacionalizado (CIF, flete, seguro, aranceles) por SKU y margen neto por embarque.', rule: 'Distribuye costos de importación por artículo antes de fijar listas de precios comerciales.' },
     },
     {
       slug: 'fieldops', img: 'fieldops', cat: 'enterprise', flagship: true, name: 'FieldOps',
-      prices: { USA: [890, 2890, 4990], EUR: [820, 2660, 4590], LATAM: [625, 2025, 3495], AR: [490, 1590, 2745] },
+      prices: { USA: [790, 2390, 4190], EUR: [725, 2200, 3855], LATAM: [555, 1675, 2935], AR: [435, 1315, 2305] },
       en: { desc: 'Field service dispatch, P1/P2/P3 SLA compliance, MTTR/FTFR metrics, and closeout-verified invoicing.', rule: 'Blocks invoicing until documented field closeout is recorded and tracks response SLAs live.' },
       es: { desc: 'Despacho de técnicos en campo, control SLA P1/P2/P3, métricas MTTR/FTFR y bloqueo de factura sin cierre.', rule: 'Impide facturar visitas sin parte de cierre conformado y audita tiempos de respuesta en vivo.' },
     },
@@ -220,6 +220,16 @@ CREATE TABLE IF NOT EXISTS audit_chain (
   entry_hash TEXT NOT NULL,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );`,
+    webhooks: `# Built-in Zapier/Make/n8n HMAC-SHA256 webhooks + QuickBooks/Xero export
+from platform_core.integrations import sign_webhook_payload, export_accounting_csv
+
+# 1. Push any record change to Zapier / Make / Slack / ERP automatically
+envelope = sign_webhook_payload(WEBHOOK_SECRET, {"event": "record.completed", "id": "REC-104", "amount": 2490})
+# Header: X-Kreta-Signature: sha256=...
+
+# 2. Export accounting-ready QuickBooks Online or Xero CSV in 1 click
+qb_csv = export_accounting_csv(records, fmt="quickbooks")
+xero_csv = export_accounting_csv(records, fmt="xero")`,
     audit: `# Tamper-evident SHA-256 chain written on every state mutation
 import hashlib, json
 
@@ -295,14 +305,14 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       arch_kicker: 'Verifiable Engineering',
       arch_h2: 'Inspect what you actually own on day one.',
       arch_sub: 'No black-box multi-tenant vendor lock-in. Every delivery ships as a clean, documented repository your IT team or any developer can run, audit, and back up locally.',
-      t1_t: 'Self-Hosted Privacy',
-      t1_d: 'Runs on your office server, private VPS, or offline LAN via Docker Compose. Sensitive clinical, legal, or financial records never leave your infrastructure.',
-      t2_t: 'RBAC & SHA-256 Audit Chain',
-      t2_d: 'Signed role sessions (Admin, Operator, Auditor), strict server-side domain guards, and append-only SHA-256 activity logs ready for compliance reviews.',
-      t3_t: 'Zero-Lock-In CSV & SQL',
-      t3_d: 'Standard SQLite/PostgreSQL schema with instant CSV import/export, automated backups, and QR-verified PDF certificates or executive reports.',
-      t4_t: 'Escrow & 90-Day Warranty',
-      t4_d: 'Approve 3 real sample records before paying $1. 50/50 milestone delivery with Upwork/Escrow/ACH/SEPA options, SHA-256 handover manifest, and 90-day defect warranty.',
+      t1_t: '1-Click Cloud or Offline Self-Host',
+      t1_d: 'Zero Docker CLI required: deploy in 5 minutes to your private Render/Railway/VPS cloud, run offline on local LAN, or add optional turnkey managed hosting ($49/mo).',
+      t2_t: 'RBAC, SSO & SHA-256 Audit Chain',
+      t2_d: 'Signed role sessions (Admin, Operator, Auditor), Google Workspace SSO ready, strict server-side domain guards, and append-only SHA-256 activity logs.',
+      t3_t: 'REST API, Webhooks & QuickBooks/Xero',
+      t3_d: 'Connect to Zapier, Make, or n8n via HMAC-signed webhooks, export 1-click QuickBooks Online / Xero accounting CSVs, and keep full SQLite/PostgreSQL ownership.',
+      t4_t: '14-Day Pilot, Escrow & Optional SLA',
+      t4_d: 'Approve 3 real records in a free 14-day pilot before paying $1. 50/50 Upwork/Escrow milestones, 90-day free warranty, plus optional Annual SLA Support ($390/yr).',
       code_foot: 'Included in every SQL + Web Portal and Hybrid package',
       code_try: 'Inspect Live Audit Trail →',
       roi_kicker: 'Transparent Total Cost of Ownership',
@@ -409,14 +419,14 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       arch_kicker: 'Ingeniería Verificable',
       arch_h2: 'Inspeccione exactamente lo que recibe el día uno.',
       arch_sub: 'Sin cajas negras ni dependencia de un proveedor SaaS. Cada entrega incluye un repositorio limpio y documentado que su equipo puede auditar, alojar y respaldar localmente.',
-      t1_t: 'Privacidad Autoalojada',
-      t1_d: 'Funciona en su servidor de oficina, VPS privado o red local vía Docker Compose. Sus datos clínicos, legales o financieros nunca salen de su infraestructura.',
-      t2_t: 'Roles RBAC y Cadena SHA-256',
-      t2_d: 'Sesiones firmadas por rol (Admin, Operador, Auditor), reglas de negocio en servidor y registro de auditoría SHA-256 listo para inspecciones.',
-      t3_t: 'Cero Lock-In: CSV y SQL',
-      t3_d: 'Esquema estándar SQLite/PostgreSQL con importación/exportación CSV inmediata, respaldos automáticos y certificados o informes PDF con QR.',
-      t4_t: 'Escrow y Garantía de 90 Días',
-      t4_d: 'Valide 3 registros reales antes de abonar $1. Entrega 50/50 con Upwork/Escrow/ACH/SEPA/Transferencia, manifiesto SHA-256 y 90 días de garantía correctiva.',
+      t1_t: 'Nube en 1 Clic o Autoalojado Local',
+      t1_d: 'Sin tocar Docker: despliegue en 5 min en su nube privada (Render/Railway/VPS), corra offline en oficina o sume hosting administrado opcional ($49/mes).',
+      t2_t: 'Roles RBAC, SSO y Cadena SHA-256',
+      t2_d: 'Sesiones firmadas por rol, listo para Google Workspace SSO, reglas de negocio en servidor y auditoría SHA-256 inalterable.',
+      t3_t: 'API REST, Webhooks y QuickBooks/Xero',
+      t3_d: 'Conecte Zapier, Make o n8n con webhooks firmados HMAC, exporte CSV contable QuickBooks/Xero en 1 clic y conserve su base SQL.',
+      t4_t: 'Piloto 14 Días, Escrow y SLA Opcional',
+      t4_d: 'Valide 3 registros reales en piloto gratis antes de pagar $1. Hitos 50/50 con Escrow/Upwork, 90 días de garantía y plan SLA anual opcional ($390/año).',
       code_foot: 'Incluido en cada paquete SQL + Portal Web e Híbrido',
       code_try: 'Ver Auditoría en Vivo →',
       roi_kicker: 'Costo Total de Propiedad Transparente',
