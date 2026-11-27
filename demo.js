@@ -676,8 +676,8 @@
     whBtn.type = 'button'; whBtn.className = 'btn btn-secondary btn-sm';
     whBtn.textContent = lang === 'es' ? 'Probar Webhook (Zapier/Make)' : 'Test Zapier/Make Webhook';
     whBtn.addEventListener('click', () => {
-      addAudit(lang === 'es' ? 'Webhook HMAC-SHA256 enviado (200 OK · Zapier/Make)' : 'HMAC-SHA256 webhook dispatched (200 OK · Zapier/Make)');
-      renderAudit();
+      logAudit('WEBHOOK_SENT', lang === 'es' ? 'Webhook HMAC-SHA256 enviado (200 OK · Zapier/Make)' : 'HMAC-SHA256 webhook dispatched (200 OK · Zapier/Make)');
+      renderAll();
       toast(lang === 'es' ? 'Webhook firmado registrado en auditoría' : 'Signed webhook logged to audit chain');
     });
     const qbBtn = document.createElement('button');
@@ -699,8 +699,8 @@
       a.href = URL.createObjectURL(blob);
       a.download = `${slug}_quickbooks_export.csv`;
       a.click();
-      addAudit(lang === 'es' ? 'Exportación contable QuickBooks CSV generada' : 'QuickBooks Online accounting CSV exported');
-      renderAudit();
+      logAudit('QUICKBOOKS_EXPORT', lang === 'es' ? 'Exportación contable QuickBooks CSV generada' : 'QuickBooks Online accounting CSV exported');
+      renderAll();
       toast(lang === 'es' ? 'CSV contable QuickBooks descargado' : 'QuickBooks CSV downloaded');
     });
     intBar.append(whBtn, qbBtn);
