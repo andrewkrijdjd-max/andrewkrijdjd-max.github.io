@@ -8,37 +8,37 @@
   const PRODUCTS = [
     {
       slug: 'medflow', img: 'medflow', cat: 'core', flagship: true, name: 'MedFlow / ClinicOps',
-      prices: { USA: [790, 2490, 4290], EUR: [730, 2290, 3950], LATAM: [550, 1740, 3000], AR: [430, 1370, 2360] },
+      prices: { USA: [590, 1790, 3190], EUR: [545, 1645, 2935], LATAM: [415, 1255, 2235], AR: [325, 985, 1755] },
       en: { desc: 'Multi-provider clinic scheduling, role-restricted clinical records, and visit billing with zero per-practitioner subscriptions.', rule: 'Blocks double-booked provider slots automatically, isolates clinical notes by role, and links visits directly to billing.' },
       es: { desc: 'Agenda clínica multi-profesional, historia clínica con roles y facturación de consultas sin abonos mensuales por profesional.', rule: 'Bloquea turnos superpuestos automáticamente, separa notas clínicas por rol y vincula cada consulta con facturación.' },
     },
     {
       slug: 'buildcost', img: 'buildcost', cat: 'core', flagship: true, name: 'BuildCost Pro',
-      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [690, 2440, 4190], AR: [545, 1920, 3290] },
+      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
       en: { desc: 'Line-item construction job costing, subcontractor variance control, and capped progress certifications.', rule: 'Blocks progress draws exceeding budgeted line balances and flags cost-overrun drift before payment.' },
       es: { desc: 'Control presupuestario por rubro de obra, gastos de subcontratistas y certificaciones de avance con tope automático.', rule: 'Bloquea certificaciones que superan el saldo del rubro y alerta desvíos de margen antes de pagar.' },
     },
     {
       slug: 'fleetguard', img: 'fleetguard', cat: 'core', flagship: true, name: 'FleetGuard & LogiTrack',
-      prices: { USA: [890, 2990, 4990], EUR: [820, 2750, 4590], LATAM: [620, 2090, 3490], AR: [490, 1640, 2740] },
+      prices: { USA: [590, 1990, 3490], EUR: [545, 1830, 3210], LATAM: [415, 1395, 2445], AR: [325, 1095, 1920] },
       en: { desc: 'Preventive maintenance schedules, expiring DOT/compliance documents, shop orders, and fuel cost tracking per vehicle.', rule: 'Validates odometer continuity, surfaces overdue service intervals, and isolates fuel cost anomalies per unit.' },
       es: { desc: 'Mantenimiento preventivo, vencimientos documentales, órdenes de taller y control de combustible por unidad.', rule: 'Valida continuidad de odómetro, alerta mantenimientos vencidos y detecta desvíos de consumo por vehículo.' },
     },
     {
       slug: 'compliancevault', img: 'compliancevault', cat: 'core', flagship: false, name: 'ComplianceVault ISO/SOC2',
-      prices: { USA: [990, 2490, 4490], EUR: [910, 2290, 4130], LATAM: [690, 1740, 3140], AR: [545, 1370, 2470] },
+      prices: { USA: [690, 1990, 3290], EUR: [635, 1830, 3025], LATAM: [485, 1395, 2305], AR: [380, 1095, 1810] },
       en: { desc: 'Audit-ready control register, risk matrix, regulatory permits, and timestamped evidence packages for ISO 27001 / SOC 2.', rule: 'Generates SHA-256 verifiable audit reports and tracks expiring permits and control ownership.' },
       es: { desc: 'Matriz de controles y riesgos, habilitaciones regulatorias y repositorio de evidencias para auditorías ISO / SOC2.', rule: 'Emite reportes de auditoría verificables con SHA-256 y monitorea vencimientos críticos.' },
     },
     {
       slug: 'agrofield', img: 'agrofield', cat: 'core', flagship: false, name: 'AgroField & Stock',
-      prices: { USA: [690, 2640, 5720], EUR: [635, 2510, 5435], LATAM: [485, 1850, 4005], AR: [380, 1450, 3145] },
+      prices: { USA: [590, 2090, 4290], EUR: [545, 1925, 3945], LATAM: [415, 1465, 3005], AR: [325, 1150, 2360] },
       en: { desc: 'Agricultural input inventory, field application logs, harvest receipts, and true net margin per lot and season.', rule: 'Links seed/chemical stock directly to field applications and harvest receipts for true per-acre profitability.' },
       es: { desc: 'Control de stock de insumos, labores agrícolas, cartas de porte y margen neto real por lote y campaña.', rule: 'Vincula insumos y labores con el rinde de cosecha para calcular rentabilidad real por hectárea.' },
     },
     {
       slug: 'educampus', img: 'educampus', cat: 'core', flagship: false, name: 'EduCampus & Certify',
-      prices: { USA: [590, 1240, 3990], EUR: [545, 1180, 3670], LATAM: [415, 870, 2790], AR: [325, 680, 2190] },
+      prices: { USA: [450, 990, 2490], EUR: [415, 910, 2290], LATAM: [315, 695, 1745], AR: [250, 545, 1370] },
       en: { desc: 'Cohort enrollment, attendance eligibility rules, tuition/scholarship balances, and QR-verified PDF certificates.', rule: 'Enforces minimum attendance and balance clearance before issuing tamper-evident credentials.' },
       es: { desc: 'Gestión de cohortes, asistencias mínimas, becas/cuotas y emisión de certificados PDF con validación QR.', rule: 'Exige asistencia mínima y saldo regularizado antes de emitir cada credencial verificable.' },
     },
@@ -116,13 +116,13 @@
     },
     {
       slug: 'ecometrics_suite', img: 'ecometrics', cat: 'impact', flagship: false, name: 'EcoMetrics Suite',
-      prices: { USA: [1050, 2895, 3510], EUR: [960, 2630, 3160], LATAM: [695, 2015, 2365], AR: [520, 1485, 1750] },
+      prices: { USA: [890, 2490, 3490], EUR: [820, 2290, 3210], LATAM: [625, 1745, 2445], AR: [490, 1370, 1920] },
       en: { desc: 'Auditable Scope 1–3 carbon footprint, sustainability scoring, and SHA-256 environmental certificates.', rule: 'Applies documented emissions factors with open formulas and instant tamper-evident PDF certificates.' },
       es: { desc: 'Huella de carbono auditable, índice de sustentabilidad industrial y certificados ambientales con hash SHA-256.', rule: 'Aplica factores de emisión trazables con fórmulas abiertas y emisión inmediata de certificados PDF.' },
     },
     {
       slug: 'voluntarios_db', img: 'voluntariosdb', cat: 'impact', flagship: false, name: 'VoluntariosDB',
-      prices: { USA: [610, 2370, 2720], EUR: [570, 2190, 2455], LATAM: [430, 1660, 1840], AR: [340, 1220, 1310] },
+      prices: { USA: [490, 1790, 2390], EUR: [450, 1645, 2200], LATAM: [345, 1255, 1675], AR: [270, 985, 1315] },
       en: { desc: 'Nonprofit volunteer roster, verified shift hours, donor impact reports, and verifiable service certificates.', rule: 'Centralizes volunteer participation logs and exports donor-ready hours and signed attendance records.' },
       es: { desc: 'Gestión integral de voluntariado, horas verificadas por programa, reportes a donantes y constancias oficiales.', rule: 'Centraliza turnos y horas servidas con trazabilidad completa para rendición de cuentas.' },
     },
@@ -290,7 +290,7 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       proof_4: 'Milestone payments via ACH, SEPA, Escrow, or USDT',
       flag_kicker: 'Most Requested Deployments',
       flag_h2: '6 Flagship Operational Systems',
-      flag_sub: 'Each preview shows the full uncropped production workspace. Launch any system in the 4-view interactive demo (Overview, Kanban, Records, Audit) with zero registration.',
+      flag_sub: 'Every card below is a real working mini-dashboard—click any row to advance its stage and watch KPIs & charts recalculate live. Zero static screenshots.',
       flag_see_all: 'See all 20 systems ↓',
       cat_kicker: 'Complete Portfolio',
       cat_h2: 'All 20 Production Systems',
@@ -363,10 +363,12 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       ct_email: 'Request Demo / Proposal via Email',
       ct_copy: 'Copy Email (andrewkrijdjd@gmail.com)',
       ft_note: 'Self-hosted operational software · One-time ownership · Zero recurring seat fees',
-      modal_open_demo: 'Launch 4-View Workspace →',
-      modal_proposal: 'Request Written Proposal',
+      mtab_live: 'Live Interactive App',
+      mtab_editions: 'Editions & 3 Installments',
+      modal_open_demo: 'Open Full Screen Workspace →',
+      modal_proposal: 'Start Free 14-Day Pilot',
       modal_copy: 'Copy Email Text',
-      btn_try: 'Live Demo',
+      btn_try: 'Open Live App',
       btn_editions: 'Editions',
       ed_sheets: 'Google Sheets',
       ed_sql: 'SQL + Web Portal',
@@ -404,7 +406,7 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       proof_4: 'Pagos por hitos vía ACH, SEPA, Escrow o USDT',
       flag_kicker: 'Implementaciones Más Solicitadas',
       flag_h2: '6 Sistemas Operativos Destacados',
-      flag_sub: 'Cada vista muestra la interfaz real sin recortes. Abra cualquier sistema en la demo interactiva de 4 vistas (Resumen, Kanban, Registros, Auditoría) sin registrarse.',
+      flag_sub: 'Cada tarjeta es un mini-dashboard real funcionando en vivo: haga clic en cualquier fila para avanzar su etapa y ver recalcular KPIs y gráficos al instante. Cero capturas estáticas.',
       flag_see_all: 'Ver los 20 sistemas ↓',
       cat_kicker: 'Catálogo Completo',
       cat_h2: 'Los 20 Sistemas en Producción',
@@ -477,10 +479,12 @@ c51d8a32f9e0b4a7...  docker-compose.yml
       ct_email: 'Solicitar Demo / Propuesta por Email',
       ct_copy: 'Copiar Email (andrewkrijdjd@gmail.com)',
       ft_note: 'Software operativo autoalojado · Propiedad por pago único · Cero abonos por usuario',
-      modal_open_demo: 'Abrir Workspace (4 Vistas) →',
-      modal_proposal: 'Solicitar Propuesta Escrita',
+      mtab_live: 'App Interactiva Viva',
+      mtab_editions: 'Ediciones y 3 Cuotas',
+      modal_open_demo: 'Abrir en Pantalla Completa →',
+      modal_proposal: 'Iniciar Piloto Gratis 14 Días',
       modal_copy: 'Copiar Texto del Email',
-      btn_try: 'Demo Viva',
+      btn_try: 'Probar App Aquí',
       btn_editions: 'Ediciones',
       ed_sheets: 'Google Sheets',
       ed_sql: 'Portal Web + SQL',
@@ -500,11 +504,14 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     search: '',
     view: 'table',
     sbSlug: 'medflow',
+    sbSearch: '',
+    sbStageFilter: null,
     sbRows: JSON.parse(JSON.stringify(SANDBOX_DATA)),
     sbAlert: false,
     sbNote: '',
     codeTab: 'docker',
     modalSlug: null,
+    modalTab: 'live',
   };
 
   function t(key) { return (I18N[state.lang] && I18N[state.lang][key]) || I18N.en[key] || key; }
@@ -559,59 +566,162 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     if (mobileProp) mobileProp.href = mailtoUrl('KRETA-PROPUESTA', 'Evaluation');
   }
 
+  const SHARED_STORE_KEY = 'kreta_live_store_v1';
+  const DEFAULT_STAGES = {
+    en: ['Queued', 'In Progress', 'Review', 'Completed'],
+    es: ['Pendiente', 'En Curso', 'Revisión', 'Completado'],
+  };
+  const PRODUCT_META = {
+    medflow: { stages: { en: ['Scheduled', 'Checked In', 'In Consult', 'Billed'], es: ['Agendado', 'Recepción', 'Consulta', 'Facturado'] }, seed: [
+      { id: 'MED-101', name: 'Martin Lopez', owner: 'Dr. Hannah Reed', slot: '09:00', amount: 140, stage: 3, notes: 'Annual physical completed.' },
+      { id: 'MED-102', name: 'Carla Diaz', owner: 'Dr. Hannah Reed', slot: '10:30', amount: 120, stage: 2, notes: 'Follow-up consult.' },
+      { id: 'MED-103', name: 'David Brooks', owner: 'Dr. Carlos Vega', slot: '11:30', amount: 185, stage: 1, notes: 'Checked in at front desk.' },
+      { id: 'MED-104', name: 'Elena Morales', owner: 'Dr. Priya Patel', slot: '14:00', amount: 95, stage: 0, notes: 'Initial intake.' },
+    ] },
+    buildcost: { stages: { en: ['Draft Draw', 'PM Review', 'Approved', 'Paid'], es: ['Borrador', 'Revisión', 'Aprobada', 'Pagada'] }, seed: [
+      { id: 'BC-201', name: 'Apex Structural Concrete', owner: 'Oak St Commercial', slot: 'Concrete & Steel', amount: 42500, stage: 3, notes: 'Slab pour inspected.' },
+      { id: 'BC-202', name: 'VoltLine Electrical', owner: 'Oak St Commercial', slot: 'Electrical Sub', amount: 18900, stage: 2, notes: 'Within 2% budget.' },
+      { id: 'BC-203', name: 'Precision Mechanical', owner: 'Riverfront Lofts', slot: 'HVAC & Plumbing', amount: 26400, stage: 1, notes: 'Awaiting lien waiver.' },
+      { id: 'BC-204', name: 'Summit Millwork', owner: 'Westside Wing', slot: 'Finishes', amount: 14200, stage: 0, notes: 'Submitted.' },
+    ] },
+    fleetguard: { stages: { en: ['Scheduled', 'In Shop', 'QC Check', 'Cleared'], es: ['Programado', 'En Taller', 'Control QC', 'Liberado'] }, seed: [
+      { id: 'FL-301', name: 'Truck #14 — Freightliner M2', owner: 'Fleet Bay A', slot: 'DOT Annual', amount: 1450, stage: 2, notes: 'Brake pads replaced.' },
+      { id: 'FL-302', name: 'Van #08 — Ford Transit', owner: 'Fleet Bay B', slot: 'PM-B 15k mi', amount: 480, stage: 1, notes: 'Fluids & filters.' },
+      { id: 'FL-303', name: 'Truck #22 — Isuzu NPR', owner: 'Fleet Bay A', slot: 'Tire & Align', amount: 920, stage: 3, notes: 'Cleared for dispatch.' },
+    ] },
+    lablims: { stages: { en: ['Logged', 'In Assay', 'QA Review', 'COA Issued'], es: ['Ingresada', 'En Ensayo', 'Revisión QA', 'COA Emitido'] }, seed: [
+      { id: 'LB-401', name: 'Water Batch #884 — Metals', owner: 'Chem Lab 1', slot: 'ICP-MS Panel', amount: 640, stage: 2, notes: 'Z-score within 0.4 SD.' },
+      { id: 'LB-402', name: 'Dairy Lot #312 — Micro', owner: 'Bio Lab 2', slot: 'Pathogen Screen', amount: 420, stage: 1, notes: 'Incubation 18h.' },
+      { id: 'LB-403', name: 'Soil Core #119 — NPK', owner: 'Ag Lab 1', slot: 'Nutrient Suite', amount: 310, stage: 3, notes: 'QR COA signed.' },
+    ] },
+    caseledger: { stages: { en: ['Intake', 'Discovery', 'Filing Ready', 'Closed'], es: ['Ingreso', 'Prueba', 'Escrito Listo', 'Cerrado'] }, seed: [
+      { id: 'CL-214', name: 'Mercer Logistics Dispute', owner: 'Partner M. Vance', slot: '48h Fatal Brief', amount: 6475, stage: 2, notes: '18.5h WIP logged.' },
+      { id: 'CL-215', name: 'Helios IP Licensing', owner: 'Assoc. L. Vega', slot: 'Contract Review', amount: 3850, stage: 1, notes: 'Redlines sent.' },
+      { id: 'CL-216', name: 'Commercial Lease Arb.', owner: 'Partner M. Vance', slot: 'Mediation', amount: 2400, stage: 3, notes: 'Settled & billed.' },
+    ] },
+    fieldops: { stages: { en: ['Dispatched', 'On Site', 'QC Sign-off', 'Invoiced'], es: ['Despachado', 'En Sitio', 'Control QC', 'Facturado'] }, seed: [
+      { id: 'WO-801', name: 'Oak Plaza · Rooftop Chiller', owner: 'Tech Mike Torres', slot: '4h Emergency', amount: 1850, stage: 2, notes: 'Compressor replaced.' },
+      { id: 'WO-802', name: 'Metro Tower · Elevator B', owner: 'Tech Jordan Vance', slot: '8h Priority', amount: 1240, stage: 1, notes: 'Door sensor calibrated.' },
+      { id: 'WO-803', name: 'Harbor Clinic · Boiler PM', owner: 'Tech Luis Gomez', slot: 'Preventive PM', amount: 640, stage: 3, notes: 'Closeout signed.' },
+    ] },
+  };
+
+  function readSharedStore() {
+    try { return JSON.parse(localStorage.getItem(SHARED_STORE_KEY) || '{}') || {}; } catch (_) { return {}; }
+  }
+  function saveSharedRows(slug, rows) {
+    try {
+      const all = readSharedStore();
+      all[slug] = rows;
+      localStorage.setItem(SHARED_STORE_KEY, JSON.stringify(all));
+    } catch (_) {}
+  }
+  function getLiveRows(slug) {
+    const saved = readSharedStore();
+    if (Array.isArray(saved[slug]) && saved[slug].length) return saved[slug];
+    if (PRODUCT_META[slug]) return PRODUCT_META[slug].seed.map((r) => Object.assign({}, r));
+    const p = getProduct(slug);
+    const pfx = slug.slice(0, 3).toUpperCase();
+    const base = pricesFor(p)[0];
+    return [
+      { id: `${pfx}-101`, name: `${p.name} — Priority Account A`, owner: 'Ops Lead', slot: 'Today 09:30', amount: Math.round(base * 0.6), stage: 2, notes: 'Active workflow.' },
+      { id: `${pfx}-102`, name: `${p.name} — Active Order B`, owner: 'Team Lead', slot: 'Today 11:00', amount: Math.round(base * 0.45), stage: 1, notes: 'In progress.' },
+      { id: `${pfx}-103`, name: `${p.name} — Verified Record C`, owner: 'Supervisor', slot: 'Today 14:15', amount: Math.round(base * 0.8), stage: 3, notes: 'Completed.' },
+    ];
+  }
+  function getStagesFor(slug) {
+    return (PRODUCT_META[slug] && PRODUCT_META[slug].stages[state.lang]) || DEFAULT_STAGES[state.lang];
+  }
+
+  function populateSandboxSelect() {
+    const sel = document.getElementById('sb-product-select');
+    if (!sel) return;
+    sel.innerHTML = PRODUCTS.map((p) => `<option value="${p.slug}">${p.name}</option>`).join('');
+    sel.value = state.sbSlug;
+  }
+
   function renderSandbox() {
     const p = getProduct(state.sbSlug);
-    const sb = state.sbRows[state.sbSlug];
+    const rows = getLiveRows(state.sbSlug);
     const [shPrice, sqlPrice] = pricesFor(p);
-    const stages = sb.stages[state.lang];
+    const stages = getStagesFor(state.sbSlug);
+    const inst3 = Math.ceil(sqlPrice / 3);
 
     document.querySelectorAll('.sandbox-tab').forEach((b) => {
       b.setAttribute('aria-selected', String(b.dataset.sb === state.sbSlug));
     });
+    const sbSel = document.getElementById('sb-product-select');
+    if (sbSel) sbSel.value = state.sbSlug;
 
     document.getElementById('sb-title').textContent = p.name;
     document.getElementById('sb-sub').textContent = state.lang === 'es'
-      ? 'Haga clic en Avanzar en cualquier registro o pruebe el bloqueo automático.'
-      : 'Click Advance on any live record or trigger the built-in rule guard.';
-    document.getElementById('sb-price').textContent = (state.lang === 'es' ? 'Desde ' : 'From ') + fmtMoney(shPrice) + (state.lang === 'es' ? ' · Pago único' : ' one-time');
+      ? 'Pruebe cualquiera de los 20 sistemas aquí: agregue registros, filtre o avance etapas en vivo.'
+      : 'Test any of the 20 systems right here: add a record, filter, or advance stages live.';
+    document.getElementById('sb-price').textContent = state.lang === 'es'
+      ? `Desde ${fmtMoney(shPrice)} · o 3x ${fmtMoney(inst3)}`
+      : `From ${fmtMoney(shPrice)} · or 3x ${fmtMoney(inst3)}`;
 
-    const totalVal = sb.rows.reduce((s, r) => s + r.val, 0);
-    const completed = sb.rows.filter((r) => r.stage === 3).length;
-    const active = sb.rows.length - completed;
-    const kpisEl = document.getElementById('sb-kpis');
-    kpisEl.innerHTML = `
+    const totalVal = rows.reduce((s, r) => s + Number(r.amount || 0), 0);
+    const completed = rows.filter((r) => r.stage === 3).length;
+    const active = rows.length - completed;
+    document.getElementById('sb-kpis').innerHTML = `
       <div class="sandbox-kpi"><div class="sandbox-kpi-lbl">${state.lang === 'es' ? 'Valor Activo' : 'Active Value'}</div><div class="sandbox-kpi-val mono">$${totalVal.toLocaleString('en-US')}</div></div>
       <div class="sandbox-kpi"><div class="sandbox-kpi-lbl">${state.lang === 'es' ? 'En Curso' : 'In Progress'}</div><div class="sandbox-kpi-val mono">${active}</div></div>
-      <div class="sandbox-kpi"><div class="sandbox-kpi-lbl">${state.lang === 'es' ? 'Completados' : 'Completed'}</div><div class="sandbox-kpi-val mono">${completed} / ${sb.rows.length}</div></div>
+      <div class="sandbox-kpi"><div class="sandbox-kpi-lbl">${state.lang === 'es' ? 'Completados' : 'Completed'}</div><div class="sandbox-kpi-val mono">${completed} / ${rows.length}</div></div>
     `;
 
+    // Reactive 4-stage bar strip (click to filter!)
+    const cnts = [0, 0, 0, 0];
+    rows.forEach((r) => { cnts[r.stage] = (cnts[r.stage] || 0) + 1; });
+    const maxCnt = Math.max(1, ...cnts);
+    const chartEl = document.getElementById('sb-chart');
+    if (chartEl) {
+      chartEl.innerHTML = stages.map((st, idx) => {
+        const pct = Math.round((cnts[idx] / maxCnt) * 100);
+        const pressed = state.sbStageFilter === idx;
+        return `
+          <button type="button" class="sb-stage-bar" data-sb-stage="${idx}" aria-pressed="${pressed}">
+            <div class="sb-stage-bar-top"><span>${st}</span><span class="mono">${cnts[idx]}</span></div>
+            <div class="sb-stage-track"><div class="sb-stage-fill" style="width:${Math.max(8, pct)}%"></div></div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    const q = (state.sbSearch || '').trim().toLowerCase();
+    const visible = rows.filter((r) => {
+      if (state.sbStageFilter !== null && r.stage !== state.sbStageFilter) return false;
+      if (!q) return true;
+      return `${r.id} ${r.name} ${r.owner} ${r.slot}`.toLowerCase().includes(q);
+    }).slice(0, 4);
+
     const listEl = document.getElementById('sb-list');
-    listEl.innerHTML = sb.rows.map((r, idx) => {
-      const stageName = stages[r.stage];
+    listEl.innerHTML = visible.length ? visible.map((r) => {
+      const stageName = stages[r.stage] || stages[0];
       const nextLbl = r.stage < 3
         ? (state.lang === 'es' ? 'Avanzar →' : 'Advance →')
         : (state.lang === 'es' ? 'Reiniciar ↺' : 'Reset ↺');
       return `
         <div class="sandbox-row">
           <div style="min-width:0">
-            <div class="sandbox-row-title">${r.title}</div>
-            <div class="sandbox-row-meta mono">${r.id} · ${r.meta} · $${r.val.toLocaleString('en-US')}</div>
+            <div class="sandbox-row-title">${r.name}</div>
+            <div class="sandbox-row-meta mono">${r.id} · ${r.owner} · ${r.slot} · $${Number(r.amount || 0).toLocaleString('en-US')}</div>
           </div>
           <span class="stage-pill stage-${r.stage}">${stageName}</span>
-          <button type="button" class="sandbox-adv-btn" data-sb-idx="${idx}">${nextLbl}</button>
+          <button type="button" class="sandbox-adv-btn" data-sb-id="${r.id}">${nextLbl}</button>
         </div>
       `;
-    }).join('');
+    }).join('') : `<div style="padding:12px;text-align:center;font-size:12.5px;color:var(--muted)">${state.lang === 'es' ? 'Sin registros para ese filtro.' : 'No matching records for this filter.'}</div>`;
 
     const fb = document.getElementById('sb-feedback');
     fb.classList.toggle('is-alert', state.sbAlert);
     const defaultNote = state.lang === 'es'
-      ? `SQL + Web: ${fmtMoney(sqlPrice)} pago único · Haga clic en Avanzar o Probar Guardia.`
-      : `SQL + Web: ${fmtMoney(sqlPrice)} one-time · Click Advance or Test Guard to inspect live rules.`;
+      ? `SQL + Web: ${fmtMoney(sqlPrice)} (o 3x ${fmtMoney(inst3)} s/i) · Los cambios se guardan al abrir el workspace.`
+      : `SQL + Web: ${fmtMoney(sqlPrice)} (or 3x ${fmtMoney(inst3)} 0% APR) · Changes sync into the full workspace.`;
     document.getElementById('sb-feedback-text').textContent = state.sbNote || defaultNote;
-    document.getElementById('sb-test-rule').textContent = state.lang === 'es' ? 'Probar Guardia' : 'Test Guard';
+    document.getElementById('sb-test-rule').textContent = state.lang === 'es' ? 'Probar Regla' : 'Test Guard';
 
-    const demoUrl = `demo.html?p=${p.slug}&lang=${state.lang}&region=${state.region}`;
+    const demoUrl = `demo.html?p=${p.slug}&lang=${state.lang}&region=${state.region}&theme=${state.theme}`;
     document.getElementById('sb-launch-full').href = demoUrl;
     document.getElementById('hero-demo-cta').href = demoUrl;
   }
@@ -620,27 +730,63 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     const mount = document.getElementById('flagship-grid');
     const flags = PRODUCTS.filter((p) => p.flagship);
     const catNames = t('cat_names');
+    const barColors = ['#1D4ED8', '#0F766E', '#D97706', '#7C3AED'];
     mount.innerHTML = flags.map((p) => {
       const copy = p[state.lang];
       const [sh, sql] = pricesFor(p);
-      const demoUrl = `demo.html?p=${p.slug}&lang=${state.lang}&region=${state.region}`;
-      const imgPath = `assets/screens/${state.lang}/${p.img}.png`;
+      const inst3 = Math.ceil(sql / 3);
+      const rows = getLiveRows(p.slug);
+      const stages = getStagesFor(p.slug);
+      const totalVal = rows.reduce((s, r) => s + Number(r.amount || 0), 0);
+      const done = rows.filter((r) => r.stage === 3).length;
+      const pctDone = rows.length ? Math.round((done / rows.length) * 100) : 0;
+      const cnts = [0, 0, 0, 0];
+      rows.forEach((r) => { cnts[r.stage] = (cnts[r.stage] || 0) + 1; });
+      let xOff = 0;
+      const svgSegs = cnts.map((c, idx) => {
+        const w = rows.length ? (c / rows.length) * 280 : 70;
+        const rect = `<rect x="${xOff.toFixed(1)}" y="4" width="${Math.max(0, w - 2).toFixed(1)}" height="12" rx="4" fill="${barColors[idx]}" />`;
+        xOff += w;
+        return rect;
+      }).join('');
+
       return `
         <article class="flag-card">
-          <div class="flag-shot-wrap">
-            <img class="flag-shot" src="${imgPath}" alt="${p.name} production workspace preview" width="1280" height="800" loading="lazy">
+          <div class="live-dash-wrap" aria-label="${p.name} live mini dashboard">
+            <div class="live-dash-chrome">
+              <span class="live-dot-pill">${state.lang === 'es' ? 'Mini-CRM Vivo' : 'Live Mini-CRM'}</span>
+              <span class="mono">${rows.length} ${state.lang === 'es' ? 'registros' : 'records'}</span>
+            </div>
+            <div class="live-dash-kpis">
+              <div class="live-kpi"><div class="live-kpi-lbl">${state.lang === 'es' ? 'Volumen' : 'Volume'}</div><div class="live-kpi-val mono">$${totalVal.toLocaleString('en-US')}</div></div>
+              <div class="live-kpi"><div class="live-kpi-lbl">${state.lang === 'es' ? 'Activos' : 'Active'}</div><div class="live-kpi-val mono">${rows.length - done}</div></div>
+              <div class="live-kpi"><div class="live-kpi-lbl">${state.lang === 'es' ? 'Cierre' : 'Done'}</div><div class="live-kpi-val mono">${pctDone}%</div></div>
+            </div>
+            <svg class="live-dash-svg" viewBox="0 0 280 20" role="img" aria-label="Live stage mix">${svgSegs}</svg>
+            <div class="live-dash-rows">
+              ${rows.slice(0, 3).map((r) => `
+                <div class="live-row">
+                  <span class="live-row-name">${r.name}</span>
+                  <span class="stage-pill stage-${r.stage}">${stages[r.stage]}</span>
+                  <button type="button" class="live-row-btn" data-flag-slug="${p.slug}" data-flag-id="${r.id}" title="${state.lang === 'es' ? 'Avanzar etapa' : 'Advance stage'}">→</button>
+                </div>
+              `).join('')}
+            </div>
           </div>
           <div class="flag-body">
             <div class="flag-title-row">
               <h3>${p.name}</h3>
               <span class="flag-price mono">${fmtMoney(sh)} – ${fmtMoney(sql)}</span>
             </div>
-            <div><span class="tbl-cat">${catNames[p.cat]}</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap">
+              <span class="tbl-cat">${catNames[p.cat]}</span>
+              <span class="mono" style="font-size:11.5px;color:var(--muted)">${state.lang === 'es' ? `o 3x ${fmtMoney(inst3)} s/i` : `or 3x ${fmtMoney(inst3)} 0% APR`}</span>
+            </div>
             <p class="flag-desc">${copy.desc}</p>
             <div class="flag-rule">${copy.rule}</div>
             <div class="flag-actions">
-              <a class="btn btn-primary btn-sm" href="${demoUrl}">${t('btn_try')} →</a>
-              <button type="button" class="btn btn-secondary btn-sm" data-modal="${p.slug}">${t('btn_editions')}</button>
+              <button type="button" class="btn btn-primary btn-sm" data-modal="${p.slug}" data-mtab="live">${t('btn_try')} →</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-modal="${p.slug}" data-mtab="editions">${t('btn_editions')}</button>
             </div>
           </div>
         </article>
@@ -694,8 +840,8 @@ c51d8a32f9e0b4a7...  docker-compose.yml
                     <td class="tbl-price mono">${fmtMoney(hyb)}</td>
                     <td>
                       <div class="tbl-actions">
-                        <a class="btn btn-primary btn-sm" href="${demoUrl}">${t('btn_try')}</a>
-                        <button type="button" class="btn btn-secondary btn-sm" data-modal="${p.slug}">${t('btn_editions')}</button>
+                        <button type="button" class="btn btn-primary btn-sm" data-modal="${p.slug}" data-mtab="live">${t('btn_try')}</button>
+                        <button type="button" class="btn btn-secondary btn-sm" data-modal="${p.slug}" data-mtab="editions">${t('btn_editions')}</button>
                       </div>
                     </td>
                   </tr>
@@ -724,8 +870,8 @@ c51d8a32f9e0b4a7...  docker-compose.yml
                   <span>Hyb: <strong>${fmtMoney(hyb)}</strong></span>
                 </div>
                 <div class="mini-card-actions">
-                  <a class="btn btn-primary btn-sm" href="${demoUrl}">${t('btn_try')}</a>
-                  <button type="button" class="btn btn-secondary btn-sm" data-modal="${p.slug}">${t('btn_editions')}</button>
+                  <button type="button" class="btn btn-primary btn-sm" data-modal="${p.slug}" data-mtab="live">${t('btn_try')}</button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-modal="${p.slug}" data-mtab="editions">${t('btn_editions')}</button>
                 </div>
               </article>
             `;
@@ -809,42 +955,66 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     document.getElementById('roi-proposal-link').href = mailtoUrl('KRETA-PROPUESTA', p.name);
   }
 
-  function openModal(slug) {
+  function setModalTab(tab) {
+    state.modalTab = tab === 'editions' ? 'editions' : 'live';
+    document.querySelectorAll('.modal-tab').forEach((b) => {
+      b.setAttribute('aria-selected', String(b.dataset.mtab === state.modalTab));
+    });
+    document.getElementById('modal-tab-live').hidden = state.modalTab !== 'live';
+    document.getElementById('modal-tab-editions').hidden = state.modalTab !== 'editions';
+  }
+
+  function openModal(slug, tab) {
     const p = getProduct(slug);
     state.modalSlug = p.slug;
     const [sh, sql, hyb] = pricesFor(p);
     document.getElementById('modal-cat').textContent = t('cat_names')[p.cat];
     document.getElementById('modal-title').textContent = p.name;
-    document.getElementById('modal-img').src = `assets/screens/${state.lang}/${p.img}.png`;
     document.getElementById('modal-desc').textContent = p[state.lang].desc;
     document.getElementById('modal-rule').textContent = p[state.lang].rule;
+
+    const instNote = (v) => state.lang === 'es'
+      ? `o 3 cuotas s/i de ${fmtMoney(Math.ceil(v / 3))}`
+      : `or 3 × ${fmtMoney(Math.ceil(v / 3))} (0% APR)`;
 
     document.getElementById('modal-editions').innerHTML = `
       <div class="edition-box">
         <div class="edition-name">${t('ed_sheets')}</div>
         <div class="edition-price mono">${fmtMoney(sh)}</div>
+        <div class="mono" style="font-size:11.5px;color:var(--teal);font-weight:600">${instNote(sh)}</div>
         <div class="edition-desc">${t('ed_sheets_d')}</div>
       </div>
       <div class="edition-box is-recommended">
         <div class="edition-name">${t('ed_sql')}</div>
         <div class="edition-price mono">${fmtMoney(sql)}</div>
+        <div class="mono" style="font-size:11.5px;color:var(--accent);font-weight:600">${instNote(sql)}</div>
         <div class="edition-desc">${t('ed_sql_d')}</div>
       </div>
       <div class="edition-box">
         <div class="edition-name">${t('ed_hyb')}</div>
         <div class="edition-price mono">${fmtMoney(hyb)}</div>
+        <div class="mono" style="font-size:11.5px;color:var(--teal);font-weight:600">${instNote(hyb)}</div>
         <div class="edition-desc">${t('ed_hyb_d')}</div>
       </div>
     `;
 
-    document.getElementById('modal-demo-link').href = `demo.html?p=${p.slug}&lang=${state.lang}&region=${state.region}`;
+    const embedUrl = `demo.html?p=${p.slug}&embed=1&lang=${state.lang}&region=${state.region}&theme=${state.theme}`;
+    const fullUrl = `demo.html?p=${p.slug}&lang=${state.lang}&region=${state.region}&theme=${state.theme}`;
+    const frame = document.getElementById('modal-demo-frame');
+    if (frame) frame.src = embedUrl;
+    document.getElementById('modal-demo-link').href = fullUrl;
     document.getElementById('modal-proposal-link').href = mailtoUrl('KRETA-PROPUESTA', p.name);
+    setModalTab(tab || 'live');
     document.getElementById('product-modal').hidden = false;
   }
 
   function closeModal() {
     document.getElementById('product-modal').hidden = true;
+    const frame = document.getElementById('modal-demo-frame');
+    if (frame) frame.src = 'about:blank';
     state.modalSlug = null;
+    renderSandbox();
+    renderFlagships();
   }
 
   function setDrawer(open) {
@@ -901,36 +1071,132 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     document.getElementById('mobile-backdrop').addEventListener('click', () => setDrawer(false));
     document.querySelectorAll('.mobile-drawer-links a').forEach((a) => a.addEventListener('click', () => setDrawer(false)));
 
-    // Hero Sandbox tabs & actions
+    // Hero Sandbox tabs, 20-system selector, search, quick-add & stage advance
     document.querySelectorAll('.sandbox-tab').forEach((tab) => {
       tab.addEventListener('click', () => {
         state.sbSlug = tab.dataset.sb;
+        state.sbStageFilter = null;
         state.sbAlert = false;
         state.sbNote = '';
         renderSandbox();
       });
     });
 
+    const sbProdSel = document.getElementById('sb-product-select');
+    if (sbProdSel) {
+      sbProdSel.addEventListener('change', (e) => {
+        state.sbSlug = e.target.value;
+        state.sbStageFilter = null;
+        state.sbAlert = false;
+        state.sbNote = '';
+        renderSandbox();
+      });
+    }
+
+    const sbSearchEl = document.getElementById('sb-search');
+    if (sbSearchEl) {
+      sbSearchEl.addEventListener('input', (e) => {
+        state.sbSearch = e.target.value;
+        renderSandbox();
+      });
+    }
+
+    const sbToggleAdd = document.getElementById('sb-toggle-add');
+    const sbAddForm = document.getElementById('sb-add-form');
+    if (sbToggleAdd && sbAddForm) {
+      sbToggleAdd.addEventListener('click', () => {
+        sbAddForm.hidden = !sbAddForm.hidden;
+        if (!sbAddForm.hidden) document.getElementById('sb-add-name').focus();
+      });
+      sbAddForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('sb-add-name').value.trim();
+        const amt = Number(document.getElementById('sb-add-amount').value);
+        if (name.length < 2 || !Number.isFinite(amt) || amt <= 0) {
+          state.sbAlert = true;
+          state.sbNote = state.lang === 'es'
+            ? 'Ingrese un nombre válido y un monto mayor a 0.'
+            : 'Please enter a valid name and an amount greater than 0.';
+          renderSandbox();
+          return;
+        }
+        const rows = getLiveRows(state.sbSlug);
+        const pfx = state.sbSlug.slice(0, 3).toUpperCase();
+        const newId = `${pfx}-${300 + rows.length}`;
+        rows.unshift({ id: newId, name, owner: 'Live Evaluator', slot: 'Today', amount: amt, stage: 0, notes: 'Created in Hero Mini-CRM' });
+        saveSharedRows(state.sbSlug, rows);
+        sbAddForm.reset();
+        sbAddForm.hidden = true;
+        state.sbAlert = false;
+        state.sbNote = state.lang === 'es'
+          ? `${newId} agregado y sincronizado con el workspace completo.`
+          : `${newId} added & synced to the full 4-view workspace.`;
+        renderSandbox();
+        renderFlagships();
+      });
+    }
+
+    const sbChartEl = document.getElementById('sb-chart');
+    if (sbChartEl) {
+      sbChartEl.addEventListener('click', (e) => {
+        const b = e.target.closest('[data-sb-stage]');
+        if (!b) return;
+        const idx = Number(b.dataset.sbStage);
+        state.sbStageFilter = state.sbStageFilter === idx ? null : idx;
+        renderSandbox();
+      });
+    }
+
     document.getElementById('sb-list').addEventListener('click', (e) => {
-      const btn = e.target.closest('[data-sb-idx]');
+      const btn = e.target.closest('[data-sb-id]');
       if (!btn) return;
-      const idx = Number(btn.dataset.sbIdx);
-      const sb = state.sbRows[state.sbSlug];
-      const row = sb.rows[idx];
+      const rows = getLiveRows(state.sbSlug);
+      const row = rows.find((r) => r.id === btn.dataset.sbId);
       if (!row) return;
       row.stage = (row.stage + 1) % 4;
-      const stageName = sb.stages[state.lang][row.stage];
+      saveSharedRows(state.sbSlug, rows);
+      const stageName = getStagesFor(state.sbSlug)[row.stage];
       state.sbAlert = false;
       state.sbNote = state.lang === 'es'
-        ? `${row.id} movido a "${stageName}" — KPIs y cadena SHA-256 actualizados.`
-        : `${row.id} moved to "${stageName}" — KPIs & SHA-256 audit log updated.`;
+        ? `${row.id} movido a "${stageName}" — KPIs y workspace sincronizados.`
+        : `${row.id} moved to "${stageName}" — KPIs & full workspace synced.`;
       renderSandbox();
+      renderFlagships();
     });
 
     document.getElementById('sb-test-rule').addEventListener('click', () => {
       state.sbAlert = true;
-      state.sbNote = state.sbRows[state.sbSlug].guardMsg[state.lang];
+      const fallbackMsg = state.lang === 'es'
+        ? 'Guardia activa: bloqueo automático de duplicados y límites de negocio verificado.'
+        : 'Rule Guard active: duplicate overlap and business limit protection verified.';
+      state.sbNote = (state.sbRows[state.sbSlug] && state.sbRows[state.sbSlug].guardMsg[state.lang]) || fallbackMsg;
       renderSandbox();
+    });
+
+    // Live Flagship Mini-Dashboard stage advances (zero static PNGs!)
+    document.getElementById('flagship-grid').addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-flag-slug]');
+      if (!btn) return;
+      const fSlug = btn.dataset.flagSlug;
+      const fId = btn.dataset.flagId;
+      const rows = getLiveRows(fSlug);
+      const row = rows.find((r) => r.id === fId);
+      if (!row) return;
+      row.stage = (row.stage + 1) % 4;
+      saveSharedRows(fSlug, rows);
+      renderFlagships();
+      if (state.sbSlug === fSlug) renderSandbox();
+    });
+
+    // Modal tabs + postMessage sync from embedded demo.html
+    document.querySelectorAll('.modal-tab').forEach((b) => {
+      b.addEventListener('click', () => setModalTab(b.dataset.mtab));
+    });
+    window.addEventListener('message', (ev) => {
+      if (ev.data && ev.data.type === 'kreta-store-updated') {
+        renderSandbox();
+        renderFlagships();
+      }
     });
 
     // Catalog filters, search & view toggle
@@ -958,7 +1224,7 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     // Delegate modal opens
     document.addEventListener('click', (e) => {
       const mBtn = e.target.closest('[data-modal]');
-      if (mBtn) openModal(mBtn.dataset.modal);
+      if (mBtn) openModal(mBtn.dataset.modal, mBtn.dataset.mtab || 'live');
     });
     document.getElementById('modal-close').addEventListener('click', closeModal);
     document.getElementById('product-modal').addEventListener('click', (e) => {
@@ -997,6 +1263,7 @@ c51d8a32f9e0b4a7...  docker-compose.yml
     });
   }
 
+  populateSandboxSelect();
   populateRoiSelect();
   bindEvents();
   renderAll();

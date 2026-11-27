@@ -131,12 +131,12 @@
           </ul>
         </div>
 
-        <!-- LIVE INTERACTIVE HERO MINI-WORKSPACE (NO STATIC CROPPED PNG!) -->
-        <div class="hero-sandbox" aria-label="Interactive live workspace preview">
+        <!-- LIVE INTERACTIVE HERO MINI-CRM (ALL 20 SYSTEMS, ZERO STATIC PNGs!) -->
+        <div class="hero-sandbox" aria-label="Interactive live CRM workspace preview">
           <div class="sandbox-chrome">
             <div class="sandbox-chrome-left">
               <span class="chrome-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-              <span class="sandbox-badge" data-i18n="sb_live">Live Sandbox</span>
+              <span class="sandbox-badge" data-i18n="sb_live">Live Mini-CRM</span>
             </div>
             <div class="sandbox-tabs" role="tablist" aria-label="Switch live system preview">
               <button type="button" class="sandbox-tab" role="tab" data-sb="medflow" aria-selected="true">MedFlow</button>
@@ -149,21 +149,36 @@
             <div class="sandbox-head">
               <div>
                 <div class="sandbox-title" id="sb-title">MedFlow / ClinicOps</div>
-                <div class="sandbox-sub" id="sb-sub">Click Advance on any live record or test the conflict guard below.</div>
+                <div class="sandbox-sub" id="sb-sub">Switch any of the 20 systems, add a record, or advance stages live.</div>
               </div>
-              <span class="sandbox-price-chip mono" id="sb-price">From $790 one-time</span>
+              <span class="sandbox-price-chip mono" id="sb-price">From $590 · 3x $197</span>
             </div>
 
+            <div class="sb-toolbar">
+              <label class="sr-only" for="sb-product-select">Choose any of 20 systems</label>
+              <select id="sb-product-select" class="sb-select" aria-label="Choose any of 20 systems"></select>
+              <label class="sr-only" for="sb-search">Filter live records</label>
+              <input type="search" id="sb-search" class="sb-search" placeholder="Filter records..." autocomplete="off">
+              <button type="button" class="sandbox-adv-btn" id="sb-toggle-add">+ Add</button>
+            </div>
+
+            <form id="sb-add-form" class="sb-inline-form" hidden>
+              <input type="text" id="sb-add-name" placeholder="Client / record name" required>
+              <input type="number" id="sb-add-amount" placeholder="Value" min="1" step="any" required>
+              <button type="submit" class="btn btn-primary btn-sm" style="height:30px">Save</button>
+            </form>
+
             <div class="sandbox-kpis" id="sb-kpis"></div>
+            <div class="sb-chart-strip" id="sb-chart" aria-label="Stage distribution chart"></div>
             <div class="sandbox-list" id="sb-list"></div>
 
             <div class="sandbox-rule-feedback" id="sb-feedback" role="status" aria-live="polite">
-              <span id="sb-feedback-text">Try clicking Advance on a row or Test Guard to inspect real business rule enforcement.</span>
+              <span id="sb-feedback-text">Try clicking Advance on a row, + Add, or Test Guard — changes sync into the full workspace.</span>
               <button type="button" class="sandbox-adv-btn" id="sb-test-rule">Test Guard</button>
             </div>
           </div>
           <div class="sandbox-footer">
-            <span class="mono" style="font-size:11.5px;color:var(--muted)" id="sb-audit">SHA-256 chain · 0 external trackers</span>
+            <span class="mono" style="font-size:11.5px;color:var(--muted)" id="sb-audit">Free 24h Excel migration · 14-day pilot</span>
             <a class="btn btn-primary btn-sm" id="sb-launch-full" href="demo.html?p=medflow" data-i18n="sb_open_full">Open Full Workspace →</a>
           </div>
         </div>
@@ -506,28 +521,38 @@
     </div>
   </footer>
 
-  <!-- EDITION COMPARISON MODAL -->
+  <!-- INTERACTIVE LIVE APP + EDITIONS MODAL (ZERO STATIC PNGs!) -->
   <div class="modal-backdrop" id="product-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-wide">
       <div class="modal-head">
-        <div>
-          <span class="tbl-cat" id="modal-cat"></span>
-          <h2 id="modal-title" style="font-size:20px;margin-top:4px"></h2>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <div>
+            <span class="tbl-cat" id="modal-cat"></span>
+            <h2 id="modal-title" style="font-size:20px;margin-top:4px"></h2>
+          </div>
+          <div class="modal-tabs" role="tablist" aria-label="Modal view">
+            <button type="button" class="modal-tab" role="tab" data-mtab="live" aria-selected="true" data-i18n="mtab_live">Live Interactive App</button>
+            <button type="button" class="modal-tab" role="tab" data-mtab="editions" aria-selected="false" data-i18n="mtab_editions">Editions &amp; 3 Installments</button>
+          </div>
         </div>
         <button type="button" class="icon-btn" id="modal-close" aria-label="Close modal">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
       <div class="modal-body">
-        <div class="modal-preview">
-          <img id="modal-img" src="assets/screens/en/medflow.png" alt="Uncropped application interface preview" width="1280" height="800" loading="lazy">
+        <div id="modal-tab-live">
+          <div class="modal-frame-wrap">
+            <iframe id="modal-demo-frame" title="Live Interactive Operational Workspace" src="about:blank"></iframe>
+          </div>
         </div>
-        <p id="modal-desc" style="color:var(--ink-2);font-size:14px"></p>
-        <div id="modal-rule" class="flag-rule"></div>
-        <div class="editions-grid" id="modal-editions"></div>
+        <div id="modal-tab-editions" hidden>
+          <p id="modal-desc" style="color:var(--ink-2);font-size:14px;margin-bottom:12px"></p>
+          <div id="modal-rule" class="flag-rule" style="margin-bottom:14px"></div>
+          <div class="editions-grid" id="modal-editions"></div>
+        </div>
         <div class="modal-actions">
-          <a class="btn btn-primary" id="modal-demo-link" href="demo.html?p=medflow" data-i18n="modal_open_demo">Launch 4-View Workspace →</a>
-          <a class="btn btn-secondary" id="modal-proposal-link" href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-PROPUESTA%5D%20MedFlow%20%28USA%29" data-i18n="modal_proposal">Request Written Proposal</a>
+          <a class="btn btn-primary" id="modal-demo-link" href="demo.html?p=medflow" data-i18n="modal_open_demo">Open Full Screen Workspace →</a>
+          <a class="btn btn-secondary" id="modal-proposal-link" href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-PROPUESTA%5D%20MedFlow%20%28USA%29" data-i18n="modal_proposal">Start Free 14-Day Pilot</a>
           <button type="button" class="btn btn-ghost" id="modal-copy-email" data-i18n="modal_copy">Copy Email Text</button>
         </div>
       </div>

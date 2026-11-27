@@ -5,7 +5,7 @@
   const PRODUCTS = {
     medflow: {
       name: 'MedFlow / ClinicOps', unit: '$', unitPos: 'pre', maxVal: 50000, uniqueSlot: true,
-      prices: { USA: [790, 2490, 4290], EUR: [730, 2290, 3950], LATAM: [550, 1740, 3000], AR: [430, 1370, 2360] },
+      prices: { USA: [590, 1790, 3190], EUR: [545, 1645, 2935], LATAM: [415, 1255, 2235], AR: [325, 985, 1755] },
       owners: ['Dr. Hannah Reed', 'Dr. Carlos Vega', 'Dr. Priya Patel'],
       slots: ['09:00', '10:30', '11:30', '14:00', '15:30', '16:30'],
       en: { sub: 'Multi-provider clinic scheduling with conflict prevention, encounter notes, and visit billing.', stages: ['Scheduled', 'Checked In', 'In Consult', 'Billed'], cols: ['Patient', 'Provider', 'Time Slot', 'Fee', 'Stage'], fName: 'Patient Full Name', fOwner: 'Provider', fSlot: 'Appointment Slot', fAmt: 'Visit Fee (USD)', kpiVol: 'Scheduled Revenue', dupErr: 'That provider is already booked for this time slot. Choose another slot or provider.' },
@@ -34,7 +34,7 @@
     },
     buildcost: {
       name: 'BuildCost Pro', unit: '$', unitPos: 'pre', maxVal: 250000, uniqueSlot: false,
-      prices: { USA: [990, 3490, 5990], EUR: [910, 3210, 5510], LATAM: [690, 2440, 4190], AR: [545, 1920, 3290] },
+      prices: { USA: [690, 2190, 3890], EUR: [635, 2015, 3580], LATAM: [485, 1535, 2725], AR: [380, 1205, 2140] },
       owners: ['Oak St Commercial', 'Riverfront Lofts', 'Westside Medical Wing'],
       slots: ['Concrete & Steel', 'Electrical Sub', 'HVAC & Plumbing', 'Millwork & Finishes'],
       en: { sub: 'Line-item construction job costing, real-vs-budget variance tracking, and capped progress draws.', stages: ['Draft Draw', 'PM Review', 'Approved', 'Paid'], cols: ['Cost Item / Sub', 'Project', 'Trade Package', 'Draw Amount', 'Stage'], fName: 'Line Item / Subcontractor', fOwner: 'Active Project', fSlot: 'Trade Package', fAmt: 'Draw Amount (USD, max $250k)', kpiVol: 'Certified Draws', dupErr: 'Duplicate line item.' },
@@ -62,7 +62,7 @@
     },
     fleetguard: {
       name: 'FleetGuard & LogiTrack', unit: '$', unitPos: 'pre', maxVal: 150000, uniqueSlot: false,
-      prices: { USA: [890, 2990, 4990], EUR: [820, 2750, 4590], LATAM: [620, 2090, 3490], AR: [490, 1640, 2740] },
+      prices: { USA: [590, 1990, 3490], EUR: [545, 1830, 3210], LATAM: [415, 1395, 2445], AR: [325, 1095, 1920] },
       owners: ['TRK-104 · Freightliner', 'TRK-108 · Kenworth', 'VAN-202 · Sprinter'],
       slots: ['Preventive PM', 'DOT Compliance', 'Fuel Audit', 'Brake & Tire Service'],
       en: { sub: 'Preventive maintenance schedules, expiring DOT compliance documents, and fuel cost tracking per unit.', stages: ['Scheduled', 'In Bay', 'Inspection', 'Road Ready'], cols: ['Service / Log', 'Fleet Unit', 'Category', 'Cost', 'Stage'], fName: 'Maintenance / Fuel Entry', fOwner: 'Fleet Unit', fSlot: 'Category', fAmt: 'Cost (USD)', kpiVol: 'Fleet Spend Tracked', dupErr: 'Duplicate log.' },
@@ -103,7 +103,7 @@
     },
     compliancevault: {
       name: 'ComplianceVault ISO/SOC2', unit: '%', unitPos: 'post', maxVal: 100, uniqueSlot: false,
-      prices: { USA: [990, 2490, 4490], EUR: [910, 2290, 4130], LATAM: [690, 1740, 3140], AR: [545, 1370, 2470] },
+      prices: { USA: [690, 1990, 3290], EUR: [635, 1830, 3025], LATAM: [485, 1395, 2305], AR: [380, 1095, 1810] },
       owners: ['ISO 27001 · A.8', 'SOC2 · CC6.1', 'SOC2 · CC7.2'],
       slots: ['Access Control', 'Backup & DR', 'Vendor Risk', 'Incident Response'],
       en: { sub: 'Audit-ready ISO 27001 / SOC2 control registry, risk scoring, and timestamped evidence vault.', stages: ['Gap Identified', 'Evidence Pending', 'Auditor Review', 'Verified'], cols: ['Control / Evidence', 'Framework', 'Domain', 'Readiness', 'Stage'], fName: 'Control / Evidence Item', fOwner: 'Framework', fSlot: 'Control Domain', fAmt: 'Readiness Score (1-100%)', kpiVol: 'Avg Control Readiness', dupErr: 'Control already tracked.' },
@@ -220,7 +220,7 @@
     },
     agrofield: {
       name: 'AgroField & Stock', unit: 'ha', unitPos: 'post', maxVal: 50000, uniqueSlot: false,
-      prices: { USA: [690, 2640, 5720], EUR: [635, 2510, 5435], LATAM: [485, 1850, 4005], AR: [380, 1450, 3145] },
+      prices: { USA: [590, 2090, 4290], EUR: [545, 1925, 3945], LATAM: [415, 1465, 3005], AR: [325, 1150, 2360] },
       owners: ['North Ranch · Corn', 'River Plot · Soybeans', 'West Sector · Wheat'],
       slots: ['Seeding', 'Fertilizing', 'Spraying', 'Harvest & Grain'],
       en: { sub: 'Plot-level farm traceability, seed/chemical inventory ledger, and true net margin per hectare.', stages: ['Planned', 'In Field', 'Harvested', 'Settled'], cols: ['Plot / Campaign', 'Field Sector', 'Operation', 'Area', 'Stage'], fName: 'Plot & Campaign Name', fOwner: 'Field Sector', fSlot: 'Field Operation', fAmt: 'Hectares', kpiVol: 'Tracked Hectares', dupErr: 'Duplicate plot.' },
@@ -233,7 +233,7 @@
     },
     educampus: {
       name: 'EduCampus & Certify', unit: '%', unitPos: 'post', maxVal: 100, uniqueSlot: false,
-      prices: { USA: [590, 1240, 3990], EUR: [545, 1180, 3670], LATAM: [415, 870, 2790], AR: [325, 680, 2190] },
+      prices: { USA: [450, 990, 2490], EUR: [415, 910, 2290], LATAM: [315, 695, 1745], AR: [250, 545, 1370] },
       owners: ['Cohort 2026-A · Data', 'Cohort 2026-B · ESG', 'Cohort 2026-C · Cyber'],
       slots: ['Full Tuition', '25% Scholarship', 'Corporate Sponsored'],
       en: { sub: 'Academy enrollment management, attendance eligibility checks, and SHA-256 QR certificates.', stages: ['Applicant', 'Enrolled', 'Active', 'Certified'], cols: ['Student', 'Cohort', 'Tuition Plan', 'Attendance', 'Stage'], fName: 'Student Full Name', fOwner: 'Cohort', fSlot: 'Tuition Plan', fAmt: 'Attendance % (1-100)', kpiVol: 'Avg Attendance', dupErr: 'Student already enrolled.' },
@@ -246,7 +246,7 @@
     },
     ecometrics_suite: {
       name: 'EcoMetrics Suite', unit: 'tCO2e', unitPos: 'post', maxVal: 500000, uniqueSlot: false,
-      prices: { USA: [1050, 2895, 3510], EUR: [960, 2630, 3160], LATAM: [695, 2015, 2365], AR: [520, 1485, 1750] },
+      prices: { USA: [890, 2490, 3490], EUR: [820, 2290, 3210], LATAM: [625, 1745, 2445], AR: [490, 1370, 1920] },
       owners: ['Scope 1 · Fleet & Gas', 'Scope 2 · Electricity', 'Scope 3 · Supply Chain'],
       slots: ['DEFRA 2025 Factor', 'EPA eGRID US', 'IPCC AR6 Standard'],
       en: { sub: 'Auditable Scope 1/2/3 carbon footprint accounting (177 DEFRA/IPCC factors) and QR ESG certificates.', stages: ['Data Intake', 'Calculated', 'Auditor Check', 'Certified'], cols: ['Facility / Source', 'GHG Scope', 'Factor Set', 'Emissions', 'Stage'], fName: 'Facility / Emission Source', fOwner: 'GHG Scope', fSlot: 'Emission Factor', fAmt: 'Emissions (tCO2e)', kpiVol: 'Total Footprint', dupErr: 'Source already recorded.' },
@@ -259,7 +259,7 @@
     },
     voluntarios_db: {
       name: 'VoluntariosDB', unit: 'h', unitPos: 'post', maxVal: 500, uniqueSlot: true,
-      prices: { USA: [610, 2370, 2720], EUR: [570, 2190, 2455], LATAM: [430, 1660, 1840], AR: [340, 1220, 1310] },
+      prices: { USA: [490, 1790, 2390], EUR: [450, 1645, 2200], LATAM: [345, 1255, 1675], AR: [270, 985, 1315] },
       owners: ['Central Food Bank', 'Community Health Van', 'Youth Literacy Hub'],
       slots: ['Sat 08:00–12:00', 'Sat 13:00–17:00', 'Sun 09:00–13:00'],
       en: { sub: 'Multi-site nonprofit volunteer shifts, QR check-in hours, and donor-ready impact certificates.', stages: ['Assigned', 'Confirmed', 'Checked In', 'Verified'], cols: ['Volunteer', 'Site / Program', 'Shift Slot', 'Hours', 'Stage'], fName: 'Volunteer Full Name', fOwner: 'Program Site', fSlot: 'Shift Slot', fAmt: 'Verified Hours', kpiVol: 'Verified Impact Hours', dupErr: 'Volunteer shift already assigned.' },
@@ -278,6 +278,25 @@
   let slug = PRODUCTS[rawSlug] ? rawSlug : 'medflow';
   let lang = (params.get('lang') || 'en').toLowerCase() === 'es' ? 'es' : 'en';
   let region = ['USA', 'EUR', 'LATAM', 'AR'].includes((params.get('region') || 'USA').toUpperCase()) ? (params.get('region') || 'USA').toUpperCase() : 'USA';
+  const isEmbed = params.get('embed') === '1';
+  if (isEmbed) document.documentElement.setAttribute('data-embed', '1');
+  const reqTheme = params.get('theme') || (function () { try { return localStorage.getItem('kreta_theme'); } catch (_) { return null; } })();
+  if (reqTheme === 'dark' || reqTheme === 'light') document.documentElement.setAttribute('data-theme', reqTheme);
+
+  const SHARED_STORE_KEY = 'kreta_live_store_v1';
+  function readSharedStore() {
+    try { return JSON.parse(localStorage.getItem(SHARED_STORE_KEY) || '{}') || {}; } catch (_) { return {}; }
+  }
+  function persistSharedStore(targetSlug) {
+    try {
+      const all = readSharedStore();
+      all[targetSlug] = store[targetSlug];
+      localStorage.setItem(SHARED_STORE_KEY, JSON.stringify(all));
+    } catch (_) {}
+    if (window.parent && window.parent !== window) {
+      try { window.parent.postMessage({ type: 'kreta-store-updated', slug: targetSlug }, '*'); } catch (_) {}
+    }
+  }
   let activeView = 'overview';
   let stageFilter = null;
   let searchQuery = '';
@@ -298,7 +317,12 @@
 
   function ensureState(s) {
     if (!store[s]) {
-      store[s] = PRODUCTS[s].seed.map((r) => Object.assign({}, r));
+      const saved = readSharedStore();
+      if (Array.isArray(saved[s]) && saved[s].length) {
+        store[s] = saved[s].map((r) => Object.assign({}, r));
+      } else {
+        store[s] = PRODUCTS[s].seed.map((r) => Object.assign({}, r));
+      }
     }
     if (!auditStore[s]) {
       const ts = new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
@@ -559,6 +583,7 @@
     const prevLbl = stages[rec.stage];
     rec.stage = next;
     tourDone.moved = true;
+    persistSharedStore(slug);
     logAudit('STAGE_TRANSITION', rec.id + ' (' + rec.name + '): ' + prevLbl + ' → ' + stages[next]);
     toast(rec.id + ' → ' + stages[next]);
     renderAll();
@@ -980,8 +1005,14 @@
     $('badge-records').textContent = String(store[slug].length);
     $('badge-audit').textContent = String(auditStore[slug].length);
 
-    $('side-price-val').textContent = '$' + pr[1].toLocaleString('en-US') + ' USD';
-    $('side-price-note').textContent = isEs ? 'Pago único (' + region + ') · Hitos 50/50 · $0/mes' : 'One-time (' + region + ') · 50/50 milestones · $0/mo';
+    const inst3 = Math.ceil(pr[1] / 3);
+    const currSym = region === 'EUR' ? '€' : '$';
+    const currTag = region === 'EUR' ? 'EUR' : 'USD';
+    $('side-price-val').textContent = currSym + pr[1].toLocaleString('en-US') + ' ' + currTag;
+    $('side-price-note').textContent = isEs
+      ? 'Pago único o 3 cuotas s/i de ' + currSym + inst3 + ' · Migración 24h gratis'
+      : 'One-time or 3 × ' + currSym + inst3 + ' (0% interest) · Free 24h migration';
+    if ($('lbl-import')) $('lbl-import').textContent = isEs ? 'Importar 3 Filas Excel' : 'Import 3 Excel Rows';
     const links = buildMailLinks();
     $('side-cta-mail').href = links.prop;
     $('side-cta-mail').textContent = isEs ? 'Solicitar Propuesta' : 'Request Proposal';
@@ -1028,13 +1059,50 @@
   $('btn-clear-stage-filter').addEventListener('click', () => { stageFilter = null; renderAll(); });
   $('rec-search').addEventListener('input', (e) => { searchQuery = e.target.value; renderAll(); });
   $('btn-new-record').addEventListener('click', openNewModal);
+  if ($('btn-import-sample')) {
+    $('btn-import-sample').addEventListener('click', () => {
+      ensureState(slug);
+      const p = PRODUCTS[slug];
+      const isEs = lang === 'es';
+      const prefix = slug.slice(0, 3).toUpperCase();
+      const baseNum = 500 + store[slug].length;
+      const samples = [
+        { name: isEs ? 'Importación Excel #1 — Cuenta Prioritaria' : 'Excel Import #1 — Priority Account', stage: 0, mult: 1.0 },
+        { name: isEs ? 'Importación Excel #2 — Operación Activa' : 'Excel Import #2 — Active Workflow', stage: 1, mult: 1.35 },
+        { name: isEs ? 'Importación Excel #3 — Cierre Validado' : 'Excel Import #3 — Verified Closeout', stage: 3, mult: 0.85 },
+      ];
+      const baseAmt = Math.max(10, Math.round((p.seed[0] && p.seed[0].amount) || 150));
+      samples.forEach((sm, i) => {
+        store[slug].unshift({
+          id: prefix + '-' + (baseNum + i),
+          name: sm.name,
+          owner: p.owners[i % p.owners.length],
+          slot: p.slots[(i + 2) % p.slots.length],
+          amount: Math.min(p.maxVal, Math.max(1, Math.round(baseAmt * sm.mult))),
+          stage: sm.stage,
+          notes: isEs ? 'Migrado desde Excel/CSV en 1 clic sin errores.' : 'Migrated from Excel/CSV in 1 click with zero errors.',
+        });
+      });
+      tourDone.added = true;
+      persistSharedStore(slug);
+      logAudit('EXCEL_IMPORT', '3 records imported cleanly from spreadsheet simulation.');
+      toast(isEs ? '3 filas importadas desde Excel — KPIs actualizados' : '3 Excel rows imported — KPIs & charts updated');
+      renderAll();
+    });
+  }
   $('btn-export-csv').addEventListener('click', exportCsv);
   $('btn-print').addEventListener('click', () => { tourDone.exported = true; renderTour(); window.print(); });
   $('btn-reset-demo').addEventListener('click', () => {
     delete store[slug]; delete auditStore[slug]; stageFilter = null; searchQuery = '';
+    try {
+      const all = readSharedStore();
+      delete all[slug];
+      localStorage.setItem(SHARED_STORE_KEY, JSON.stringify(all));
+    } catch (_) {}
     $('rec-search').value = '';
     toast(lang === 'es' ? 'Datos de muestra restaurados.' : 'Sample dataset reset.');
     renderAll();
+    persistSharedStore(slug);
   });
   $('btn-roi').addEventListener('click', () => { renderRoiModal(); $('modal-roi').hidden = false; });
   $('sl-users').addEventListener('input', renderRoiModal);
@@ -1122,6 +1190,7 @@
     const newId = prefix + '-' + (100 + store[slug].length + Math.floor(Math.random() * 800));
     store[slug].unshift({ id: newId, name, owner, slot, amount, stage, notes });
     tourDone.added = true;
+    persistSharedStore(slug);
     logAudit('RECORD_CREATED', newId + ' (' + name + ' · ' + owner + ' · ' + fmtVal(amount, p) + ') saved.');
     $('modal-new').hidden = true;
     toast((isEs ? 'Registro guardado: ' : 'Record saved: ') + newId);

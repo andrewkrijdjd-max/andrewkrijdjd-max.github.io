@@ -388,3 +388,9 @@ tbody tr:last-child td { border-bottom: 0; }
   .ws-shell { display: block; }
   .ws-main { padding: 0; }
 }
+
+/* Embedded Live App Mode (inside index.html Executive Modal) */
+html[data-embed="1"] .ws-topbar { display: none !important; }
+html[data-embed="1"] .ws-shell { min-height: 100vh; }
+html[data-embed="1"] .ws-sidebar { top: 0; height: 100vh; width: 220px; }
+html[data-embed="1"] .ws-main { padding: 18px 20px; }
