@@ -1,343 +1,441 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kreta Software — Operational Software Built to Own, Not Rent</title>
-  <meta name="description" content="20 production-ready B2B operational platforms delivered under a single one-time fee with full source code, SQL database, Docker setup, and zero monthly SaaS subscriptions.">
-  <link rel="canonical" href="https://andrewkrijdjd-max.github.io/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://andrewkrijdjd-max.github.io/">
-  <meta property="og:title" content="Kreta Software — Operational Software Built to Own, Not Rent">
-  <meta property="og:description" content="20 production-ready operational systems with full source code, SQL database, Google Sheets editions, and zero recurring monthly fees.">
-  <meta property="og:image" content="https://andrewkrijdjd-max.github.io/assets/og-card.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kreta Software — Operational Software Built to Own">
-  <meta name="twitter:description" content="20 working B2B platforms delivered under a one-time license. Zero monthly seat fees.">
-  <meta name="twitter:image" content="https://andrewkrijdjd-max.github.io/assets/og-card.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Kreta Software",
-    "url": "https://andrewkrijdjd-max.github.io/",
-    "email": "andrewkrijdjd@gmail.com",
-    "founder": {
-      "@type": "Person",
-      "name": "Andrés Francisco Mazzuferi"
-    },
-    "description": "20 production-ready B2B operational systems delivered under a single one-time payment with full source code ownership."
-  }
-  </script>
+  <title>Kreta Software — Self-Hosted Operational Software You Own Outright</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F172A'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23FFFFFF' font-family='sans-serif' font-weight='800' font-size='18'%3EK%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="20 production-ready vertical operational systems delivered under a single one-time fee. Full source code, SQL database, Docker setup, and Google Sheets editions. Zero per-seat SaaS fees.">
+  <meta property="og:title" content="Kreta Software — Operational Software You Own Outright">
+  <meta property="og:description" content="Test any of our 20 interactive operational workspaces in your browser. Self-hosted SQL + Web, Google Sheets, or Hybrid. 50/50 milestone delivery.">
+  <meta property="og:image" content="assets/og-card.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23090d16'/><path d='M30 24h14v24l24-24h18L58 50l28 26H68L44 52v24H30V24z' fill='%2338bdf8'/></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main-content" data-i18n="skip_link">Skip to main content</a>
+  <a class="skip-link" href="#main" data-i18n="skip_link">Skip to main content</a>
 
   <header class="site-header">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Kreta Software Home">
-        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="#121929" stroke="#26334d" stroke-width="1.2"/>
-          <path d="M9.5 7.5H14V15.2L21.5 7.5H27L18.2 16L27.2 24.5H21.6L14 16.8V24.5H9.5V7.5Z" fill="#38BDF8"/>
-        </svg>
-        <span class="brand-name">Kreta Software</span>
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>Kreta Software</span>
+        <span class="brand-tag mono">20 Systems</span>
       </a>
 
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#platforms" data-i18n="nav_catalog">Catalog (20)</a>
-        <a href="demo.html" id="nav-demo-link" data-i18n="nav_demo">Interactive Demo</a>
-        <a href="#calculator" data-i18n="nav_savings">Own vs. Rent</a>
+        <a href="#flagships" data-i18n="nav_flagships">Flagships</a>
+        <a href="#catalog" data-i18n="nav_catalog">All 20 Systems</a>
+        <a href="#architecture" data-i18n="nav_arch">Architecture</a>
+        <a href="#roi" data-i18n="nav_savings">Own vs. Rent</a>
         <a href="#samples" data-i18n="nav_samples">PDF Samples</a>
-        <a href="#process" data-i18n="nav_process">Delivery</a>
         <a href="#faq" data-i18n="nav_faq">FAQ</a>
       </nav>
 
-      <div class="nav-actions">
-        <label for="nav-region" class="sr-only" data-i18n="region_label">Pricing region</label>
-        <select id="nav-region" class="region-select" aria-label="Pricing region">
-          <option value="USA">USA · USD</option>
-          <option value="EUR">EUR · USD</option>
-          <option value="LATAM">LATAM · USD</option>
-          <option value="AR">AR · USD/ARS</option>
+      <div class="nav-controls">
+        <label class="sr-only" for="region-select" data-i18n="region_label">Pricing region</label>
+        <select id="region-select" class="region-select nav-desktop-only" aria-label="Pricing region">
+          <option value="USA">USA (USD)</option>
+          <option value="EUR">Europe (EUR)</option>
+          <option value="LATAM">LATAM (USD)</option>
+          <option value="AR">Argentina (USD)</option>
         </select>
 
-        <div class="segmented" role="group" aria-label="Language">
-          <button type="button" class="seg-btn lang-btn" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="seg-btn lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        <div class="lang-switch nav-desktop-only" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
         </div>
 
-        <a class="btn btn-primary btn-sm" id="nav-cta-btn" href="#contact" data-i18n="nav_cta">Request Proposal</a>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <a class="btn btn-primary btn-sm nav-desktop-only" href="demo.html?p=medflow" data-i18n="nav_demo">Open Interactive Demo</a>
+
+        <button type="button" class="icon-btn nav-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <main id="main-content">
-    <!-- ARCHITECTURAL DARK HERO + INTERACTIVE LIVE PRODUCT SHOWCASE -->
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer-backdrop" id="mobile-backdrop" hidden></div>
+  <aside class="mobile-drawer" id="mobile-drawer" hidden aria-label="Mobile menu">
+    <div class="mobile-drawer-head">
+      <strong style="font-family:var(--font-display)">Kreta Software</strong>
+      <button type="button" class="icon-btn" id="mobile-close-btn" aria-label="Close menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-drawer-links">
+      <a href="#flagships" data-i18n="nav_flagships">Flagships</a>
+      <a href="#catalog" data-i18n="nav_catalog">All 20 Systems</a>
+      <a href="#architecture" data-i18n="nav_arch">Architecture</a>
+      <a href="#roi" data-i18n="nav_savings">Own vs. Rent</a>
+      <a href="#samples" data-i18n="nav_samples">PDF Samples</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="demo.html?p=medflow" data-i18n="nav_demo">Open Interactive Demo</a>
+    </nav>
+    <div class="mobile-drawer-controls">
+      <select id="region-select-mobile" class="region-select" style="width:100%" aria-label="Pricing region mobile">
+        <option value="USA">USA (USD)</option>
+        <option value="EUR">Europe (EUR)</option>
+        <option value="LATAM">LATAM (USD)</option>
+        <option value="AR">Argentina (USD)</option>
+      </select>
+      <div class="lang-switch" style="width:100%;justify-content:center" role="group" aria-label="Language mobile">
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="true" style="flex:1">English</button>
+        <button type="button" class="lang-btn" data-lang="es" aria-pressed="false" style="flex:1">Español</button>
+      </div>
+      <a class="btn btn-primary" href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-PROPUESTA%5D%20Evaluation%20%28USA%29" id="mobile-proposal-btn" data-i18n="nav_cta">Request Proposal</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- HERO WITH LIVE CLICKABLE INTERACTIVE MINI-WORKSPACE -->
     <section id="top" class="hero">
-      <div class="hero-grid-bg" aria-hidden="true"></div>
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <div class="hero-pill">
-            <span class="pulse-dot" aria-hidden="true"></span>
-            <span data-i18n="hero_pill">20 production systems ready for deployment</span>
-          </div>
-          <h1 data-i18n="hero_h1">Operational software built to own, not rent every month.</h1>
-          <p class="hero-lead" data-i18n="hero_lead">Replace fragile spreadsheets and compounding per-seat SaaS subscriptions with a complete operational platform delivered under a single one-time fee. Full source code, SQL database, and Google Sheets editions included.</p>
-
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span data-i18n="hero_pill">Self-hosted operational software · 20 vertical systems</span>
+          </span>
+          <h1 data-i18n="hero_h1">Own your operational software outright. Zero per-seat SaaS rent.</h1>
+          <p class="hero-lead" data-i18n="hero_lead">
+            Deploy a complete vertical system—database, web workspace, role permissions, cryptographic audit trail, and PDF deliverables—on your own server or Google Workspace for a single one-time fee.
+          </p>
           <div class="hero-actions">
-            <a class="btn btn-primary btn-lg" id="hero-demo-btn" href="demo.html?producto=medflow&lang=en" data-i18n="hero_cta_demo">Launch 60s Interactive Demo</a>
-            <a class="btn btn-dark-outline btn-lg" href="#platforms" data-i18n="hero_cta_catalog">Explore all 20 systems</a>
+            <a class="btn btn-primary btn-lg" id="hero-demo-cta" href="demo.html?p=medflow" data-i18n="hero_cta_demo">Open Full 4-View Workspace</a>
+            <a class="btn btn-secondary btn-lg" href="#catalog" data-i18n="hero_cta_catalog">Browse all 20 systems</a>
           </div>
-
-          <div class="hero-trust-row">
-            <div class="trust-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              <span data-i18n="trust_1">100% source code &amp; data ownership</span>
-            </div>
-            <div class="trust-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              <span data-i18n="trust_2">Safe 50/50 milestone delivery</span>
-            </div>
-            <div class="trust-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-              <span data-i18n="trust_3">Zero recurring seat fees</span>
-            </div>
-          </div>
+          <ul class="hero-proof-list">
+            <li>
+              <span class="proof-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span data-i18n="trust_1">100% source code &amp; SQL database ownership</span>
+            </li>
+            <li>
+              <span class="proof-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span data-i18n="trust_2">50/50 milestone delivery · Escrow available</span>
+            </li>
+            <li>
+              <span class="proof-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span data-i18n="trust_3">Runs offline, in Docker, or your private cloud</span>
+            </li>
+            <li>
+              <span class="proof-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span data-i18n="trust_4">Free 3-record custom workflow proof before paying</span>
+            </li>
+          </ul>
         </div>
 
-        <div class="hero-showcase" aria-label="Interactive live product preview">
-          <div class="showcase-tabs" role="tablist" aria-label="Featured platforms" id="hero-tabs"></div>
-          <div class="browser-frame">
-            <div class="browser-chrome">
-              <div class="chrome-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <div class="chrome-url mono" id="hero-url">app.kretasoftware.local/medflow</div>
-              <span class="chrome-badge" id="hero-badge">Live UI</span>
+        <!-- LIVE INTERACTIVE HERO MINI-WORKSPACE (NO STATIC CROPPED PNG!) -->
+        <div class="hero-sandbox" aria-label="Interactive live workspace preview">
+          <div class="sandbox-chrome">
+            <div class="sandbox-chrome-left">
+              <span class="chrome-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="sandbox-badge" data-i18n="sb_live">Live Sandbox</span>
             </div>
-            <div class="browser-stage">
-              <img id="hero-screen" src="assets/screens/en/medflow.png" alt="MedFlow live application interface" width="1280" height="800" fetchpriority="high">
+            <div class="sandbox-tabs" role="tablist" aria-label="Switch live system preview">
+              <button type="button" class="sandbox-tab" role="tab" data-sb="medflow" aria-selected="true">MedFlow</button>
+              <button type="button" class="sandbox-tab" role="tab" data-sb="buildcost" aria-selected="false">BuildCost</button>
+              <button type="button" class="sandbox-tab" role="tab" data-sb="fieldops" aria-selected="false">FieldOps</button>
+              <button type="button" class="sandbox-tab" role="tab" data-sb="caseledger" aria-selected="false">CaseLedger</button>
             </div>
-            <div class="showcase-footer">
+          </div>
+          <div class="sandbox-body">
+            <div class="sandbox-head">
               <div>
-                <div class="showcase-name" id="hero-prod-name">MedFlow / ClinicOps</div>
-                <div class="showcase-inv" id="hero-prod-inv">Overlap-checked multi-provider scheduling, clinical notes &amp; billing</div>
+                <div class="sandbox-title" id="sb-title">MedFlow / ClinicOps</div>
+                <div class="sandbox-sub" id="sb-sub">Click Advance on any live record or test the conflict guard below.</div>
               </div>
-              <div class="showcase-price-block">
-                <div class="mono showcase-price" id="hero-prod-price">$790 – $4,290</div>
-                <a class="showcase-try" id="hero-prod-demo" href="demo.html?producto=medflow&lang=en" data-i18n="hero_try_this">Open interactive sandbox</a>
-              </div>
+              <span class="sandbox-price-chip mono" id="sb-price">From $790 one-time</span>
             </div>
+
+            <div class="sandbox-kpis" id="sb-kpis"></div>
+            <div class="sandbox-list" id="sb-list"></div>
+
+            <div class="sandbox-rule-feedback" id="sb-feedback" role="status" aria-live="polite">
+              <span id="sb-feedback-text">Try clicking Advance on a row or Test Guard to inspect real business rule enforcement.</span>
+              <button type="button" class="sandbox-adv-btn" id="sb-test-rule">Test Guard</button>
+            </div>
+          </div>
+          <div class="sandbox-footer">
+            <span class="mono" style="font-size:11.5px;color:var(--muted)" id="sb-audit">SHA-256 chain · 0 external trackers</span>
+            <a class="btn btn-primary btn-sm" id="sb-launch-full" href="demo.html?p=medflow" data-i18n="sb_open_full">Open Full Workspace →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STRUCTURAL PROOF BAND -->
-    <section class="proof-band" aria-label="Platform architecture guarantees">
+    <!-- VERIFIABLE PROOF STRIP -->
+    <section class="proof-strip" aria-label="Key operational facts">
       <div class="container proof-grid">
-        <div class="proof-cell">
-          <div class="proof-num mono">20</div>
-          <div class="proof-label" data-i18n="proof_1">Production-ready vertical systems</div>
+        <div class="proof-item">
+          <span class="proof-num mono">20</span>
+          <span class="proof-lbl" data-i18n="proof_1">Vertical production systems with live 4-view demos</span>
         </div>
-        <div class="proof-cell">
-          <div class="proof-num mono">$0/mo</div>
-          <div class="proof-label" data-i18n="proof_2">Mandatory software subscription fees</div>
+        <div class="proof-item">
+          <span class="proof-num mono">$0 / mo</span>
+          <span class="proof-lbl" data-i18n="proof_2">Mandatory software seat fees after handover</span>
         </div>
-        <div class="proof-cell">
-          <div class="proof-num mono">3</div>
-          <div class="proof-label" data-i18n="proof_3">Editions: Sheets, Web+SQL, or Hybrid</div>
+        <div class="proof-item">
+          <span class="proof-num mono">3 Editions</span>
+          <span class="proof-lbl" data-i18n="proof_3">Google Sheets, Self-Hosted SQL+Web, or Hybrid</span>
         </div>
-        <div class="proof-cell">
-          <div class="proof-num mono">50/50</div>
-          <div class="proof-label" data-i18n="proof_4">Milestone payments after live verification</div>
+        <div class="proof-item">
+          <span class="proof-num mono">50 / 50</span>
+          <span class="proof-lbl" data-i18n="proof_4">Milestone payments via ACH, SEPA, Escrow, or USDT</span>
         </div>
       </div>
     </section>
 
-    <!-- 20-PRODUCT EDITORIAL CATALOG -->
-    <section id="platforms" class="section">
+    <!-- CURATED 6-FLAGSHIP SPOTLIGHT -->
+    <section id="flagships" class="section">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2 data-i18n="cat_h2">Complete 20-System Portfolio</h2>
-            <p class="section-sub" data-i18n="cat_sub">Every preview below is captured directly from the running application. Select your region to view exact one-time ownership pricing across all three editions.</p>
+            <span class="section-kicker" data-i18n="flag_kicker">Most Requested Deployments</span>
+            <h2 data-i18n="flag_h2">6 Flagship Operational Systems</h2>
+            <p class="section-sub" data-i18n="flag_sub">Each preview shows the full uncropped production workspace. Launch any system in the 4-view interactive demo (Overview, Kanban, Records, Audit) with zero registration.</p>
           </div>
-          <div class="region-pills" role="group" aria-label="Pricing region selector" id="catalog-region-pills">
-            <button type="button" class="r-pill" data-region="USA" aria-pressed="true">USA</button>
-            <button type="button" class="r-pill" data-region="EUR" aria-pressed="false">EUR</button>
-            <button type="button" class="r-pill" data-region="LATAM" aria-pressed="false">LATAM</button>
-            <button type="button" class="r-pill" data-region="AR" aria-pressed="false">AR</button>
-          </div>
+          <a class="btn btn-secondary" href="#catalog" data-i18n="flag_see_all">See all 20 systems ↓</a>
         </div>
-
-        <div class="catalog-controls">
-          <div class="search-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <label for="catalog-search" class="sr-only" data-i18n="search_label">Search systems</label>
-            <input type="search" id="catalog-search" placeholder="Search by industry, workflow, or system name…" autocomplete="off">
-          </div>
-
-          <div class="filter-bar" role="group" aria-label="Category filters" id="category-filters">
-            <button type="button" class="filter-btn" data-cat="all" aria-pressed="true" data-i18n="cat_all">All (20)</button>
-            <button type="button" class="filter-btn" data-cat="core" aria-pressed="false" data-i18n="cat_core">Core Operations (6)</button>
-            <button type="button" class="filter-btn" data-cat="smb" aria-pressed="false" data-i18n="cat_smb">Fast SMB (6)</button>
-            <button type="button" class="filter-btn" data-cat="enterprise" aria-pressed="false" data-i18n="cat_ent">High-Margin Verticals (6)</button>
-            <button type="button" class="filter-btn" data-cat="impact" aria-pressed="false" data-i18n="cat_impact">ESG &amp; Nonprofits (2)</button>
-          </div>
-        </div>
-
-        <div id="catalog-count" class="catalog-meta" aria-live="polite"></div>
-        <div id="product-grid" class="product-grid"></div>
+        <div class="flagship-grid" id="flagship-grid"></div>
       </div>
     </section>
 
-    <!-- OWN VS. RENT 36-MONTH VISUAL COMPARISON -->
-    <section id="calculator" class="section section-wash">
+    <!-- FULL 20-SYSTEM PORTFOLIO EXPLORER (TABLE DEFAULT + CARDS TOGGLE) -->
+    <section id="catalog" class="section section-alt">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2 data-i18n="calc_h2">Own vs. Rent: 36-Month Total Cost Analysis</h2>
-            <p class="section-sub" data-i18n="calc_sub">Compare one-time software ownership against typical per-user monthly SaaS subscriptions over three years.</p>
+            <span class="section-kicker" data-i18n="cat_kicker">Complete Portfolio</span>
+            <h2 data-i18n="cat_h2">All 20 Production Systems</h2>
+            <p class="section-sub" data-i18n="cat_sub">Filter by vertical, search by workflow, and compare exact one-time ownership pricing for your region across Google Sheets, SQL + Web Portal, and Hybrid editions.</p>
           </div>
         </div>
 
-        <div class="calc-panel">
-          <div class="calc-inputs">
-            <div class="field-group">
-              <label for="calc-product" data-i18n="calc_prod_lbl">Operational System</label>
-              <select id="calc-product"></select>
-            </div>
-            <div class="field-group">
-              <label for="calc-edition" data-i18n="calc_ed_lbl">Delivery Edition</label>
-              <select id="calc-edition">
-                <option value="sheets" data-i18n="ed_sheets">Google Sheets Automation</option>
-                <option value="sql_web" selected data-i18n="ed_sqlweb">SQL + Web Portal</option>
-                <option value="hibrido" data-i18n="ed_hybrid">Hybrid (Web + SQL + Sheets)</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <div class="slider-head">
-                <label for="calc-users" data-i18n="calc_users_lbl">Active team seats</label>
-                <strong class="mono" id="calc-users-val">10</strong>
-              </div>
-              <input id="calc-users" type="range" min="3" max="60" value="10">
-            </div>
-            <div class="field-group">
-              <div class="slider-head">
-                <label for="calc-saas-seat" data-i18n="calc_seat_lbl">Comparable SaaS cost / seat / month</label>
-                <strong class="mono" id="calc-saas-val">$35</strong>
-              </div>
-              <input id="calc-saas-seat" type="range" min="12" max="120" value="35">
-            </div>
+        <div class="explorer-toolbar">
+          <div class="filter-pills" role="group" aria-label="Filter by vertical family">
+            <button type="button" class="filter-pill" data-cat="all" aria-pressed="true" data-i18n="cat_all">All 20</button>
+            <button type="button" class="filter-pill" data-cat="core" aria-pressed="false" data-i18n="cat_core">Core Operations (6)</button>
+            <button type="button" class="filter-pill" data-cat="smb" aria-pressed="false" data-i18n="cat_smb">SMB Workflows (6)</button>
+            <button type="button" class="filter-pill" data-cat="enterprise" aria-pressed="false" data-i18n="cat_ent">Regulated &amp; Enterprise (6)</button>
+            <button type="button" class="filter-pill" data-cat="impact" aria-pressed="false" data-i18n="cat_imp">Impact &amp; ESG (2)</button>
           </div>
 
-          <div class="calc-results" aria-live="polite">
-            <div class="bar-compare">
-              <div class="bar-row">
-                <div class="bar-label">
-                  <span data-i18n="calc_bar_saas">Typical SaaS (36 months)</span>
-                  <strong class="mono" id="out-saas-total">$12,600</strong>
-                </div>
-                <div class="bar-track"><div class="bar-fill bar-saas" id="bar-saas"></div></div>
-              </div>
-              <div class="bar-row">
-                <div class="bar-label">
-                  <span data-i18n="calc_bar_own">Kreta One-Time Ownership</span>
-                  <strong class="mono" id="out-own-total">$2,490</strong>
-                </div>
-                <div class="bar-track"><div class="bar-fill bar-own" id="bar-own"></div></div>
-              </div>
+          <div class="explorer-right">
+            <label class="sr-only" for="catalog-search">Search systems</label>
+            <input type="search" id="catalog-search" class="search-input" placeholder="Search clinic, fleet, quotes, LIMS..." autocomplete="off">
+            <div class="view-toggle" role="group" aria-label="Catalog layout">
+              <button type="button" class="view-btn" data-view="table" aria-pressed="true" data-i18n="view_table">Table</button>
+              <button type="button" class="view-btn" data-view="cards" aria-pressed="false" data-i18n="view_cards">Cards</button>
             </div>
+          </div>
+        </div>
 
-            <div class="savings-callout">
-              <div>
-                <div class="savings-kicker" data-i18n="calc_save_lbl">Projected 3-year net savings</div>
-                <div class="savings-amount mono" id="out-savings">$10,110 USD</div>
-                <div class="savings-note" id="out-payback">Break-even in ~8 months · 5% early-payment discount available via USDT</div>
+        <div id="catalog-mount"></div>
+      </div>
+    </section>
+
+    <!-- SELF-HOSTED ARCHITECTURE, SECURITY & TRUST TEARDOWN -->
+    <section id="architecture" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker" data-i18n="arch_kicker">Verifiable Engineering</span>
+            <h2 data-i18n="arch_h2">Inspect what you actually own on day one.</h2>
+            <p class="section-sub" data-i18n="arch_sub">No black-box multi-tenant vendor lock-in. Every delivery ships as a clean, documented repository your IT team or any developer can run, audit, and back up locally.</p>
+          </div>
+        </div>
+
+        <div class="arch-grid">
+          <div class="trust-cards">
+            <article class="trust-card">
+              <div class="trust-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg>
               </div>
-              <div class="savings-ctas">
-                <a class="btn btn-primary" id="calc-demo-link" href="demo.html?producto=medflow&lang=en" data-i18n="calc_btn_demo">Try 60s demo</a>
-                <button type="button" class="btn btn-outline" id="calc-inspect-btn" data-i18n="calc_btn_inspect">Inspect editions</button>
+              <h3 data-i18n="t1_t">Self-Hosted Privacy</h3>
+              <p data-i18n="t1_d">Runs on your office server, private VPS, or offline LAN via Docker Compose. Sensitive clinical, legal, or financial records never leave your infrastructure.</p>
+            </article>
+            <article class="trust-card">
+              <div class="trust-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
+              <h3 data-i18n="t2_t">RBAC &amp; SHA-256 Audit Chain</h3>
+              <p data-i18n="t2_d">Signed role sessions (Admin, Operator, Auditor), strict server-side domain guards, and append-only SHA-256 activity logs ready for compliance reviews.</p>
+            </article>
+            <article class="trust-card">
+              <div class="trust-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
+              </div>
+              <h3 data-i18n="t3_t">Zero-Lock-In CSV &amp; SQL</h3>
+              <p data-i18n="t3_d">Standard SQLite/PostgreSQL schema with instant CSV import/export, automated backups, and QR-verified PDF certificates or executive reports.</p>
+            </article>
+            <article class="trust-card">
+              <div class="trust-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <h3 data-i18n="t4_t">Escrow &amp; 90-Day Warranty</h3>
+              <p data-i18n="t4_d">Approve 3 real sample records before paying $1. 50/50 milestone delivery with Upwork/Escrow/ACH/SEPA options, SHA-256 handover manifest, and 90-day defect warranty.</p>
+            </article>
+          </div>
+
+          <div class="code-inspector" aria-label="Deliverable architecture code inspector">
+            <div class="code-tabs" role="tablist">
+              <button type="button" class="code-tab" role="tab" data-code="docker" aria-selected="true">docker-compose.yml</button>
+              <button type="button" class="code-tab" role="tab" data-code="sql" aria-selected="false">schema_guards.sql</button>
+              <button type="button" class="code-tab" role="tab" data-code="audit" aria-selected="false">audit_chain.py</button>
+              <button type="button" class="code-tab" role="tab" data-code="manifest" aria-selected="false">MANIFEST_SHA256.txt</button>
+            </div>
+            <pre class="code-body" id="code-body"></pre>
+            <div class="code-foot">
+              <span data-i18n="code_foot">Included in every SQL + Web Portal and Hybrid package</span>
+              <a class="btn btn-secondary btn-sm" href="demo.html?p=compliancevault" style="height:28px;font-size:11.5px" data-i18n="code_try">Inspect Live Audit Trail →</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VERIFIED PDF SAMPLES -->
+    <!-- HONEST 36-MONTH OWN VS RENT CALCULATOR -->
+    <section id="roi" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker" data-i18n="roi_kicker">Transparent Total Cost of Ownership</span>
+            <h2 data-i18n="roi_h2">Own vs. Rent: Honest 36-Month Calculator</h2>
+            <p class="section-sub" data-i18n="roi_sub">Compare per-seat SaaS renewals against a single one-time ownership fee. If a smaller team spends less on SaaS than SQL + Web, the calculator tells you honestly and recommends the Google Sheets edition.</p>
+          </div>
+        </div>
+
+        <div class="roi-panel">
+          <div class="roi-inputs">
+            <div class="field-group">
+              <label for="roi-product"><span data-i18n="roi_sys">System to evaluate</span></label>
+              <select id="roi-product" class="field-select"></select>
+            </div>
+            <div class="field-group">
+              <label for="roi-seats">
+                <span data-i18n="roi_seats">Active team seats</span>
+                <strong class="mono" id="roi-seats-val">12 seats</strong>
+              </label>
+              <input id="roi-seats" class="field-range" type="range" min="1" max="80" value="12">
+            </div>
+            <div class="field-group">
+              <label for="roi-per-seat">
+                <span data-i18n="roi_price">Current SaaS price per seat / month</span>
+                <strong class="mono" id="roi-per-seat-val">$29 / mo</strong>
+              </label>
+              <input id="roi-per-seat" class="field-range" type="range" min="5" max="150" step="1" value="29">
+            </div>
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-bars">
+              <div class="roi-bar-row">
+                <div class="roi-bar-head">
+                  <span data-i18n="roi_saas_lbl">36-Month SaaS Subscription</span>
+                  <span class="mono" id="roi-saas-total">$12,528</span>
+                </div>
+                <div class="roi-track"><div class="roi-fill roi-fill-saas" id="roi-bar-saas" style="width:100%"></div></div>
+              </div>
+              <div class="roi-bar-row">
+                <div class="roi-bar-head">
+                  <span id="roi-own-lbl">Kreta SQL + Web (One-Time)</span>
+                  <span class="mono" id="roi-own-total">$2,490</span>
+                </div>
+                <div class="roi-track"><div class="roi-fill roi-fill-own" id="roi-bar-own" style="width:20%"></div></div>
+              </div>
+            </div>
+
+            <div class="roi-verdict" id="roi-verdict">
+              <div class="roi-verdict-num mono" id="roi-verdict-num">$10,038 saved over 36 months</div>
+              <div class="roi-verdict-sub" id="roi-verdict-sub">Break-even in 8 months. After that, every additional user costs $0/month.</div>
+            </div>
+
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn btn-primary btn-sm" id="roi-launch-demo" href="demo.html?p=medflow" data-i18n="roi_try">Open Live Demo →</a>
+              <a class="btn btn-secondary btn-sm" id="roi-proposal-link" href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-PROPUESTA%5D%20MedFlow%20%28USA%29" data-i18n="roi_req">Request Written Proposal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL DOWNLOADABLE PDF DELIVERABLES -->
     <section id="samples" class="section">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2 data-i18n="samples_h2">Verified PDF Deliverables &amp; Audit Artifacts</h2>
-            <p class="section-sub" data-i18n="samples_sub">Inspect real PDF outputs generated directly by our systems—complete with cryptographic verification hashes and structured executive summaries.</p>
+            <span class="section-kicker" data-i18n="smp_kicker">Actual System Output</span>
+            <h2 data-i18n="smp_h2">Inspect Real PDF Deliverables</h2>
+            <p class="section-sub" data-i18n="smp_sub">Generated directly by our production engines—including SHA-256 verification stamps, audit matrices, and executive scope proposals.</p>
           </div>
         </div>
 
         <div class="samples-grid">
           <a class="sample-card" href="assets/samples/Kreta_Software_Executive_Proposal_Sample_EN.pdf" target="_blank" rel="noopener noreferrer">
-            <div class="sample-icon" aria-hidden="true">PDF</div>
-            <h3 data-i18n="smp_1_t">Executive Commercial Proposal</h3>
-            <p data-i18n="smp_1_d">Sample fixed-scope proposal detailing deliverables, exclusions, acceptance criteria, and 50/50 milestone terms.</p>
-            <span class="sample-link" data-i18n="smp_open">Open PDF sample</span>
+            <span class="sample-badge mono">PDF</span>
+            <h3 data-i18n="smp_1_t">Executive Scope Proposal</h3>
+            <p data-i18n="smp_1_d">Sample fixed-scope proposal with acceptance checklist, milestone breakdown, and handover terms.</p>
+            <span class="sample-link" data-i18n="smp_open">Open PDF sample →</span>
           </a>
           <a class="sample-card" href="assets/samples/ComplianceVault_Audit_Report_Sample.pdf" target="_blank" rel="noopener noreferrer">
-            <div class="sample-icon" aria-hidden="true">PDF</div>
-            <h3 data-i18n="smp_2_t">ComplianceVault ISO/SOC2 Audit Report</h3>
-            <p data-i18n="smp_2_d">Control register, risk matrix summary, and timestamped evidence verification log.</p>
-            <span class="sample-link" data-i18n="smp_open">Open PDF sample</span>
+            <span class="sample-badge mono">PDF</span>
+            <h3 data-i18n="smp_2_t">ComplianceVault Audit Report</h3>
+            <p data-i18n="smp_2_d">ISO 27001 / SOC 2 control register export with risk ratings and cryptographic hash verification.</p>
+            <span class="sample-link" data-i18n="smp_open">Open PDF sample →</span>
           </a>
           <a class="sample-card" href="assets/samples/EcoMetrics_Carbon_Certificate_SHA256_Sample.pdf" target="_blank" rel="noopener noreferrer">
-            <div class="sample-icon" aria-hidden="true">PDF</div>
-            <h3 data-i18n="smp_3_t">EcoMetrics Carbon Footprint Certificate</h3>
-            <p data-i18n="smp_3_d">Scope 1–3 emissions calculation output with traceable factor disclosure and verification code.</p>
-            <span class="sample-link" data-i18n="smp_open">Open PDF sample</span>
+            <span class="sample-badge mono">PDF</span>
+            <h3 data-i18n="smp_3_t">EcoMetrics SHA-256 Certificate</h3>
+            <p data-i18n="smp_3_d">Scope 1–3 carbon emissions report with traceable emission factors and tamper-evident seal.</p>
+            <span class="sample-link" data-i18n="smp_open">Open PDF sample →</span>
           </a>
           <a class="sample-card" href="assets/samples/EduCampus_Verifiable_Certificate_Sample.pdf" target="_blank" rel="noopener noreferrer">
-            <div class="sample-icon" aria-hidden="true">PDF</div>
-            <h3 data-i18n="smp_4_t">EduCampus Verifiable QR Certificate</h3>
-            <p data-i18n="smp_4_d">Issued student credential tied to attendance eligibility with public QR verification.</p>
-            <span class="sample-link" data-i18n="smp_open">Open PDF sample</span>
+            <span class="sample-badge mono">PDF</span>
+            <h3 data-i18n="smp_4_t">EduCampus QR Credential</h3>
+            <p data-i18n="smp_4_d">Attendance-verified diploma generated automatically once eligibility rules pass.</p>
+            <span class="sample-link" data-i18n="smp_open">Open PDF sample →</span>
           </a>
         </div>
       </div>
     </section>
 
     <!-- 4-STAGE DELIVERY PROCESS -->
-    <section id="process" class="section section-wash">
+    <section id="process" class="section section-alt">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2 data-i18n="proc_h2">Fixed-Scope Delivery Process</h2>
-            <p class="section-sub" data-i18n="proc_sub">Clear milestones, live verification before payment, and full code handover.</p>
+            <span class="section-kicker" data-i18n="proc_kicker">Zero-Risk Procurement</span>
+            <h2 data-i18n="proc_h2">4-Stage Fixed-Scope Delivery</h2>
+            <p class="section-sub" data-i18n="proc_sub">Verify the system with your own workflow data before committing budget.</p>
           </div>
         </div>
-
         <ol class="process-grid">
           <li class="process-step">
-            <span class="step-idx mono">01</span>
-            <h3 data-i18n="p1_t">Interactive Verification</h3>
-            <p data-i18n="p1_d">Test the 60-second browser demo or request three sample records tailored to your workflow at no cost before committing.</p>
+            <span class="step-num mono">01</span>
+            <h3 data-i18n="p1_t">Interactive Demo + 3 Sample Records</h3>
+            <p data-i18n="p1_d">Test the 4-view workspace right now, or email us 3 sample rows from your current spreadsheet and we configure a tailored proof at $0 cost.</p>
           </li>
           <li class="process-step">
-            <span class="step-idx mono">02</span>
-            <h3 data-i18n="p2_t">Scope &amp; Edition Selection</h3>
-            <p data-i18n="p2_d">Select Google Sheets, SQL + Web Portal, or Hybrid. Written proposal defines exact scope, acceptance criteria, and one-time fee.</p>
+            <span class="step-num mono">02</span>
+            <h3 data-i18n="p2_t">Fixed Written Scope</h3>
+            <p data-i18n="p2_d">Select Google Sheets, SQL + Web Portal, or Hybrid. Written specification locks exact deliverables, business rules, and one-time fee.</p>
           </li>
           <li class="process-step">
-            <span class="step-idx mono">03</span>
-            <h3 data-i18n="p3_t">Milestone Build &amp; Customization</h3>
-            <p data-i18n="p3_d">Branding, roles, business thresholds, and regional rules are configured and verified against your acceptance checklist (50/50 milestones).</p>
+            <span class="step-num mono">03</span>
+            <h3 data-i18n="p3_t">50/50 Milestone Verification</h3>
+            <p data-i18n="p3_d">We configure branding, roles, thresholds, and CSV migration. Pay the second 50% only after validating the running app against the checklist.</p>
           </li>
           <li class="process-step">
-            <span class="step-idx mono">04</span>
-            <h3 data-i18n="p4_t">Complete Ownership Handover</h3>
-            <p data-i18n="p4_d">Receive the full verified package (source code, SQL schema, Docker setup, SHA-256 manifest, and documentation) with zero recurring fees.</p>
+            <span class="step-num mono">04</span>
+            <h3 data-i18n="p4_t">Full Source &amp; SHA-256 Handover</h3>
+            <p data-i18n="p4_d">Receive the complete verified package (source code, SQL schema, Docker setup, SHA-256 manifest, 90-day defect warranty). Zero recurring fees.</p>
           </li>
         </ol>
       </div>
@@ -345,43 +443,48 @@
 
     <!-- EXECUTIVE FAQ -->
     <section id="faq" class="section">
-      <div class="container faq-container">
-        <h2 data-i18n="faq_h2">Frequently Asked Questions</h2>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">FAQ</span>
+            <h2 data-i18n="faq_h2">Technical &amp; Procurement Questions</h2>
+          </div>
+        </div>
         <div class="faq-list">
           <details class="faq-item" open>
-            <summary data-i18n="q1">Is this genuinely a one-time payment with no recurring license fees?</summary>
-            <p data-i18n="a1">Yes. Every edition is delivered as a closed fixed-scope project under a single one-time fee (typically split 50/50 across milestones). There are no mandatory monthly subscriptions, per-user seat fees, or automatic renewals.</p>
+            <summary data-i18n="q1">Is this genuinely a one-time payment with zero recurring license fees?</summary>
+            <p data-i18n="a1">Yes. Every edition is delivered as a closed fixed-scope project under a single one-time fee (50% kick-off, 50% upon live acceptance). There are no mandatory monthly subscriptions, per-seat fees, or auto-renewals.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="q2">Where does the software run and who owns the database?</summary>
-            <p data-i18n="a2">You retain 100% ownership of the source code and database. It runs locally, on your own server via Docker, or on any cloud host you contract directly—never locked inside a third-party SaaS vendor.</p>
+            <summary data-i18n="q2">How do HIPAA, GDPR, or internal IT security reviews work with self-hosting?</summary>
+            <p data-i18n="a2">Because you deploy the SQL + Web Portal on your own local server, VPC, or office machine via Docker Compose, Kreta Software never stores, touches, or has access to your production data. You control encryption at rest, backups, firewall rules, and user access.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="q3">Can we start with the Google Sheets edition and upgrade later?</summary>
-            <p data-i18n="a3">Yes. Any Google Sheets edition can be upgraded to SQL + Web Portal or Hybrid later with 100% of your initial payment credited toward the upgrade.</p>
+            <summary data-i18n="q3">Can we import our existing spreadsheets and start with Google Sheets first?</summary>
+            <p data-i18n="a3">Yes. Every system supports clean CSV import/export out of the box. And if you start with the Google Sheets edition, 100% of your initial payment is credited if you upgrade to SQL + Web Portal or Hybrid later.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="q4">What support or maintenance is available after delivery?</summary>
-            <p data-i18n="a4">Each delivery includes a corrective warranty for defects within the agreed scope at zero cost. Optional future changes or maintenance are handled strictly on demand via fixed work orders or a prepaid 5-hour pack valid for 12 months—never recurring retainers.</p>
+            <summary data-i18n="q4">What warranty and post-delivery support are included?</summary>
+            <p data-i18n="a4">Every delivery includes a 90-day corrective defect warranty within the agreed scope at zero cost. Future feature additions are handled strictly on demand via fixed work orders or a prepaid 5-hour pack valid for 12 months—never forced retainers.</p>
           </details>
           <details class="faq-item">
-            <summary data-i18n="q5">Which payment methods are accepted internationally?</summary>
-            <p data-i18n="a5">US/EU B2B bank transfer (ACH USD / SEPA EUR via Payoneer/DolarApp), escrow via Upwork/Fiverr, local bank transfer with invoice in Argentina, or USDT / Binance Pay (with a 5% early-payment discount).</p>
+            <summary data-i18n="q5">Which international payment and escrow options are available?</summary>
+            <p data-i18n="a5">US ACH (USD) and EU SEPA (EUR) bank transfers, milestone escrow via Upwork/Escrow.com, local bank transfer with invoice in Argentina, or USDT / Binance Pay (with a 5% early-payment discount).</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- SOBER EXECUTIVE CONTACT CTA -->
-    <section id="contact" class="section section-obsidian">
-      <div class="container contact-box">
-        <div class="contact-copy">
-          <h2 data-i18n="ct_h2">Evaluate a system with your own operational examples.</h2>
-          <p data-i18n="ct_sub">Share your industry and current workflow. We can provide direct access to an interactive preview or prepare three sample records tailored to your operation—with no obligation and no sales call required.</p>
+    <!-- EXECUTIVE CONTACT CTA (EMAIL ONLY, ZERO WHATSAPP) -->
+    <section id="contact" class="cta-band">
+      <div class="container cta-box">
+        <div>
+          <h2 data-i18n="ct_h2">Test a system with 3 real records from your operation.</h2>
+          <p data-i18n="ct_sub">Email your industry and workflow—we will configure a live preview or send a written fixed-scope proposal within 24 hours. No obligation and no forced sales call.</p>
         </div>
-        <div class="contact-actions">
+        <div class="cta-actions">
           <a class="btn btn-primary btn-lg" id="contact-email-btn" href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-DEMO%5D%20Evaluation%20Request%20%28USA%29" data-i18n="ct_email">Request Demo / Proposal via Email</a>
-          <button type="button" class="btn btn-dark-outline btn-lg" id="contact-copy-btn" data-i18n="ct_copy">Copy Email (andrewkrijdjd@gmail.com)</button>
+          <button type="button" class="btn btn-dark-ghost btn-lg" id="contact-copy-btn" data-i18n="ct_copy">Copy Email (andrewkrijdjd@gmail.com)</button>
         </div>
       </div>
     </section>
@@ -390,42 +493,47 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <strong class="footer-brand">Kreta Software</strong>
-        <span class="footer-note" data-i18n="ft_note">Fixed-scope operational software · One-time ownership · Zero recurring SaaS fees</span>
+        <strong style="color:var(--ink)">Kreta Software</strong>
+        <span> · </span>
+        <span data-i18n="ft_note">Self-hosted operational software · One-time ownership · Zero recurring seat fees</span>
       </div>
       <div class="footer-links">
-        <a href="demo.html" data-i18n="nav_demo">Interactive Demo</a>
+        <a href="demo.html?p=medflow" data-i18n="nav_demo">Open Interactive Demo</a>
+        <a href="#architecture" data-i18n="nav_arch">Architecture</a>
         <a href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-DEMO%5D%20Kreta%20Software%20%28USA%29">andrewkrijdjd@gmail.com</a>
       </div>
     </div>
   </footer>
 
-  <!-- EXECUTIVE EDITION COMPARISON MODAL -->
+  <!-- EDITION COMPARISON MODAL -->
   <div class="modal-backdrop" id="product-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-dialog">
       <div class="modal-head">
         <div>
-          <span class="modal-cat" id="modal-cat"></span>
-          <h2 id="modal-title"></h2>
+          <span class="tbl-cat" id="modal-cat"></span>
+          <h2 id="modal-title" style="font-size:20px;margin-top:4px"></h2>
         </div>
-        <button type="button" class="modal-close" id="modal-close" aria-label="Close modal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <button type="button" class="icon-btn" id="modal-close" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
         </button>
       </div>
       <div class="modal-body">
         <div class="modal-preview">
-          <img id="modal-img" src="assets/screens/en/medflow.png" alt="Product interface preview" width="1280" height="800">
+          <img id="modal-img" src="assets/screens/en/medflow.png" alt="Uncropped application interface preview" width="1280" height="800" loading="lazy">
         </div>
-        <p class="modal-desc" id="modal-desc"></p>
-        <div class="modal-invariants" id="modal-invariants"></div>
+        <p id="modal-desc" style="color:var(--ink-2);font-size:14px"></p>
+        <div id="modal-rule" class="flag-rule"></div>
         <div class="editions-grid" id="modal-editions"></div>
-      </div>
-      <div class="modal-foot">
-        <a class="btn btn-primary" id="modal-demo-btn" href="demo.html" data-i18n="m_demo">Launch 60s Interactive Demo</a>
-        <a class="btn btn-outline" id="modal-quote-btn" href="mailto:andrewkrijdjd@gmail.com" data-i18n="m_quote">Request Formal Proposal</a>
+        <div class="modal-actions">
+          <a class="btn btn-primary" id="modal-demo-link" href="demo.html?p=medflow" data-i18n="modal_open_demo">Launch 4-View Workspace →</a>
+          <a class="btn btn-secondary" id="modal-proposal-link" href="mailto:andrewkrijdjd@gmail.com?subject=%5BKRETA-PROPUESTA%5D%20MedFlow%20%28USA%29" data-i18n="modal_proposal">Request Written Proposal</a>
+          <button type="button" class="btn btn-ghost" id="modal-copy-email" data-i18n="modal_copy">Copy Email Text</button>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>

@@ -1,208 +1,323 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kreta Software — Interactive 60-Second Sandbox (20 Systems)</title>
-  <meta name="description" content="Evaluate any of Kreta Software's 20 production-ready operational systems directly in your browser with live invariant validation and 36-month savings modeling.">
+  <title>Kreta Software — Interactive Workspace Sandbox</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F172A'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23FFFFFF' font-family='sans-serif' font-weight='800' font-size='18'%3EK%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="Test any of Kreta Software's 20 turnkey self-hosted B2B systems directly in your browser: live KPIs, interactive Kanban, SVG analytics, audit trail, and CSV export.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23090d16'/><path d='M30 24h14v24l24-24h18L58 50l28 26H68L44 52v24H30V24z' fill='%2338bdf8'/></svg>">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .sandbox-hero {
-      background: var(--obsidian); color: var(--obsidian-ink);
-      padding: 36px 0 40px; border-bottom: 1px solid var(--obsidian-border);
-    }
-    .sandbox-bar {
-      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px;
-    }
-    .sandbox-bar h1 { font-size: clamp(1.6rem, 2.6vw, 2.25rem); color: #fff; margin-top: 6px; }
-    .sandbox-sub { color: #94a3b8; font-size: 0.94rem; margin-top: 6px; max-width: 64ch; }
-    .sandbox-select {
-      min-height: 44px; min-width: 240px; padding: 8px 14px; border-radius: var(--radius-sm);
-      border: 1px solid var(--obsidian-border); background: var(--obsidian-elevated);
-      color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 0.96rem; cursor: pointer;
-    }
-    .sandbox-main { padding: 36px 0 72px; }
-    .sandbox-grid {
-      display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-      gap: 28px; align-items: start;
-    }
-    @media (max-width: 960px) { .sandbox-grid { grid-template-columns: 1fr; } }
-    .s-panel {
-      background: var(--porcelain); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 24px;
-      box-shadow: 0 8px 28px rgba(11, 18, 32, 0.04);
-    }
-    .s-panel h2 { font-size: 1.15rem; margin-bottom: 6px; }
-    .s-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
-    @media (max-width: 640px) { .s-kpis { grid-template-columns: 1fr; } }
-    .s-kpi {
-      padding: 14px 16px; border-radius: var(--radius-md);
-      background: var(--slate-wash); border: 1px solid var(--border);
-    }
-    .s-kpi small { display: block; font-size: 0.78rem; font-weight: 600; color: var(--muted); }
-    .s-kpi strong { display: block; margin-top: 4px; font-size: 1.38rem; color: var(--ink); }
-    .s-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-    @media (max-width: 640px) { .s-form { grid-template-columns: 1fr; } }
-    .s-form input {
-      min-height: 44px; padding: 9px 12px; border-radius: var(--radius-sm);
-      border: 1px solid var(--border-strong); font-family: inherit; font-size: 0.9rem; color: var(--ink);
-    }
-    .s-alert {
-      margin-top: 12px; padding: 11px 14px; border-radius: var(--radius-sm);
-      font-size: 0.88rem; font-weight: 600; display: none;
-    }
-    .s-alert.show { display: block; }
-    .s-alert.ok { background: var(--emerald-soft); color: #065f46; border: 1px solid #a7f3d0; }
-    .s-alert.err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
-    .s-table-wrap { overflow-x: auto; margin-top: 16px; }
-    .s-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-    .s-table th, .s-table td {
-      text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border);
-    }
-    .s-table th { background: var(--slate-wash); font-weight: 600; color: var(--ink-secondary); }
-    .tag-ok {
-      display: inline-block; padding: 3px 9px; border-radius: 999px;
-      background: var(--emerald-soft); color: #065f46; font-weight: 600; font-size: 0.76rem;
-    }
-    .tag-warn {
-      display: inline-block; padding: 3px 9px; border-radius: 999px;
-      background: #fef3c7; color: #92400e; font-weight: 600; font-size: 0.76rem;
-    }
-    .s-screen-frame {
-      margin-top: 20px; border-radius: var(--radius-md); overflow: hidden;
-      border: 1px solid var(--border); background: var(--obsidian);
-    }
-    .s-screen-frame img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; }
-    .sim-card {
-      margin-top: 14px; padding: 18px; border-radius: var(--radius-md);
-      background: var(--slate-wash); border: 1px solid var(--border);
-    }
-    .sim-result {
-      margin-top: 14px; padding: 14px; border-radius: var(--radius-sm);
-      background: var(--emerald-soft); border: 1px solid #a7f3d0;
-    }
-    .sim-num { font-size: 1.65rem; font-weight: 700; color: #047857; margin-top: 2px; }
-    .cta-col { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo.css">
 </head>
 <body>
-  <a class="skip-link" href="#demo-main">Skip to interactive sandbox</a>
-
-  <header class="site-header">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="#121929" stroke="#26334d" stroke-width="1.2"/>
-          <path d="M9.5 7.5H14V15.2L21.5 7.5H27L18.2 16L27.2 24.5H21.6L14 16.8V24.5H9.5V7.5Z" fill="#38BDF8"/>
-        </svg>
-        <span class="brand-name">Kreta Software</span>
+  <header class="ws-topbar">
+    <div class="ws-top-left">
+      <button type="button" id="btn-mobile-nav" class="icon-btn mobile-menu-btn" aria-label="Toggle workspace menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a id="nav-back" class="back-link" href="index.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <span id="nav-back-txt">All 20 Systems</span>
       </a>
+      <label class="sr-only" for="prod-select">Select product</label>
+      <select id="prod-select" class="tb-select" aria-label="Select product"></select>
+      <label class="sr-only" for="region-select">Pricing region</label>
+      <select id="region-select" class="tb-select" aria-label="Pricing region">
+        <option value="USA">USA · USD</option>
+        <option value="EUR">EUR · EUR</option>
+        <option value="LATAM">LATAM · USD</option>
+        <option value="AR">AR · USD/ARS</option>
+      </select>
+    </div>
 
-      <nav class="nav-links" aria-label="Back navigation">
-        <a href="index.html#platforms" id="nav-back">Back to 20-System Portfolio</a>
-      </nav>
-
-      <div class="nav-actions">
-        <label for="region-select" class="sr-only">Pricing region</label>
-        <select id="region-select" class="region-select" aria-label="Pricing region">
-          <option value="USA">USA · USD</option>
-          <option value="EUR">EUR · USD</option>
-          <option value="LATAM">LATAM · USD</option>
-          <option value="AR">AR · USD/ARS</option>
-        </select>
-
-        <div class="segmented" role="group" aria-label="Language">
-          <button type="button" class="seg-btn" id="lang-en" aria-pressed="true">EN</button>
-          <button type="button" class="seg-btn" id="lang-es" aria-pressed="false">ES</button>
-        </div>
+    <div class="ws-top-right">
+      <button type="button" id="btn-cmd" class="icon-btn" title="Command Palette (Ctrl+K)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span id="lbl-cmd">Search</span>
+        <span class="kbd-hint">Ctrl K</span>
+      </button>
+      <button type="button" id="btn-roi" class="btn btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span id="lbl-roi-btn">Pricing &amp; ROI</span>
+      </button>
+      <button type="button" id="btn-theme" class="icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <div class="seg-group" role="group" aria-label="Language">
+        <button type="button" id="lang-en" class="seg-btn" aria-pressed="true">EN</button>
+        <button type="button" id="lang-es" class="seg-btn" aria-pressed="false">ES</button>
       </div>
     </div>
   </header>
 
-  <section class="sandbox-hero">
-    <div class="container sandbox-bar">
-      <div>
-        <div class="hero-pill" style="margin-bottom:10px;">
-          <span class="pulse-dot" aria-hidden="true"></span>
-          <span id="lbl-badge">Interactive 60-second browser evaluation · No installation</span>
-        </div>
-        <h1 id="demo-title">Loading platform…</h1>
-        <p class="sandbox-sub" id="demo-tagline"></p>
+  <div class="ws-shell">
+    <aside id="ws-sidebar" class="ws-sidebar" aria-label="Workspace navigation">
+      <div class="ws-brand-card">
+        <div class="ws-brand-badge"><span class="dot"></span><span id="lbl-live-pill">Interactive Sandbox</span></div>
+        <h2 id="side-prod-name" class="ws-brand-name">MedFlow</h2>
+        <p id="side-prod-meta" class="ws-brand-sub">Self-hosted · SQLite + Docker</p>
       </div>
-      <div>
-        <label for="prod-select" class="sr-only">Select platform</label>
-        <select id="prod-select" class="sandbox-select" aria-label="Select platform"></select>
-      </div>
-    </div>
-  </section>
 
-  <main id="demo-main" class="container sandbox-main">
-    <div class="sandbox-grid">
-      <section class="s-panel" aria-labelledby="sec-live-title">
-        <h2 id="sec-live-title">Live Record Validation &amp; Business Rule Test</h2>
-        <p style="font-size:0.88rem;color:var(--muted);" id="sec-live-sub">Add a record below or enter a duplicate/out-of-bounds value to observe the enforced business invariant in real time.</p>
+      <nav class="ws-nav">
+        <button type="button" class="nav-item" data-view="overview" aria-current="page">
+          <span class="nav-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+            <span id="nav-v-overview">Overview</span>
+          </span>
+        </button>
+        <button type="button" class="nav-item" data-view="kanban">
+          <span class="nav-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="11" rx="1"/><rect x="17" y="4" width="4" height="14" rx="1"/></svg>
+            <span id="nav-v-kanban">Workflow Board</span>
+          </span>
+          <span id="badge-kanban" class="nav-pill mono">0</span>
+        </button>
+        <button type="button" class="nav-item" data-view="records">
+          <span class="nav-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            <span id="nav-v-records">Records</span>
+          </span>
+          <span id="badge-records" class="nav-pill mono">0</span>
+        </button>
+        <button type="button" class="nav-item" data-view="audit">
+          <span class="nav-item-left">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span id="nav-v-audit">Audit &amp; Specs</span>
+          </span>
+          <span id="badge-audit" class="nav-pill mono">0</span>
+        </button>
+      </nav>
 
-        <div class="s-kpis" id="demo-kpis" aria-live="polite"></div>
-
-        <form id="demo-form" class="s-form">
-          <input id="f-col1" required placeholder="Account / Entity">
-          <input id="f-col2" required placeholder="Reference / Date / Code">
-          <input id="f-col3" type="number" step="0.01" required placeholder="Amount / Metric">
-          <button type="submit" class="btn btn-primary" id="btn-add">Add &amp; Validate Record</button>
-        </form>
-        <div id="demo-alert" class="s-alert" role="status" aria-live="polite"></div>
-
-        <div class="s-table-wrap">
-          <table class="s-table">
-            <thead><tr id="demo-thead"></tr></thead>
-            <tbody id="demo-tbody"></tbody>
-          </table>
+      <div class="ws-side-footer">
+        <div class="own-chip">
+          <strong id="side-price-val" class="mono">$2,490 USD</strong>
+          <span id="side-price-note">One-time ownership · 50/50 milestones · $0/mo</span>
         </div>
+        <a id="side-cta-mail" class="btn btn-primary" href="mailto:andrewkrijdjd@gmail.com">Request Proposal</a>
+        <button type="button" id="side-cta-copy" class="btn btn-secondary">Copy Email</button>
+      </div>
+    </aside>
 
-        <div class="s-screen-frame">
-          <img id="demo-screen" src="" alt="Full application screenshot" width="1280" height="800" loading="lazy">
+    <main class="ws-main">
+      <div class="ws-header">
+        <div>
+          <h1 id="ws-title">MedFlow / ClinicOps</h1>
+          <p id="ws-subtitle">Multi-provider scheduling, clinical workflow stages, and billing controls—running live in your browser.</p>
+        </div>
+        <div class="ws-actions">
+          <button type="button" id="btn-export-csv" class="btn btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span id="lbl-csv">Export CSV</span>
+          </button>
+          <button type="button" id="btn-print" class="btn btn-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span id="lbl-print">Print PDF</span>
+          </button>
+          <button type="button" id="btn-new-record" class="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span id="lbl-new-rec">New Record</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Guided 3-step Interactive Evaluation Bar -->
+      <div id="tour-banner" class="tour-banner">
+        <div class="tour-steps">
+          <span id="step-1" class="tour-step">1. Add a record</span>
+          <span id="step-2" class="tour-step">2. Advance a Kanban card</span>
+          <span id="step-3" class="tour-step">3. Export CSV or inspect Audit</span>
+        </div>
+        <button type="button" id="btn-reset-demo" class="btn btn-ghost btn-sm">Reset sample data</button>
+      </div>
+
+      <!-- VIEW 1: OVERVIEW -->
+      <section id="view-overview" class="ws-view">
+        <div id="kpi-grid" class="kpi-grid"></div>
+        <div class="panel-grid">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h2 id="chart1-title">Volume by Stage</h2>
+                <p id="chart1-sub" class="card-sub">Click any bar to filter records by workflow stage.</p>
+              </div>
+              <button type="button" id="btn-clear-stage-filter" class="btn btn-ghost btn-sm" hidden>Clear filter</button>
+            </div>
+            <div id="chart-bar-box" class="chart-box"></div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h2 id="chart2-title">Distribution</h2>
+                <p id="chart2-sub" class="card-sub">Updates live as cards move or records are added.</p>
+              </div>
+            </div>
+            <div id="chart-donut-box" class="chart-box"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2 id="ov-table-title">Active Operational Queue</h2>
+              <p id="ov-table-sub" class="card-sub">Click any row to inspect, edit stage, or remove.</p>
+            </div>
+            <button type="button" id="btn-goto-records" class="btn btn-secondary btn-sm">Open full table</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead id="ov-thead"></thead>
+              <tbody id="ov-tbody"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <aside class="s-panel">
-        <h2 id="sim-heading">36-Month Ownership Savings</h2>
-        <p style="font-size:0.88rem;color:var(--muted);" id="sim-sub">Compare one-time ownership pricing for your region against recurring monthly SaaS fees.</p>
+      <!-- VIEW 2: KANBAN -->
+      <section id="view-kanban" class="ws-view" hidden>
+        <div id="kanban-grid" class="kanban-grid"></div>
+      </section>
 
-        <div class="sim-card">
-          <div class="field-group" style="margin-bottom:14px;">
-            <div class="slider-head">
-              <label for="sl-users" id="lbl-users">Active team seats</label>
-              <strong class="mono" id="val-users">10</strong>
-            </div>
-            <input id="sl-users" type="range" min="3" max="50" value="10">
+      <!-- VIEW 3: RECORDS -->
+      <section id="view-records" class="ws-view" hidden>
+        <div class="card">
+          <div class="table-toolbar">
+            <input id="rec-search" class="search-input" type="search" placeholder="Search records...">
+            <div id="stage-pills" class="filter-pills"></div>
           </div>
-          <div class="field-group">
-            <div class="slider-head">
-              <label for="sl-saas" id="lbl-saas">Monthly SaaS fee / seat (USD)</label>
-              <strong class="mono" id="val-saas">$35</strong>
-            </div>
-            <input id="sl-saas" type="range" min="12" max="120" value="35">
-          </div>
-          <div class="sim-result">
-            <div style="font-size:0.8rem;font-weight:600;color:#065f46;" id="lbl-save-title">Projected 36-month net savings:</div>
-            <div class="sim-num mono" id="sim-savings">$0 USD</div>
-            <div style="font-size:0.8rem;color:#065f46;margin-top:4px;" id="sim-payback"></div>
+          <div class="table-wrap">
+            <table>
+              <thead id="rec-thead"></thead>
+              <tbody id="rec-tbody"></tbody>
+            </table>
           </div>
         </div>
+      </section>
 
-        <div class="cta-col">
-          <a id="cta-mail" class="btn btn-primary" href="#">Request Formal Demo / Proposal via Email</a>
-          <a id="cta-sample" class="btn btn-outline" href="#">Request Custom 3-Record Preview via Email</a>
-          <button type="button" id="cta-copy" class="btn btn-outline" style="font-size:0.84rem;">Copy Email (andrewkrijdjd@gmail.com)</button>
+      <!-- VIEW 4: AUDIT & ARCHITECTURE -->
+      <section id="view-audit" class="ws-view" hidden>
+        <div class="audit-grid">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h2 id="audit-title">Immutable SHA-256 Activity Log</h2>
+                <p id="audit-sub" class="card-sub">Every create, stage transition, edit, and export you perform is hashed in real time.</p>
+              </div>
+            </div>
+            <div id="audit-list" class="audit-list"></div>
+          </div>
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <h2 id="arch-title">Self-Hosted Production Architecture</h2>
+                <p id="arch-sub" class="card-sub">What you own upon delivery—zero vendor lock-in.</p>
+              </div>
+            </div>
+            <div id="arch-list" class="arch-list"></div>
+          </div>
         </div>
-        <p style="margin-top:14px;font-size:0.8rem;color:var(--muted);" id="lbl-own">Fixed-scope delivery · 50/50 milestone payments · Zero monthly SaaS fees · Complete source code and database ownership.</p>
-      </aside>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: NEW RECORD -->
+  <div id="modal-new" class="backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modal-new-title">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="modal-new-title">Create New Record</h3>
+        <button type="button" class="icon-btn" data-close-modal="modal-new" aria-label="Close">✕</button>
+      </div>
+      <div id="form-banner" class="form-banner" role="alert"></div>
+      <form id="rec-form" novalidate>
+        <div class="form-grid">
+          <div class="field full">
+            <label for="f-name" id="lbl-f-name">Record Name</label>
+            <input id="f-name" type="text" required>
+            <div id="err-name" class="field-err"></div>
+          </div>
+          <div class="field">
+            <label for="f-owner" id="lbl-f-owner">Assigned Owner</label>
+            <select id="f-owner"></select>
+          </div>
+          <div class="field">
+            <label for="f-slot" id="lbl-f-slot">Reference / Schedule</label>
+            <select id="f-slot"></select>
+          </div>
+          <div class="field">
+            <label for="f-amount" id="lbl-f-amount">Amount</label>
+            <input id="f-amount" type="number" step="any" min="1" required>
+            <div id="err-amount" class="field-err"></div>
+          </div>
+          <div class="field">
+            <label for="f-stage" id="lbl-f-stage">Initial Stage</label>
+            <select id="f-stage"></select>
+          </div>
+          <div class="field full">
+            <label for="f-notes" id="lbl-f-notes">Operational Notes (optional)</label>
+            <textarea id="f-notes" placeholder="Add context or special instructions..."></textarea>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:14px;">
+          <button type="button" class="btn btn-secondary" data-close-modal="modal-new" id="lbl-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="lbl-save">Save Record</button>
+        </div>
+      </form>
     </div>
-  </main>
+  </div>
+
+  <!-- MODAL: HONEST PRICING & ROI -->
+  <div id="modal-roi" class="backdrop" hidden role="dialog" aria-modal="true" aria-labelledby="modal-roi-title">
+    <div class="modal modal-lg">
+      <div class="modal-head">
+        <h3 id="modal-roi-title">One-Time Ownership vs. 36-Month SaaS Cost</h3>
+        <button type="button" class="icon-btn" data-close-modal="modal-roi" aria-label="Close">✕</button>
+      </div>
+      <div class="roi-grid">
+        <div class="field">
+          <label for="sl-users"><span id="lbl-sl-users">Active team members</span>: <strong id="val-users" class="mono">10</strong></label>
+          <input id="sl-users" type="range" min="2" max="50" value="10">
+        </div>
+        <div class="field">
+          <label for="sl-saas"><span id="lbl-sl-saas">Comparable SaaS / seat / month</span>: <strong id="val-saas" class="mono">$45</strong></label>
+          <input id="sl-saas" type="range" min="12" max="150" value="45">
+        </div>
+      </div>
+      <div id="roi-summary" class="roi-summary positive">
+        <div id="roi-kicker" style="font-size:0.8rem;font-weight:700;">Projected 36-Month Net Savings (SQL + Web Portal)</div>
+        <div id="roi-big" class="roi-big mono">$0 USD</div>
+        <div id="roi-detail" style="font-size:0.82rem;"></div>
+      </div>
+      <div id="tier-cards" class="tier-cards"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <a id="roi-cta-prop" class="btn btn-primary" href="#">Request Formal Proposal</a>
+          <a id="roi-cta-sample" class="btn btn-secondary" href="#">Request 3 Tailored Sample Records</a>
+        </div>
+        <button type="button" id="roi-cta-copy" class="btn btn-ghost">Copy Email (andrewkrijdjd@gmail.com)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: COMMAND PALETTE (Ctrl+K) -->
+  <div id="modal-cmd" class="backdrop" hidden role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="modal">
+      <input id="cmd-input" class="cmd-input" type="text" placeholder="Type a command or product name...">
+      <div id="cmd-list" class="cmd-list"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT DRAWER: RECORD DETAIL -->
+  <div id="detail-drawer" class="drawer-backdrop" hidden role="dialog" aria-modal="true" aria-label="Record details">
+    <div class="drawer">
+      <div class="modal-head">
+        <h3 id="drw-title">Record Details</h3>
+        <button type="button" id="btn-close-drawer" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="drw-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="demo.js"></script>
 </body>
